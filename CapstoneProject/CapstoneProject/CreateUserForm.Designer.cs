@@ -37,6 +37,9 @@
             this.nameInstructLabel1 = new System.Windows.Forms.Label();
             this.createUserButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
+            this.userTypeListBox = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // userTextBox
@@ -115,7 +118,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(397, 186);
+            this.exitButton.Location = new System.Drawing.Point(397, 316);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 30);
             this.exitButton.TabIndex = 27;
@@ -123,11 +126,43 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // userTypeListBox
+            // 
+            this.userTypeListBox.FormattingEnabled = true;
+            this.userTypeListBox.ItemHeight = 16;
+            this.userTypeListBox.Location = new System.Drawing.Point(40, 300);
+            this.userTypeListBox.Name = "userTypeListBox";
+            this.userTypeListBox.Size = new System.Drawing.Size(120, 84);
+            this.userTypeListBox.TabIndex = 28;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(37, 263);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(260, 17);
+            this.label1.TabIndex = 29;
+            this.label1.Text = "Are you a performer or one of our staff?";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(37, 280);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(204, 17);
+            this.label2.TabIndex = 30;
+            this.label2.Text = "Please select one of the below.";
+            // 
             // CreateUserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(516, 251);
+            this.ClientSize = new System.Drawing.Size(516, 419);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.userTypeListBox);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.createUserButton);
             this.Controls.Add(this.passInstructLabel3);
@@ -154,5 +189,8 @@
         private System.Windows.Forms.Label nameInstructLabel1;
         private System.Windows.Forms.Button createUserButton;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.ListBox userTypeListBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

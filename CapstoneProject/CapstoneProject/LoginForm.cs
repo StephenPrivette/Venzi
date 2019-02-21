@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapstoneClassLibrary;
 
 namespace CapstoneProject
 {
@@ -19,10 +20,16 @@ namespace CapstoneProject
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            // if username matches database
-            // if password matches database
-            // else message box "doesn't match"
-            // implement through ProgramManaer.instance
+            if(Apex.i.db.valUser(userTextBox.Text, passwordTextBox.Text))
+            {
+                Apex.i.loadUser(userTextBox.Text);
+                this.Hide();
+                UserHomeForm userHomeForm1 = new UserHomeForm();
+                userHomeForm1.ShowDialog();
+                this.Show();
+            }  
+            else
+                MessageBox.Show("We do not have records for that user and/or password.");
         }
 
         private void cancelButton_Click(object sender, EventArgs e)
