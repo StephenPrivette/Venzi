@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapstoneClassLibrary;
 
 namespace CapstoneProject
 {
@@ -15,66 +16,26 @@ namespace CapstoneProject
         public CreateUserForm()
         {
             InitializeComponent();
-        }
-
-        // if password is valid returns true
-        private bool passVal(string password)
-        {
-            // flags for each condition
-            bool upper = false;
-            bool lower = false;
-            bool special = false;
-
-            // validating password length
-            if (password.Length < 3 || password.Length > 10)
-            {
-                return false;
-            }
-            else
-            {
-                // for every char in password check to see if it meets each condition. if so that flag is true
-                foreach (char ch in password)
-                {
-                    if (Char.IsUpper(ch))
-                    {
-                        upper = true;
-                    }
-
-                    if (Char.IsLower(ch))
-                    {
-                        lower = true;
-                    }
-
-                    if (!Char.IsLetterOrDigit(ch))
-                    {
-                        special = true;
-                    }
-                }
-
-                // if all conditions are met then password is valid and method returns true
-                return upper == true && lower == true && special == true;
-            }
+            userTypeListBox.DataSource = Apex.i.db.loadUserTypes();
         }
 
         private void createUserButton_Click(object sender, EventArgs e)
         {
-            if (passVal(passwordTextBox.Text))
+            if (Apex.i.valNewUser(userTextBox.Text, passwordTextBox.Text))
             {
-                if (userTextBox.Text.Length > 0 && userTextBox.Text.Length < 16)
+                Apex.i.db.saveUser(userTextBox.Text, passwordTextBox.Text);
+
+                if(userTypeListBox.SelectedItem.ToString() != "attendee")
                 {
-                    MessageBox.Show("Success");
-                    // username and password meet criteria
-                    // create entry in database through ProgramManager.instance
+                    Apex.i.db.addUserRequest(userTextBox.Text, userTypeListBox.SelectedItem.ToString());
                 }
-                else
-                {
-                    MessageBox.Show("Your username does not meet criteria.");
-                }
+
+                Apex.i.db.createItinerary(userTextBox.Text);
+
+                MessageBox.Show("You have successfully created a user.");
             }
             else
-            {
-                MessageBox.Show("Your password does not meet the criteria.");
-            }
+                MessageBox.Show("Your username or password do not meet the criteria.");
         }
 
         private void exitButton_Click(object sender, EventArgs e)

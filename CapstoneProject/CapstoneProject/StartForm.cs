@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapstoneClassLibrary;
 
 namespace CapstoneProject
 {
@@ -30,6 +31,14 @@ namespace CapstoneProject
             this.Hide();
             CreateUserForm createUserForm1 = new CreateUserForm();
             createUserForm1.ShowDialog();
+            this.Show();
+        }
+
+        private void changeUserInfo_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ChangeUserForm changeUserForm = new ChangeUserForm();
+            changeUserForm.ShowDialog();
             this.Show();
         }
     }

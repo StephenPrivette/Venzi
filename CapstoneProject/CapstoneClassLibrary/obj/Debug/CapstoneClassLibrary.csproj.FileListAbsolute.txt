@@ -1,0 +1,36 @@
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.dll
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.pdb
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneClassLibrary\bin\Debug\Dapper.dll
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneClassLibrary\bin\Debug\Dapper.xml
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.xml
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CopyComplete
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.dll
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.pdb
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csprojAssemblyReference.cache
+C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.dll
+C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.pdb
+C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneClassLibrary\bin\Debug\Dapper.dll
+C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll
+C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneClassLibrary\bin\Debug\Dapper.xml
+C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.xml
+C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csprojAssemblyReference.cache
+C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CopyComplete
+C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.dll
+C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.pdb
+C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.dll
+C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.pdb
+C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneClassLibrary\bin\Debug\Dapper.dll
+C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll
+C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneClassLibrary\bin\Debug\Dapper.xml
+C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.xml
+C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csprojAssemblyReference.cache
+C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CopyComplete
+C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.dll
+C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.pdb
