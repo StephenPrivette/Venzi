@@ -55,7 +55,7 @@ namespace CapstoneProject
             {
                 foreach(Event eve in Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList())
                 {
-                    if(eve.eventName == scheduleListView.SelectedItems[0].SubItems[1].Text)
+                    if(eve.eventName == scheduleListView.SelectedItems[0].SubItems[2].Text)
                     {
                         if (Apex.i.mainUser.addEventToItinerary(eve))
                         {
@@ -89,7 +89,7 @@ namespace CapstoneProject
             {
                 foreach (Event eve in Apex.i.mainUser.getItinerary())
                 {
-                    if (eve.eventName == itineraryListView.SelectedItems[0].SubItems[1].Text)
+                    if (eve.eventName == itineraryListView.SelectedItems[0].SubItems[2].Text)
                     {
                         // have to use these because removing event here would mutate the for loop
                         eveCopy = eve;
