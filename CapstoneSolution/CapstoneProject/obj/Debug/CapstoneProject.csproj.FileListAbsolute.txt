@@ -128,3 +128,24 @@ C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\Cap
 C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CopyComplete
 C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.UserHomeForm.resources
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneDatabase.db
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.exe.config
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.exe
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.pdb
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneClassLibrary.dll
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\Dapper.dll
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.dll
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneClassLibrary.pdb
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\Dapper.xml
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.xml
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.dll.config
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csprojAssemblyReference.cache
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.CreateUserForm.resources
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.StartForm.resources
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.Properties.Resources.resources
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.UserHomeForm.resources
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.GenerateResource.cache
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CoreCompileInputs.cache
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CopyComplete
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.exe
+C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.pdb
