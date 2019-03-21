@@ -70,3 +70,15 @@ C:\Test\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLi
 C:\Test\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CopyComplete
 C:\Test\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.dll
 C:\Test\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.pdb
+D:\Capstone-master\Capstone-master\CapstoneSolution\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.dll
+D:\Capstone-master\Capstone-master\CapstoneSolution\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.pdb
+D:\Capstone-master\Capstone-master\CapstoneSolution\CapstoneClassLibrary\bin\Debug\Dapper.dll
+D:\Capstone-master\Capstone-master\CapstoneSolution\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll
+D:\Capstone-master\Capstone-master\CapstoneSolution\CapstoneClassLibrary\bin\Debug\Dapper.xml
+D:\Capstone-master\Capstone-master\CapstoneSolution\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.xml
+D:\Capstone-master\Capstone-master\CapstoneSolution\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll.config
+D:\Capstone-master\Capstone-master\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csprojAssemblyReference.cache
+D:\Capstone-master\Capstone-master\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CoreCompileInputs.cache
+D:\Capstone-master\Capstone-master\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CopyComplete
+D:\Capstone-master\Capstone-master\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.dll
+D:\Capstone-master\Capstone-master\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.pdb

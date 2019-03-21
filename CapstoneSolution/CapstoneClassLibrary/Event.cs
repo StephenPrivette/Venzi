@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 
 namespace CapstoneClassLibrary
 {
-    // A: Class for filling information for events.
     public class Event
     {
         public int eventID { get; set; }

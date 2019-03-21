@@ -20,7 +20,7 @@ namespace CapstoneClassLibrary
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
-        // saves the passed in object to its appropriate table in the database via an update query
+        // Saves the passed in object to its appropriate table in the database via an update query
         public void updateDbFromObject(object obj)
         {
             string objTable = obj.GetType().Name + "s";

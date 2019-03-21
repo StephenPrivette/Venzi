@@ -37,7 +37,7 @@ namespace CapstoneClassLibrary
         public User mainUser;
 
         // returns true if the username and password are valid
-        public string createNewUser(string username, string password, string usertype)
+        public string createNewUser(string username, string password, string usertype, string email)
         {
             // flags for each condition
             bool upper = false;
@@ -80,10 +80,12 @@ namespace CapstoneClassLibrary
                 // if all conditions are met instantiate user object
                 if(upper && lower && special)
                 {
+                    // ATW: Creates a new user to store the values the current user inputted.
                     User newUser = new User();
                     newUser.userName = username;
                     newUser.userPass = password;
                     newUser.userType = usertype;
+                    newUser.userEmail = email;
 
                     if(db.isObjectNameInDb(newUser, username))
                     {
