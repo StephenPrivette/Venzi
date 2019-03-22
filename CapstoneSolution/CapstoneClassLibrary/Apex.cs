@@ -249,5 +249,15 @@ namespace CapstoneClassLibrary
                 return "Our records do not show a user with the username and/or password entered.";
             }
         }
+        //used for testing not ready
+        public static void TestEmail()
+        {
+            string from = "";
+            List<string> to = new List<string>();
+            string subject = "";
+            StringBuilder body = new StringBuilder();
+
+
+        }
     }
 }
