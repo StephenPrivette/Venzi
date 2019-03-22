@@ -41,13 +41,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.emailLabel = new System.Windows.Forms.Label();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // userTextBox
             // 
             this.userTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userTextBox.Location = new System.Drawing.Point(190, 223);
-            this.userTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.userTextBox.Name = "userTextBox";
             this.userTextBox.Size = new System.Drawing.Size(207, 23);
             this.userTextBox.TabIndex = 0;
@@ -56,7 +58,7 @@
             // 
             this.passwordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTextBox.Location = new System.Drawing.Point(190, 360);
-            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(207, 23);
@@ -126,7 +128,7 @@
             // 
             this.createUserButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createUserButton.Location = new System.Drawing.Point(614, 389);
-            this.createUserButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.createUserButton.Margin = new System.Windows.Forms.Padding(2);
             this.createUserButton.Name = "createUserButton";
             this.createUserButton.Size = new System.Drawing.Size(98, 32);
             this.createUserButton.TabIndex = 3;
@@ -138,7 +140,7 @@
             // 
             this.exitButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.Location = new System.Drawing.Point(505, 389);
-            this.exitButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(98, 32);
             this.exitButton.TabIndex = 4;
@@ -152,7 +154,7 @@
             this.userTypeListBox.FormattingEnabled = true;
             this.userTypeListBox.ItemHeight = 17;
             this.userTypeListBox.Location = new System.Drawing.Point(505, 223);
-            this.userTypeListBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userTypeListBox.Margin = new System.Windows.Forms.Padding(2);
             this.userTypeListBox.Name = "userTypeListBox";
             this.userTypeListBox.Size = new System.Drawing.Size(207, 123);
             this.userTypeListBox.TabIndex = 2;
@@ -193,12 +195,31 @@
             this.label3.TabIndex = 31;
             this.label3.Text = "Enter a password.";
             // 
+            // emailLabel
+            // 
+            this.emailLabel.AutoSize = true;
+            this.emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailLabel.Location = new System.Drawing.Point(188, 415);
+            this.emailLabel.Name = "emailLabel";
+            this.emailLabel.Size = new System.Drawing.Size(173, 16);
+            this.emailLabel.TabIndex = 35;
+            this.emailLabel.Text = "Enter in your email address.";
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Location = new System.Drawing.Point(188, 444);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(206, 20);
+            this.emailTextBox.TabIndex = 34;
+            // 
             // CreateUserForm
             // 
             this.AcceptButton = this.createUserButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(886, 612);
+            this.Controls.Add(this.emailLabel);
+            this.Controls.Add(this.emailTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -212,7 +233,7 @@
             this.Controls.Add(this.nameInstructLabel1);
             this.Controls.Add(this.userTextBox);
             this.Controls.Add(this.passwordTextBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CreateUserForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "New User";
@@ -235,5 +256,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label emailLabel;
+        private System.Windows.Forms.TextBox emailTextBox;
     }
 }

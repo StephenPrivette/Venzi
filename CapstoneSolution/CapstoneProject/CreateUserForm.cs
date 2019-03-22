@@ -29,7 +29,7 @@ namespace CapstoneProject
             if (userTypeListBox.SelectedIndex >= 0)
             {
                 // method returns string showing errors or completion
-                string mes = Apex.i.createNewUser(userTextBox.Text, passwordTextBox.Text, userTypeListBox.SelectedItem.ToString());
+                string mes = Apex.i.createNewUser(userTextBox.Text, passwordTextBox.Text, userTypeListBox.SelectedItem.ToString(), emailTextBox.Text);
 
                 // did this to ensure form would close if successful
                 if (mes == "The user has been created successfully.")
