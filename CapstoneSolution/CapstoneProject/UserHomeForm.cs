@@ -159,5 +159,11 @@ namespace CapstoneProject
         {
             this.Close();
         }
+
+        private void sendEmailButton_Click(object sender, EventArgs e)
+        {
+            AdminEmail emailForm = new AdminEmail();
+            emailForm.ShowDialog();
+        }
     }
 }

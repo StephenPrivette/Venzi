@@ -35,16 +35,19 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.itineraryListView = new System.Windows.Forms.ListView();
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.scheduleListView = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.sendEmailButton = new System.Windows.Forms.Button();
             this.signOutButton = new System.Windows.Forms.Button();
             this.passInstructLabel3 = new System.Windows.Forms.Label();
             this.nameInstructLabel2 = new System.Windows.Forms.Label();
@@ -58,8 +61,6 @@
             this.changeUsernameTextBox = new System.Windows.Forms.TextBox();
             this.changeUsernameButton = new System.Windows.Forms.Button();
             this.userInstructionLabel = new System.Windows.Forms.Label();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -71,19 +72,20 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(367, 57);
+            this.label1.Location = new System.Drawing.Point(275, 46);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 29);
+            this.label1.Size = new System.Drawing.Size(144, 24);
             this.label1.TabIndex = 0;
             this.label1.Text = "Event Schedule";
             // 
             // addButton
             // 
             this.addButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addButton.Location = new System.Drawing.Point(982, 186);
-            this.addButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addButton.Location = new System.Drawing.Point(736, 151);
+            this.addButton.Margin = new System.Windows.Forms.Padding(2);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(150, 60);
+            this.addButton.Size = new System.Drawing.Size(112, 49);
             this.addButton.TabIndex = 2;
             this.addButton.Text = "Add Event to Itinerary";
             this.addButton.UseVisualStyleBackColor = true;
@@ -95,19 +97,19 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(367, 406);
+            this.label2.Location = new System.Drawing.Point(275, 330);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 29);
+            this.label2.Size = new System.Drawing.Size(120, 24);
             this.label2.TabIndex = 3;
             this.label2.Text = "Your Itinerary";
             // 
             // deleteButton
             // 
             this.deleteButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.deleteButton.Location = new System.Drawing.Point(982, 544);
-            this.deleteButton.Margin = new System.Windows.Forms.Padding(4);
+            this.deleteButton.Location = new System.Drawing.Point(736, 442);
             this.deleteButton.Name = "deleteButton";
-            this.deleteButton.Size = new System.Drawing.Size(150, 60);
+            this.deleteButton.Size = new System.Drawing.Size(112, 49);
             this.deleteButton.TabIndex = 3;
             this.deleteButton.Text = "Delete Event From Itinerary";
             this.deleteButton.UseVisualStyleBackColor = true;
@@ -120,9 +122,10 @@
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1182, 753);
+            this.tabControl1.Size = new System.Drawing.Size(886, 612);
             this.tabControl1.TabIndex = 5;
             // 
             // tabPage1
@@ -134,10 +137,11 @@
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.addButton);
             this.tabPage1.Controls.Add(this.label2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 29);
+            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1174, 720);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(878, 582);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Schedule";
             // 
@@ -152,14 +156,20 @@
             this.columnHeader9});
             this.itineraryListView.FullRowSelect = true;
             this.itineraryListView.GridLines = true;
-            this.itineraryListView.Location = new System.Drawing.Point(31, 457);
+            this.itineraryListView.Location = new System.Drawing.Point(23, 371);
+            this.itineraryListView.Margin = new System.Windows.Forms.Padding(2);
             this.itineraryListView.Name = "itineraryListView";
-            this.itineraryListView.Size = new System.Drawing.Size(900, 230);
+            this.itineraryListView.Size = new System.Drawing.Size(676, 188);
             this.itineraryListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.itineraryListView.TabIndex = 6;
             this.itineraryListView.UseCompatibleStateImageBehavior = false;
             this.itineraryListView.View = System.Windows.Forms.View.Details;
             this.itineraryListView.SelectedIndexChanged += new System.EventHandler(this.itineraryListView_SelectedIndexChanged);
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Start Time";
+            this.columnHeader10.Width = 0;
             // 
             // columnHeader6
             // 
@@ -192,14 +202,20 @@
             this.columnHeader4});
             this.scheduleListView.FullRowSelect = true;
             this.scheduleListView.GridLines = true;
-            this.scheduleListView.Location = new System.Drawing.Point(31, 103);
+            this.scheduleListView.Location = new System.Drawing.Point(23, 84);
+            this.scheduleListView.Margin = new System.Windows.Forms.Padding(2);
             this.scheduleListView.Name = "scheduleListView";
-            this.scheduleListView.Size = new System.Drawing.Size(900, 230);
+            this.scheduleListView.Size = new System.Drawing.Size(676, 188);
             this.scheduleListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.scheduleListView.TabIndex = 5;
             this.scheduleListView.UseCompatibleStateImageBehavior = false;
             this.scheduleListView.View = System.Windows.Forms.View.Details;
             this.scheduleListView.SelectedIndexChanged += new System.EventHandler(this.scheduleListView_SelectedIndexChanged);
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Start Time";
+            this.columnHeader5.Width = 0;
             // 
             // columnHeader1
             // 
@@ -224,6 +240,7 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage2.Controls.Add(this.sendEmailButton);
             this.tabPage2.Controls.Add(this.signOutButton);
             this.tabPage2.Controls.Add(this.passInstructLabel3);
             this.tabPage2.Controls.Add(this.nameInstructLabel2);
@@ -237,20 +254,32 @@
             this.tabPage2.Controls.Add(this.changeUsernameTextBox);
             this.tabPage2.Controls.Add(this.changeUsernameButton);
             this.tabPage2.Controls.Add(this.userInstructionLabel);
-            this.tabPage2.Location = new System.Drawing.Point(4, 29);
+            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1174, 720);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage2.Size = new System.Drawing.Size(878, 582);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Account";
+            // 
+            // sendEmailButton
+            // 
+            this.sendEmailButton.Location = new System.Drawing.Point(401, 513);
+            this.sendEmailButton.Name = "sendEmailButton";
+            this.sendEmailButton.Size = new System.Drawing.Size(75, 45);
+            this.sendEmailButton.TabIndex = 40;
+            this.sendEmailButton.Text = "Send e-mail";
+            this.sendEmailButton.UseVisualStyleBackColor = true;
+            this.sendEmailButton.Click += new System.EventHandler(this.sendEmailButton_Click);
             // 
             // signOutButton
             // 
             this.signOutButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.signOutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.signOutButton.Location = new System.Drawing.Point(1007, 48);
+            this.signOutButton.Location = new System.Drawing.Point(755, 39);
+            this.signOutButton.Margin = new System.Windows.Forms.Padding(2);
             this.signOutButton.Name = "signOutButton";
-            this.signOutButton.Size = new System.Drawing.Size(110, 40);
+            this.signOutButton.Size = new System.Drawing.Size(82, 32);
             this.signOutButton.TabIndex = 39;
             this.signOutButton.Text = "Sign Out";
             this.signOutButton.UseVisualStyleBackColor = true;
@@ -262,9 +291,10 @@
             this.passInstructLabel3.AutoSize = true;
             this.passInstructLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passInstructLabel3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.passInstructLabel3.Location = new System.Drawing.Point(474, 475);
+            this.passInstructLabel3.Location = new System.Drawing.Point(354, 333);
+            this.passInstructLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.passInstructLabel3.Name = "passInstructLabel3";
-            this.passInstructLabel3.Size = new System.Drawing.Size(188, 20);
+            this.passInstructLabel3.Size = new System.Drawing.Size(160, 17);
             this.passInstructLabel3.TabIndex = 38;
             this.passInstructLabel3.Text = "and 1 special character.";
             // 
@@ -274,9 +304,10 @@
             this.nameInstructLabel2.AutoSize = true;
             this.nameInstructLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameInstructLabel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.nameInstructLabel2.Location = new System.Drawing.Point(474, 185);
+            this.nameInstructLabel2.Location = new System.Drawing.Point(356, 150);
+            this.nameInstructLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.nameInstructLabel2.Name = "nameInstructLabel2";
-            this.nameInstructLabel2.Size = new System.Drawing.Size(308, 20);
+            this.nameInstructLabel2.Size = new System.Drawing.Size(261, 17);
             this.nameInstructLabel2.TabIndex = 37;
             this.nameInstructLabel2.Text = "It must be between 4 and 15 characters.";
             // 
@@ -286,9 +317,10 @@
             this.passInstructLabel2.AutoSize = true;
             this.passInstructLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passInstructLabel2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.passInstructLabel2.Location = new System.Drawing.Point(474, 455);
+            this.passInstructLabel2.Location = new System.Drawing.Point(354, 317);
+            this.passInstructLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.passInstructLabel2.Name = "passInstructLabel2";
-            this.passInstructLabel2.Size = new System.Drawing.Size(319, 20);
+            this.passInstructLabel2.Size = new System.Drawing.Size(269, 17);
             this.passInstructLabel2.TabIndex = 36;
             this.passInstructLabel2.Text = "It must contain 1 lowercase, 1 uppercase,";
             // 
@@ -298,9 +330,10 @@
             this.passInstructLabel1.AutoSize = true;
             this.passInstructLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passInstructLabel1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.passInstructLabel1.Location = new System.Drawing.Point(474, 435);
+            this.passInstructLabel1.Location = new System.Drawing.Point(354, 300);
+            this.passInstructLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.passInstructLabel1.Name = "passInstructLabel1";
-            this.passInstructLabel1.Size = new System.Drawing.Size(308, 20);
+            this.passInstructLabel1.Size = new System.Drawing.Size(261, 17);
             this.passInstructLabel1.TabIndex = 35;
             this.passInstructLabel1.Text = "It must be between 4 and 15 characters.";
             // 
@@ -310,9 +343,10 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(515, 392);
+            this.label3.Location = new System.Drawing.Point(384, 265);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(210, 29);
+            this.label3.Size = new System.Drawing.Size(164, 24);
             this.label3.TabIndex = 23;
             this.label3.Text = "Change Password";
             // 
@@ -320,9 +354,10 @@
             // 
             this.changePasswordTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.changePasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changePasswordTextBox.Location = new System.Drawing.Point(459, 511);
+            this.changePasswordTextBox.Location = new System.Drawing.Point(344, 362);
+            this.changePasswordTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.changePasswordTextBox.Name = "changePasswordTextBox";
-            this.changePasswordTextBox.Size = new System.Drawing.Size(350, 27);
+            this.changePasswordTextBox.Size = new System.Drawing.Size(264, 23);
             this.changePasswordTextBox.TabIndex = 21;
             // 
             // label5
@@ -330,10 +365,11 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(319, 514);
+            this.label5.Location = new System.Drawing.Point(241, 365);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label5.Size = new System.Drawing.Size(121, 20);
+            this.label5.Size = new System.Drawing.Size(100, 17);
             this.label5.TabIndex = 22;
             this.label5.Text = "New Password";
             // 
@@ -343,9 +379,10 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(511, 134);
+            this.label4.Location = new System.Drawing.Point(383, 109);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(214, 29);
+            this.label4.Size = new System.Drawing.Size(169, 24);
             this.label4.TabIndex = 20;
             this.label4.Text = "Change Username";
             // 
@@ -353,9 +390,10 @@
             // 
             this.changePasswordButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.changePasswordButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changePasswordButton.Location = new System.Drawing.Point(699, 557);
+            this.changePasswordButton.Location = new System.Drawing.Point(522, 400);
+            this.changePasswordButton.Margin = new System.Windows.Forms.Padding(2);
             this.changePasswordButton.Name = "changePasswordButton";
-            this.changePasswordButton.Size = new System.Drawing.Size(110, 40);
+            this.changePasswordButton.Size = new System.Drawing.Size(82, 32);
             this.changePasswordButton.TabIndex = 16;
             this.changePasswordButton.Text = "Submit";
             this.changePasswordButton.UseVisualStyleBackColor = true;
@@ -365,18 +403,20 @@
             // 
             this.changeUsernameTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.changeUsernameTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeUsernameTextBox.Location = new System.Drawing.Point(459, 219);
+            this.changeUsernameTextBox.Location = new System.Drawing.Point(344, 178);
+            this.changeUsernameTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.changeUsernameTextBox.Name = "changeUsernameTextBox";
-            this.changeUsernameTextBox.Size = new System.Drawing.Size(350, 27);
+            this.changeUsernameTextBox.Size = new System.Drawing.Size(264, 23);
             this.changeUsernameTextBox.TabIndex = 13;
             // 
             // changeUsernameButton
             // 
             this.changeUsernameButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.changeUsernameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.changeUsernameButton.Location = new System.Drawing.Point(699, 268);
+            this.changeUsernameButton.Location = new System.Drawing.Point(524, 218);
+            this.changeUsernameButton.Margin = new System.Windows.Forms.Padding(2);
             this.changeUsernameButton.Name = "changeUsernameButton";
-            this.changeUsernameButton.Size = new System.Drawing.Size(110, 40);
+            this.changeUsernameButton.Size = new System.Drawing.Size(82, 32);
             this.changeUsernameButton.TabIndex = 15;
             this.changeUsernameButton.Text = "Submit";
             this.changeUsernameButton.UseVisualStyleBackColor = true;
@@ -387,33 +427,22 @@
             this.userInstructionLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.userInstructionLabel.AutoSize = true;
             this.userInstructionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userInstructionLabel.Location = new System.Drawing.Point(316, 222);
+            this.userInstructionLabel.Location = new System.Drawing.Point(237, 180);
+            this.userInstructionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.userInstructionLabel.Name = "userInstructionLabel";
             this.userInstructionLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.userInstructionLabel.Size = new System.Drawing.Size(124, 20);
+            this.userInstructionLabel.Size = new System.Drawing.Size(104, 17);
             this.userInstructionLabel.TabIndex = 18;
             this.userInstructionLabel.Text = "New Username";
             // 
-            // columnHeader5
-            // 
-            this.columnHeader5.DisplayIndex = 4;
-            this.columnHeader5.Text = "Start Time";
-            this.columnHeader5.Width = 0;
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.DisplayIndex = 4;
-            this.columnHeader10.Text = "Start Time";
-            this.columnHeader10.Width = 0;
-            // 
             // UserHomeForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.ClientSize = new System.Drawing.Size(886, 612);
             this.Controls.Add(this.tabControl1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "UserHomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
@@ -461,5 +490,6 @@
         private System.Windows.Forms.Button signOutButton;
         private System.Windows.Forms.ColumnHeader columnHeader10;
         private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.Button sendEmailButton;
     }
 }
