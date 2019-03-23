@@ -252,10 +252,12 @@ namespace CapstoneClassLibrary
         //used for testing not ready
         public static void TestEmail()
         {
-            string from = "";
-            List<string> to = new List<string>();
+
+            //string from = "";
+            string to = "";
             string subject = "";
             StringBuilder body = new StringBuilder();
+
 
 
         }
