@@ -170,3 +170,6 @@ C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProje
 C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CopyComplete
 C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.exe
 C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.pdb
+C:\Users\Mikey\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csprojAssemblyReference.cache
+C:\Users\Mikey\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.exe
+C:\Users\Mikey\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.pdb
