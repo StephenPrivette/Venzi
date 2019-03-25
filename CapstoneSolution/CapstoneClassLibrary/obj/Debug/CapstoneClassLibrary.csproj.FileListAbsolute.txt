@@ -97,3 +97,15 @@ C:\Users\Mikey\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\b
 C:\Users\Mikey\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll.config
 C:\Users\Mikey\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CopyComplete
 >>>>>>> Mikey
+C:\Users\privetts3931\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.dll
+C:\Users\privetts3931\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.pdb
+C:\Users\privetts3931\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\bin\Debug\Dapper.dll
+C:\Users\privetts3931\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll
+C:\Users\privetts3931\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\bin\Debug\Dapper.xml
+C:\Users\privetts3931\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.xml
+C:\Users\privetts3931\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\privetts3931\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csprojAssemblyReference.cache
+C:\Users\privetts3931\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\privetts3931\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CopyComplete
+C:\Users\privetts3931\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.dll
+C:\Users\privetts3931\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.pdb
