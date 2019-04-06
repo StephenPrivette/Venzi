@@ -34,7 +34,8 @@
             this.userInstructionLabel = new System.Windows.Forms.Label();
             this.passwordInstructionLabel = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // newUserButton
@@ -45,7 +46,7 @@
             this.newUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newUserButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.newUserButton.ForeColor = System.Drawing.Color.White;
-            this.newUserButton.Location = new System.Drawing.Point(448, 458);
+            this.newUserButton.Location = new System.Drawing.Point(360, 496);
             this.newUserButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.newUserButton.Name = "newUserButton";
             this.newUserButton.Size = new System.Drawing.Size(109, 39);
@@ -61,7 +62,7 @@
             this.userTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.userTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userTextBox.ForeColor = System.Drawing.Color.White;
-            this.userTextBox.Location = new System.Drawing.Point(448, 347);
+            this.userTextBox.Location = new System.Drawing.Point(458, 385);
             this.userTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userTextBox.Name = "userTextBox";
             this.userTextBox.Size = new System.Drawing.Size(350, 30);
@@ -75,7 +76,7 @@
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.loginButton.ForeColor = System.Drawing.Color.White;
-            this.loginButton.Location = new System.Drawing.Point(689, 458);
+            this.loginButton.Location = new System.Drawing.Point(699, 496);
             this.loginButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.loginButton.Name = "loginButton";
             this.loginButton.Size = new System.Drawing.Size(109, 39);
@@ -90,7 +91,7 @@
             this.userInstructionLabel.AutoSize = true;
             this.userInstructionLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.userInstructionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.userInstructionLabel.Location = new System.Drawing.Point(343, 349);
+            this.userInstructionLabel.Location = new System.Drawing.Point(353, 387);
             this.userInstructionLabel.Name = "userInstructionLabel";
             this.userInstructionLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.userInstructionLabel.Size = new System.Drawing.Size(87, 23);
@@ -103,7 +104,7 @@
             this.passwordInstructionLabel.AutoSize = true;
             this.passwordInstructionLabel.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordInstructionLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.passwordInstructionLabel.Location = new System.Drawing.Point(346, 393);
+            this.passwordInstructionLabel.Location = new System.Drawing.Point(356, 431);
             this.passwordInstructionLabel.Name = "passwordInstructionLabel";
             this.passwordInstructionLabel.Size = new System.Drawing.Size(80, 23);
             this.passwordInstructionLabel.TabIndex = 11;
@@ -116,24 +117,36 @@
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTextBox.ForeColor = System.Drawing.Color.White;
-            this.passwordTextBox.Location = new System.Drawing.Point(448, 390);
+            this.passwordTextBox.Location = new System.Drawing.Point(458, 428);
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.PasswordChar = '*';
             this.passwordTextBox.Size = new System.Drawing.Size(350, 30);
             this.passwordTextBox.TabIndex = 8;
             // 
-            // label1
+            // label2
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(323, 192);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(517, 59);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Convention Creator 5000";
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(40, 169);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(1096, 91);
+            this.label2.TabIndex = 15;
+            this.label2.Text = "Venzi";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(40, 260);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(1096, 91);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "The Convention Creator";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // StartForm
             // 
@@ -142,7 +155,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(1181, 753);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.newUserButton);
             this.Controls.Add(this.userTextBox);
             this.Controls.Add(this.loginButton);
@@ -165,6 +179,7 @@
         private System.Windows.Forms.Label userInstructionLabel;
         private System.Windows.Forms.Label passwordInstructionLabel;
         private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

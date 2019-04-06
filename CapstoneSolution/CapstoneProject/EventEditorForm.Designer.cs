@@ -111,22 +111,22 @@
             // columnHeader12
             // 
             this.columnHeader12.Text = "Time";
-            this.columnHeader12.Width = 160;
+            this.columnHeader12.Width = 169;
             // 
             // columnHeader13
             // 
             this.columnHeader13.Text = "Title";
-            this.columnHeader13.Width = 160;
+            this.columnHeader13.Width = 169;
             // 
             // columnHeader14
             // 
             this.columnHeader14.Text = "Type";
-            this.columnHeader14.Width = 160;
+            this.columnHeader14.Width = 169;
             // 
             // columnHeader15
             // 
             this.columnHeader15.Text = "Location";
-            this.columnHeader15.Width = 160;
+            this.columnHeader15.Width = 169;
             // 
             // label4
             // 

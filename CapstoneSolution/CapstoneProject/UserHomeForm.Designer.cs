@@ -299,7 +299,6 @@
             // 
             this.deleteLocationButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.deleteLocationButton.BackColor = System.Drawing.Color.SaddleBrown;
-            this.deleteLocationButton.FlatAppearance.BorderSize = 0;
             this.deleteLocationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteLocationButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteLocationButton.ForeColor = System.Drawing.Color.White;
@@ -316,7 +315,6 @@
             // 
             this.deleteTypeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.deleteTypeButton.BackColor = System.Drawing.Color.SaddleBrown;
-            this.deleteTypeButton.FlatAppearance.BorderSize = 0;
             this.deleteTypeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteTypeButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteTypeButton.ForeColor = System.Drawing.Color.White;
@@ -348,7 +346,6 @@
             // 
             this.addTypeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.addTypeButton.BackColor = System.Drawing.Color.SaddleBrown;
-            this.addTypeButton.FlatAppearance.BorderSize = 0;
             this.addTypeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addTypeButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addTypeButton.ForeColor = System.Drawing.Color.White;
@@ -393,7 +390,6 @@
             // 
             this.addLocationButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.addLocationButton.BackColor = System.Drawing.Color.SaddleBrown;
-            this.addLocationButton.FlatAppearance.BorderSize = 0;
             this.addLocationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addLocationButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addLocationButton.ForeColor = System.Drawing.Color.White;
@@ -447,7 +443,6 @@
             // 
             this.eventEditorButton.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.eventEditorButton.BackColor = System.Drawing.Color.SaddleBrown;
-            this.eventEditorButton.FlatAppearance.BorderSize = 0;
             this.eventEditorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.eventEditorButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventEditorButton.ForeColor = System.Drawing.Color.White;
@@ -491,22 +486,22 @@
             // columnHeader12
             // 
             this.columnHeader12.Text = "Time";
-            this.columnHeader12.Width = 160;
+            this.columnHeader12.Width = 169;
             // 
             // columnHeader13
             // 
             this.columnHeader13.Text = "Title";
-            this.columnHeader13.Width = 160;
+            this.columnHeader13.Width = 169;
             // 
             // columnHeader14
             // 
             this.columnHeader14.Text = "Type";
-            this.columnHeader14.Width = 160;
+            this.columnHeader14.Width = 169;
             // 
             // columnHeader15
             // 
             this.columnHeader15.Text = "Location";
-            this.columnHeader15.Width = 160;
+            this.columnHeader15.Width = 169;
             // 
             // label8
             // 
@@ -579,22 +574,22 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "Time";
-            this.columnHeader6.Width = 160;
+            this.columnHeader6.Width = 169;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Title";
-            this.columnHeader7.Width = 160;
+            this.columnHeader7.Width = 169;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Type";
-            this.columnHeader8.Width = 160;
+            this.columnHeader8.Width = 169;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "Location";
-            this.columnHeader9.Width = 160;
+            this.columnHeader9.Width = 169;
             // 
             // scheduleListView
             // 
@@ -628,22 +623,22 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Time";
-            this.columnHeader1.Width = 160;
+            this.columnHeader1.Width = 169;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Title";
-            this.columnHeader2.Width = 160;
+            this.columnHeader2.Width = 169;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Type";
-            this.columnHeader3.Width = 160;
+            this.columnHeader3.Width = 169;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Location";
-            this.columnHeader4.Width = 160;
+            this.columnHeader4.Width = 169;
             // 
             // emailTabPage
             // 
