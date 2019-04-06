@@ -84,6 +84,22 @@ namespace CapstoneClassLibrary
             }
         }
 
+        // deletes passed in object from database
+        public void deleteObjectFromDb(object obj, string name)
+        {
+            string objTable = obj.GetType().Name + "s";
+            string query = "DELETE FROM " + objTable + " WHERE " + obj.GetType().GetProperties()[1].Name + " = '" + name + "'";
+
+            using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
+            {
+                cnn.Open();
+                SQLiteCommand command = cnn.CreateCommand();
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+                cnn.Close();
+            }
+        }
+
         // retrieves corresponding object from the database by looking up its name
         public object getObjectFromDbByName(object obj, string name)
         {
@@ -210,6 +226,27 @@ namespace CapstoneClassLibrary
             string objTable = obj.GetType().Name + "s";
             // start concatenating string for query
             string query = "SELECT * FROM " + objTable + " WHERE " + obj.GetType().GetProperties()[1].Name + " = '" + name + "'";
+            bool isInDB;
+
+            using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
+            {
+                cnn.Open();
+                SQLiteCommand command = cnn.CreateCommand();
+                command.CommandText = query;
+                SQLiteDataReader reader = command.ExecuteReader();
+                isInDB = reader.Read();
+                reader.Close();
+                cnn.Close();
+            }
+
+            return isInDB;
+        }
+
+        // generic method for seeing if an entry exists in a record via a select query with a where clause
+        public bool isSelectWhereInDb(string table, string column, string item)
+        {
+            string query = "SELECT * FROM " + table + " WHERE " + column + " = '" + item + "'";
+
             bool isInDB;
 
             using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))

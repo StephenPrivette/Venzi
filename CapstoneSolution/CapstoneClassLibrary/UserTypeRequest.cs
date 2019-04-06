@@ -10,6 +10,6 @@ namespace CapstoneClassLibrary
     {
         public int userTypeRequestID { get; set; }
         public int userID { get; set; }
-        public string userType { get; set; }
+        public string userTypeName { get; set; }
     }
 }

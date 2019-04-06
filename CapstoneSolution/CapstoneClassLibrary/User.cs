@@ -11,7 +11,7 @@ namespace CapstoneClassLibrary
         public int userID { get; set; }
         public string userName { get; set; }
         public string userPass { get; set; }
-        public string userType { get; set; }
+        public string userTypeName { get; set; }
         public string userEmail { get; set; }
         private List<Event> itinerary;
 

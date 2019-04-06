@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -36,6 +37,17 @@ namespace CapstoneClassLibrary
         public SQLiteDataAccess db = new SQLiteDataAccess();
         public User mainUser;
 
+        // constants
+        private int DEFAULTMIN = 4;
+        private int DEFAULTMAX = 20;
+        private int EMAILMAX = 40;
+
+        // validates length of user entries
+        private bool valEntry(string entry, int min, int max)
+        {
+            return entry.Length >= min && entry.Length <= max;
+        }
+
         // returns true if the username and password are valid
         public string createNewUser(string username, string password, string usertype, string email)
         {
@@ -44,19 +56,9 @@ namespace CapstoneClassLibrary
             bool lower = false;
             bool special = false;
 
-            // constants for acceptable lengths
-            int maxPassLength = 15;
-            int minPassLength = 4;
-            int maxUserLength = 15;
-            int minUserLength = 4;
-
-            // validating password and username length
-            if (password.Length < minPassLength || password.Length > maxPassLength ||
-                username.Length < minUserLength || username.Length > maxUserLength)
-            {
-                return "The password and/or username is not the correct length";
-            }
-            else
+            // validating password, email, and username length
+            if (valEntry(password, DEFAULTMIN, DEFAULTMAX) && valEntry(username, DEFAULTMIN, DEFAULTMAX) &&
+                valEntry(password, DEFAULTMIN, EMAILMAX))
             {
                 // for every char in password check to see if it meets each condition. if so that flag is true
                 foreach (char ch in password)
@@ -78,44 +80,62 @@ namespace CapstoneClassLibrary
                 }
 
                 // if all conditions are met instantiate user object
-                if(upper && lower && special)
+                if (upper && lower && special)
                 {
                     // ATW: Creates a new user object to store values the current user inputs.
                     User newUser = new User();
                     newUser.userName = username;
                     newUser.userPass = password;
-                    newUser.userType = usertype;
+                    newUser.userTypeName = usertype;
                     newUser.userEmail = email;
 
-                    if(db.isObjectNameInDb(newUser, username))
+                    // making sure email is unique
+                    if (!db.isObjectNameInDb(newUser, username))
                     {
-                        return "This username already exists.";
-                    }
-                    else
-                    {
-                        // if the user is not an attendee it must be sent for approval. in the meantime it will be created as an attendee
-                        if (newUser.userType != "Attendee")
+                        bool doesEmailAlreadyExist = false;
+                        List<User> allUsers = db.getAllFromTable(new User()).Cast<User>().ToList();
+                        foreach (User i in allUsers)
                         {
-                            UserTypeRequest request = new UserTypeRequest();
-                            request.userType = newUser.userType;
+                            if (i.userEmail.ToString() == newUser.userEmail)
+                            {
+                                doesEmailAlreadyExist = true;
+                            }
+                        }
 
-                            newUser.userType = "Attendee";
-                            db.insertObjectIntoDb(newUser);
-                            newUser = (User)db.getObjectFromDbByName(newUser, username);
+                        if (!doesEmailAlreadyExist)
+                        {
+                            // if the user is not an attendee it must be sent for approval. in the meantime it will be created as an attendee
+                            if (newUser.userTypeName != "Attendee")
+                            {
+                                UserTypeRequest request = new UserTypeRequest();
+                                request.userTypeName = newUser.userTypeName;
 
-                            request.userID = newUser.userID;
-                            db.insertObjectIntoDb(request);
+                                newUser.userTypeName = "Attendee";
+                                db.insertObjectIntoDb(newUser);
+                                newUser = (User)db.getObjectFromDbByName(newUser, username);
+
+                                request.userID = newUser.userID;
+                                db.insertObjectIntoDb(request);
+                            }
+                            else
+                            {
+                                // if not an attendee don't need to submit request
+                                db.insertObjectIntoDb(newUser);
+                                newUser = (User)db.getObjectFromDbByName(newUser, username);
+                            }
+
+                            db.createItinerary(newUser);
+
+                            return "The user has been created successfully.";
                         }
                         else
                         {
-                            // if not an attendee don't need to submit request
-                            db.insertObjectIntoDb(newUser);
-                            newUser = (User)db.getObjectFromDbByName(newUser, username);
+                            return "This email address is already in use.";
                         }
-
-                        db.createItinerary(newUser);
-
-                        return "The user has been created successfully.";
+                    }
+                    else
+                    {
+                        return "This username already exists.";
                     }
                 }
                 else
@@ -123,34 +143,34 @@ namespace CapstoneClassLibrary
                     return "The password does not meet criteria.";
                 }
             }
+            else
+            {
+                return "The username, password, or email is not the correct length";
+            }
         }
 
         // changes the mainuser's username. returns a string indicating error or success
         public string changeMainUserName(string newUsername)
         {
-            // constants for acceptable lengths
-            int maxUserLength = 15;
-            int minUserLength = 4;
-
             // validating username length
-            if (newUsername.Length < minUserLength || newUsername.Length > maxUserLength)
-            {
-                return "The new username is not the correct length";
-            }
-            else
+            if (valEntry(newUsername, DEFAULTMIN, DEFAULTMAX))
             {
                 // checking database to make sure username doesn't already exist
-                if (db.isObjectNameInDb(new User(), newUsername))
-                {
-                    return "This username already exists.";
-                }
-                else
+                if (!db.isObjectNameInDb(new User(), newUsername))
                 {
                     mainUser.userName = newUsername;
                     db.updateDbFromObject(mainUser);
                 }
+                else
+                {
+                    return "This username already exists.";
+                }
 
                 return "The username has been changed successfully.";
+            }
+            else
+            {
+                return "The new username is not the correct length";
             }
         }
 
@@ -162,16 +182,8 @@ namespace CapstoneClassLibrary
             bool lower = false;
             bool special = false;
 
-            // constants for acceptable lengths
-            int maxPassLength = 15;
-            int minPassLength = 4;
-
             // validating password length
-            if (newPassword.Length < minPassLength || newPassword.Length > maxPassLength)
-            {
-                return "The password is not the correct length";
-            }
-            else
+            if (valEntry(newPassword, DEFAULTMIN, DEFAULTMAX))
             {
                 // for every char in password check to see if it meets each condition. if so that flag is true
                 foreach (char ch in newPassword)
@@ -205,6 +217,94 @@ namespace CapstoneClassLibrary
                     return "The new password does not meet criteria.";
                 }
             }
+            else
+            {
+                return "The password is not the correct length";
+            }
+        }
+
+        // deletes event type from database
+        public string deleteEventTypeFromDb(object obj, string name)
+        {
+            // making sure record exists
+            if(db.isObjectNameInDb(obj, name))
+            {
+                // checking events to make sure there aren't any with that event type
+                if(!db.isSelectWhereInDb("Events", "EventTypeName", name))
+                {
+                    db.deleteObjectFromDb(obj, name);
+                    return obj.GetType().Name + " has been deleted.";
+                }
+                else
+                {
+                    return "There are still events that use this type. " +
+                        "In order to delete this type the type for these events must be changed first.";
+                }
+            }
+            else
+            {
+                return obj.GetType().Name + " does not exist in the database.";
+            }
+        }
+
+        // adds event type to database
+        public string addEventTypeToDb(object obj, string name)
+        {
+            // making sure event type doesn't already exist
+            if (!db.isObjectNameInDb(obj, name))
+            {
+                db.insertObjectIntoDb(obj);
+                return obj.GetType().Name + " has been added.";
+            }
+            else
+            {
+                return obj.GetType().Name + " this name already exists.";
+            }
+        }
+
+        // deletes location from database
+        public string deleteLocationFromDb(object obj, string name)
+        {
+            // making sure the location exists in the database
+            if (db.isObjectNameInDb(obj, name))
+            {
+                // making sure there aren't events with this location
+                if (!db.isSelectWhereInDb("Events", "LocationName", name))
+                {
+                    db.deleteObjectFromDb(obj, name);
+                    return obj.GetType().Name + " has been deleted.";
+                }
+                else
+                {
+                    return "There are still events that use this location. " +
+                        "In order to delete this location the location for these events must be changed first.";
+                }
+            }
+            else
+            {
+                return obj.GetType().Name + " does not exist in the database.";
+            }
+        }
+
+        //adds location to database
+        public string addLocationToDb(object obj, string name)
+        {
+            // making sure location doesn't already exist
+            if (!db.isObjectNameInDb(obj, name))
+            {
+                db.insertObjectIntoDb(obj);
+                return obj.GetType().Name + " has been added.";
+            }
+            else
+            {
+                return obj.GetType().Name + " this name already exists.";
+            }
+        }
+
+        // retrieves corresponding object from the database by looking up its name
+        public object getObjectFromDbByName(object obj, string name)
+        {
+            return db.getObjectFromDbByName(obj, name);
         }
 
         // saves itinerary to the database
@@ -251,17 +351,29 @@ namespace CapstoneClassLibrary
                 return "Our records do not show a user with the username and/or password entered.";
             }
         }
-        //used for testing not ready
-        public static void TestEmail()
+
+        //This will be used to send emails
+        public void sendEmail(string to, string subject, string body)
         {
+            string adminEmail = "cp5k.owner@gmail.com"; //User login credential
 
-            //string from = "";
-            string to = "";
-            string subject = "";
-            StringBuilder body = new StringBuilder();
+            SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Settings for gmail
+            client.UseDefaultCredentials = false; //required by gmail smtp
+            client.EnableSsl = true; //required by gmail smtp
+            client.Credentials = new System.Net.NetworkCredential(adminEmail, "Password!@#"); //hardcoded password
 
+            //Basics of en email
+            MailAddress fromMailAddress = new MailAddress(adminEmail); //admin username
+            MailMessage mail = new MailMessage();
 
+            //Everything here needs to get passed when calling SendEmail(from, )
+            mail.To.Add(to);
+            mail.From = fromMailAddress;
+            mail.Subject = subject;
+            mail.Body = body;
+            mail.IsBodyHtml = false;
 
+            client.Send(mail);
         }
     }
 }

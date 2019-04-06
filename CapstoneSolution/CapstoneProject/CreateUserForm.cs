@@ -17,6 +17,7 @@ namespace CapstoneProject
         {
             InitializeComponent();
 
+            // populating list box
             foreach (UserType type in Apex.i.getAllFromTable(new UserType()).Cast<UserType>().ToList())
             {
                 userTypeListBox.Items.Add(type.userType);

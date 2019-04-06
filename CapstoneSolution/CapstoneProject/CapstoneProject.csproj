@@ -60,11 +60,11 @@
     <Compile Include="CreateUserForm.Designer.cs">
       <DependentUpon>CreateUserForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminEmail.cs">
+    <Compile Include="EventEditorForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AdminEmail.Designer.cs">
-      <DependentUpon>AdminEmail.cs</DependentUpon>
+    <Compile Include="EventEditorForm.Designer.cs">
+      <DependentUpon>EventEditorForm.cs</DependentUpon>
     </Compile>
     <Compile Include="StartForm.cs">
       <SubType>Form</SubType>
@@ -83,8 +83,8 @@
     <EmbeddedResource Include="CreateUserForm.resx">
       <DependentUpon>CreateUserForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminEmail.resx">
-      <DependentUpon>AdminEmail.cs</DependentUpon>
+    <EmbeddedResource Include="EventEditorForm.resx">
+      <DependentUpon>EventEditorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StartForm.resx">
       <DependentUpon>StartForm.cs</DependentUpon>
