@@ -211,12 +211,6 @@ namespace CapstoneProject
             this.Close();
         }
 
-        private void emailButton_Click(object sender, EventArgs e)
-        {
-            EmailForm emailForm1 = new EmailForm();
-            emailForm1.ShowDialog();
-        }
-
         // loads event editor page when clicked
         private void eventEditorButton_Click(object sender, EventArgs e)
         {
