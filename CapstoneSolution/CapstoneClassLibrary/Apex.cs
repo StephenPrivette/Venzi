@@ -82,9 +82,12 @@ namespace CapstoneClassLibrary
                 // if all conditions are met instantiate user object
                 if (upper && lower && special)
                 {
+                    // ATWE: Encrypts password
+                    string encryptedPassword = PasswordEncryption.encryptPassword(password);
                     // ATW: Creates a new user object to store values the current user inputs.
                     User newUser = new User();
                     newUser.userName = username;
+                    //newUser.userPass = encryptedPassword;
                     newUser.userPass = password;
                     newUser.userTypeName = usertype;
                     newUser.userEmail = email;
@@ -334,7 +337,8 @@ namespace CapstoneClassLibrary
             if(db.isObjectNameInDb(user1, username))
             {
                 user1 = (User)db.getObjectFromDbByName(user1, username);
-
+                // Decrypts the user's password
+                //user1.userPass = PasswordEncryption.decryptPassword(user1.userPass);
                 // making sure user has the correct password
                 if(user1.userPass == password)
                 {
