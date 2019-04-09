@@ -53,7 +53,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.eventEditorButton = new System.Windows.Forms.Button();
             this.eveManEventsListView = new System.Windows.Forms.ListView();
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -62,13 +61,11 @@
             this.userTabPage = new System.Windows.Forms.TabPage();
             this.scheduleTabPage = new System.Windows.Forms.TabPage();
             this.itineraryListView = new System.Windows.Forms.ListView();
-            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.scheduleListView = new System.Windows.Forms.ListView();
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -461,7 +458,6 @@
             this.eveManEventsListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.eveManEventsListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.eveManEventsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader11,
             this.columnHeader12,
             this.columnHeader13,
             this.columnHeader14,
@@ -473,15 +469,9 @@
             this.eveManEventsListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.eveManEventsListView.Name = "eveManEventsListView";
             this.eveManEventsListView.Size = new System.Drawing.Size(900, 230);
-            this.eveManEventsListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.eveManEventsListView.TabIndex = 48;
             this.eveManEventsListView.UseCompatibleStateImageBehavior = false;
             this.eveManEventsListView.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader11
-            // 
-            this.columnHeader11.Text = "Start Time";
-            this.columnHeader11.Width = 0;
             // 
             // columnHeader12
             // 
@@ -548,7 +538,6 @@
             this.itineraryListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.itineraryListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.itineraryListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader10,
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8,
@@ -560,16 +549,10 @@
             this.itineraryListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.itineraryListView.Name = "itineraryListView";
             this.itineraryListView.Size = new System.Drawing.Size(900, 230);
-            this.itineraryListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.itineraryListView.TabIndex = 6;
             this.itineraryListView.UseCompatibleStateImageBehavior = false;
             this.itineraryListView.View = System.Windows.Forms.View.Details;
             this.itineraryListView.SelectedIndexChanged += new System.EventHandler(this.itineraryListView_SelectedIndexChanged);
-            // 
-            // columnHeader10
-            // 
-            this.columnHeader10.Text = "Start Time";
-            this.columnHeader10.Width = 0;
             // 
             // columnHeader6
             // 
@@ -597,7 +580,6 @@
             this.scheduleListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.scheduleListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.scheduleListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader5,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
@@ -609,16 +591,10 @@
             this.scheduleListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.scheduleListView.Name = "scheduleListView";
             this.scheduleListView.Size = new System.Drawing.Size(900, 230);
-            this.scheduleListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.scheduleListView.TabIndex = 5;
             this.scheduleListView.UseCompatibleStateImageBehavior = false;
             this.scheduleListView.View = System.Windows.Forms.View.Details;
             this.scheduleListView.SelectedIndexChanged += new System.EventHandler(this.scheduleListView_SelectedIndexChanged);
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Start Time";
-            this.columnHeader5.Width = 0;
             // 
             // columnHeader1
             // 
@@ -849,7 +825,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(512, 355);
+            this.label3.Location = new System.Drawing.Point(477, 364);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(240, 38);
             this.label3.TabIndex = 23;
@@ -887,7 +863,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(512, 134);
+            this.label4.Location = new System.Drawing.Point(468, 144);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(249, 38);
             this.label4.TabIndex = 20;
@@ -1004,13 +980,10 @@
         private System.Windows.Forms.Button changeUsernameButton;
         private System.Windows.Forms.Label userInstructionLabel;
         private System.Windows.Forms.Button signOutButton;
-        private System.Windows.Forms.ColumnHeader columnHeader10;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.TabPage emailTabPage;
         private System.Windows.Forms.TabPage eventsTabPage;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ListView eveManEventsListView;
-        private System.Windows.Forms.ColumnHeader columnHeader11;
         private System.Windows.Forms.ColumnHeader columnHeader12;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;

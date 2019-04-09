@@ -37,8 +37,8 @@ namespace CapstoneClassLibrary
             }
 
             query = query.Substring(0, (query.Length - 2));
-            query += " WHERE " + obj.GetType().GetProperties()[0].Name + " = "
-                + obj.GetType().GetProperties()[0].GetValue(obj).ToString();
+            query += " WHERE " + obj.GetType().GetProperties()[1].Name + " = '"
+                + obj.GetType().GetProperties()[1].GetValue(obj).ToString() + "'";
 
             using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
             {

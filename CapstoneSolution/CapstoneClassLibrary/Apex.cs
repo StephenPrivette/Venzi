@@ -41,6 +41,7 @@ namespace CapstoneClassLibrary
         private int DEFAULTMIN = 4;
         private int DEFAULTMAX = 20;
         private int EMAILMAX = 40;
+        private int DESCRIPTIONMAX = 80;
 
         // validates length of user entries
         private bool valEntry(string entry, int min, int max)
@@ -325,6 +326,12 @@ namespace CapstoneClassLibrary
             return db.getAllFromTable(obj);
         }
 
+        // checks to see if object is in database by name
+        public bool isObjectNameInDb(object obj, string name)
+        {
+            return db.isObjectNameInDb(obj, name);
+        }
+
         // populates the main user object field at the top of this class
         public string loadMainUserFromDb(string username, string password)
         {
@@ -349,6 +356,62 @@ namespace CapstoneClassLibrary
             else
             {
                 return "Our records do not show a user with the username and/or password entered.";
+            }
+        }
+
+        // updates or inserts edited event
+        public string editEvent(string name, string type, string location, DateTime startTime1, DateTime startTime2,
+            TimeSpan eventDur, TimeSpan setupDur, TimeSpan breakdownDur, string description)
+        {
+            if (valEntry(name, DEFAULTMIN, DEFAULTMAX) && valEntry(description, DEFAULTMIN, DESCRIPTIONMAX))
+            {
+                Event event1 = new Event();
+                event1.eventName = name;
+                event1.eventTypeName = type;
+                event1.locationName = location;
+                event1.startTime = startTime1.Date.Add(startTime2.TimeOfDay);
+                event1.eventDuration = eventDur;
+                event1.setupDuration = setupDur;
+                event1.breakdownDuration = breakdownDur;
+                event1.description = description;
+
+                DateTime locationStartTime = event1.startTime - event1.setupDuration;
+                DateTime locationEndTime = event1.startTime + event1.eventDuration + event1.breakdownDuration;
+
+                foreach (Event e in Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList())
+                {
+                    if (event1.locationName == e.locationName)
+                    {
+                        if (event1.eventName != e.eventName)
+                        {
+                            DateTime locStart = e.startTime - e.setupDuration;
+                            DateTime locEnd = e.startTime + e.eventDuration + e.breakdownDuration;
+
+                            if (locationStartTime >= locStart && locationStartTime <= locEnd ||
+                                locationEndTime >= locStart && locationEndTime <= locEnd)
+                            {
+                                return "The event time cannot overlap an existing event in the same location.";
+                            }
+                        }
+                    }
+                }
+
+                if (db.isObjectNameInDb(new Event(), name))
+                {
+                    db.updateDbFromObject(event1);
+
+                    return "Event updated successfully.";
+                }
+                else
+                {
+                    db.insertObjectIntoDb(event1);
+
+                    return "Event created successfully.";
+                }
+            }
+            else
+            {
+                return "The name and/or description is not the correct length.";
             }
         }
 

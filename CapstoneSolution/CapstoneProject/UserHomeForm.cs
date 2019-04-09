@@ -44,9 +44,9 @@ namespace CapstoneProject
             Apex.i.loadItineraryFromDb();
 
             // on form load populate listviews
-            populateEventListView(Apex.i.mainUser.getItinerary(), itineraryListView);
-            populateEventListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), scheduleListView);
-            populateEventListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eveManEventsListView);
+            populateEventListView(Apex.i.mainUser.getItinerary().OrderBy(x => x.startTime).ToList(), itineraryListView);
+            populateEventListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList().OrderBy(x => x.startTime).ToList(), scheduleListView);
+            populateEventListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList().OrderBy(x => x.startTime).ToList(), eveManEventsListView);
 
             loadEventTypes();
             loadLocations();
@@ -82,16 +82,13 @@ namespace CapstoneProject
 
             foreach (Event i in events)
             {
-                ListViewItem lvItem = new ListViewItem(i.startTime.ToString("HH:mm"));
-                lvItem.SubItems.Add(i.startTime.ToString("t")
+                ListViewItem lvItem = new ListViewItem(i.startTime.ToString("MM/dd h:mm tt")
                     + " - " + (i.startTime + i.eventDuration).ToString("t"));
                 lvItem.SubItems.Add(i.eventName);
                 lvItem.SubItems.Add(i.eventTypeName);
                 lvItem.SubItems.Add(i.locationName);
                 lv.Items.Add(lvItem);
             }
-
-            
         }
 
         private void addButton_Click(object sender, EventArgs e)
@@ -101,14 +98,14 @@ namespace CapstoneProject
             {
                 foreach(Event eve in Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList())
                 {
-                    if(eve.eventName == scheduleListView.SelectedItems[0].SubItems[2].Text)
+                    if(eve.eventName == scheduleListView.SelectedItems[0].SubItems[1].Text)
                     {
                         if (Apex.i.mainUser.addEventToItinerary(eve))
                         {
                             Apex.i.saveItineraryToDb();
                             Apex.i.loadItineraryFromDb();
 
-                            populateEventListView(Apex.i.mainUser.getItinerary(), itineraryListView);
+                            populateEventListView(Apex.i.mainUser.getItinerary().OrderBy(x => x.startTime).ToList(), itineraryListView);
                         }
                         else
                         {
@@ -135,7 +132,7 @@ namespace CapstoneProject
             {
                 foreach (Event eve in Apex.i.mainUser.getItinerary())
                 {
-                    if (eve.eventName == itineraryListView.SelectedItems[0].SubItems[2].Text)
+                    if (eve.eventName == itineraryListView.SelectedItems[0].SubItems[1].Text)
                     {
                         // have to use these because removing event here would mutate the for loop
                         eveCopy = eve;
@@ -155,7 +152,7 @@ namespace CapstoneProject
                     Apex.i.saveItineraryToDb();
                     Apex.i.loadItineraryFromDb();
 
-                    populateEventListView(Apex.i.mainUser.getItinerary(), itineraryListView);
+                    populateEventListView(Apex.i.mainUser.getItinerary().OrderBy(x => x.startTime).ToList(), itineraryListView);
                 }
                 else
                 {
@@ -195,12 +192,13 @@ namespace CapstoneProject
         private void changePasswordButton_Click(object sender, EventArgs e)
         {
             // checking to see that there is indeed text in the text box
-            if (changePasswordTextBox.Text != null)
+            if (!String.IsNullOrEmpty(changePasswordTextBox.Text))
             {
                 MessageBox.Show(Apex.i.changeMainUserPassword(changePasswordTextBox.Text));
             }
             else
             {
+
                 MessageBox.Show("You must enter a new password in the textbox.");
             }
         }

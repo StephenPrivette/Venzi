@@ -21,7 +21,7 @@ namespace CapstoneProject
         private void EventEditorForm_Load(object sender, EventArgs e)
         {
             // on load populate info
-            populateEventListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView);
+            populateEventListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList().OrderBy(x => x.startTime).ToList(), eventsListView);
 
             loadEventTypes();
             loadLocations();
@@ -59,16 +59,27 @@ namespace CapstoneProject
 
             foreach (Event i in events)
             {
-                ListViewItem lvItem = new ListViewItem(i.startTime.ToString("HH:mm"));
-                lvItem.SubItems.Add(i.startTime.ToString("t")
+                ListViewItem lvItem = new ListViewItem(i.startTime.ToString("MM/dd h:mm tt")
                     + " - " + (i.startTime + i.eventDuration).ToString("t"));
                 lvItem.SubItems.Add(i.eventName);
                 lvItem.SubItems.Add(i.eventTypeName);
                 lvItem.SubItems.Add(i.locationName);
                 lv.Items.Add(lvItem);
             }
+        }
 
-
+        // clears all fields
+        private void clearFields()
+        {
+            nameTextBox.Clear();
+            startTimePicker1.Value = startTimePicker1.MinDate;
+            startTimePicker2.Value = startTimePicker2.MinDate;
+            eventDurationTextBox.Clear();
+            setupDurationTextBox.Clear();
+            breakdownDurationTextBox.Clear();
+            descriptionRichTextBox.Clear();
+            eventTypeListBox.ClearSelected();
+            locationListBox.ClearSelected();
         }
 
         // when changing selection the form will populate with current highlighted event
@@ -76,7 +87,7 @@ namespace CapstoneProject
         {
             if(eventsListView.SelectedIndices.Count > 0)
             {
-                Event currentEvent = (Event)Apex.i.getObjectFromDbByName(new Event(), eventsListView.SelectedItems[0].SubItems[2].Text);
+                Event currentEvent = (Event)Apex.i.getObjectFromDbByName(new Event(), eventsListView.SelectedItems[0].SubItems[1].Text);
 
                 nameTextBox.Text = currentEvent.eventName;
                 startTimePicker1.Value = currentEvent.startTime;
@@ -85,7 +96,84 @@ namespace CapstoneProject
                 setupDurationTextBox.Text = currentEvent.setupDuration.ToString();
                 breakdownDurationTextBox.Text = currentEvent.breakdownDuration.ToString();
                 descriptionRichTextBox.Text = currentEvent.description;
+                eventTypeListBox.SelectedItem = currentEvent.eventTypeName;
+                locationListBox.SelectedItem = currentEvent.locationName;
             }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (eventTypeListBox.SelectedIndex >= 0 && locationListBox.SelectedIndex >= 0 &&
+                eventDurationTextBox.MaskCompleted && setupDurationTextBox.MaskCompleted &&
+                breakdownDurationTextBox.MaskCompleted)
+            {
+                if (Apex.i.isObjectNameInDb(new Event(), nameTextBox.Text))
+                {
+                    if (MessageBox.Show("Are you sure you want to overwrite the " + nameTextBox.Text +
+                    " Event?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        TimeSpan eDur = new TimeSpan();
+                        TimeSpan sDur = new TimeSpan();
+                        TimeSpan bDur = new TimeSpan();
+
+                        if (TimeSpan.TryParse(eventDurationTextBox.Text, out eDur) &&
+                            TimeSpan.TryParse(setupDurationTextBox.Text, out sDur) &&
+                            TimeSpan.TryParse(breakdownDurationTextBox.Text, out bDur))
+                        {
+                            MessageBox.Show(Apex.i.editEvent(nameTextBox.Text, eventTypeListBox.SelectedItem.ToString(),
+                            locationListBox.SelectedItem.ToString(), startTimePicker1.Value, startTimePicker2.Value,
+                            eDur, sDur, bDur, descriptionRichTextBox.Text));
+
+                            populateEventListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList().OrderBy(x => x.startTime).ToList(), eventsListView);
+                            // clearFields();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Durations must be no greater than 12:59.");
+                        }
+                    }
+                }
+                else
+                {
+                    if (MessageBox.Show("Are you sure you want to create a new event named " + nameTextBox.Text,
+                        "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        TimeSpan eDur = new TimeSpan();
+                        TimeSpan sDur = new TimeSpan();
+                        TimeSpan bDur = new TimeSpan();
+
+                        if (TimeSpan.TryParse(eventDurationTextBox.Text, out eDur) &&
+                            TimeSpan.TryParse(setupDurationTextBox.Text, out sDur) &&
+                            TimeSpan.TryParse(breakdownDurationTextBox.Text, out bDur))
+                        {
+                            MessageBox.Show(Apex.i.editEvent(nameTextBox.Text, eventTypeListBox.SelectedItem.ToString(),
+                            locationListBox.SelectedItem.ToString(), startTimePicker1.Value, startTimePicker2.Value,
+                            eDur, sDur, bDur, descriptionRichTextBox.Text));
+
+                            populateEventListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList().OrderBy(x => x.startTime).ToList(), eventsListView);
+                            // clearFields();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Durations must be no greater than 12:59.");
+                        }
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("All fields must be selected/filled in.");
+            }
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            clearFields();
+        }
+
+        private void cancelButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

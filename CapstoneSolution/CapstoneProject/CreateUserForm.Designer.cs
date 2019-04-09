@@ -115,7 +115,7 @@
             this.userTypeListBox.Location = new System.Drawing.Point(744, 258);
             this.userTypeListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userTypeListBox.Name = "userTypeListBox";
-            this.userTypeListBox.Size = new System.Drawing.Size(340, 117);
+            this.userTypeListBox.Size = new System.Drawing.Size(340, 140);
             this.userTypeListBox.TabIndex = 2;
             // 
             // emailTextBox

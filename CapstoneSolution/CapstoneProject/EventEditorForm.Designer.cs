@@ -34,7 +34,6 @@
             this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.userInstructionLabel = new System.Windows.Forms.Label();
@@ -73,7 +72,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label12.Location = new System.Drawing.Point(243, 47);
+            this.label12.Location = new System.Drawing.Point(235, 47);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(126, 23);
             this.label12.TabIndex = 51;
@@ -88,8 +87,7 @@
             this.columnHeader11,
             this.columnHeader12,
             this.columnHeader13,
-            this.columnHeader14,
-            this.columnHeader15});
+            this.columnHeader14});
             this.eventsListView.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventsListView.ForeColor = System.Drawing.Color.White;
             this.eventsListView.FullRowSelect = true;
@@ -97,7 +95,6 @@
             this.eventsListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.eventsListView.Name = "eventsListView";
             this.eventsListView.Size = new System.Drawing.Size(900, 230);
-            this.eventsListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.eventsListView.TabIndex = 50;
             this.eventsListView.UseCompatibleStateImageBehavior = false;
             this.eventsListView.View = System.Windows.Forms.View.Details;
@@ -105,28 +102,23 @@
             // 
             // columnHeader11
             // 
-            this.columnHeader11.Text = "Start Time";
-            this.columnHeader11.Width = 0;
+            this.columnHeader11.Text = "Time";
+            this.columnHeader11.Width = 169;
             // 
             // columnHeader12
             // 
-            this.columnHeader12.Text = "Time";
+            this.columnHeader12.Text = "Title";
             this.columnHeader12.Width = 169;
             // 
             // columnHeader13
             // 
-            this.columnHeader13.Text = "Title";
+            this.columnHeader13.Text = "Type";
             this.columnHeader13.Width = 169;
             // 
             // columnHeader14
             // 
-            this.columnHeader14.Text = "Type";
+            this.columnHeader14.Text = "Location";
             this.columnHeader14.Width = 169;
-            // 
-            // columnHeader15
-            // 
-            this.columnHeader15.Text = "Location";
-            this.columnHeader15.Width = 169;
             // 
             // label4
             // 
@@ -188,9 +180,11 @@
             this.startTimePicker1.CustomFormat = "";
             this.startTimePicker1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startTimePicker1.Location = new System.Drawing.Point(741, 342);
+            this.startTimePicker1.MinDate = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             this.startTimePicker1.Name = "startTimePicker1";
             this.startTimePicker1.Size = new System.Drawing.Size(351, 30);
             this.startTimePicker1.TabIndex = 60;
+            this.startTimePicker1.Value = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             // 
             // eventTypeListBox
             // 
@@ -309,10 +303,12 @@
             this.startTimePicker2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.startTimePicker2.Location = new System.Drawing.Point(741, 379);
+            this.startTimePicker2.MinDate = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             this.startTimePicker2.Name = "startTimePicker2";
             this.startTimePicker2.ShowUpDown = true;
             this.startTimePicker2.Size = new System.Drawing.Size(351, 30);
             this.startTimePicker2.TabIndex = 73;
+            this.startTimePicker2.Value = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             // 
             // label9
             // 
@@ -440,6 +436,7 @@
             this.saveButton.TabIndex = 87;
             this.saveButton.Text = "Save Event";
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // clearButton
             // 
@@ -455,6 +452,7 @@
             this.clearButton.TabIndex = 88;
             this.clearButton.Text = "Clear Entry";
             this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // cancelButton
             // 
@@ -470,6 +468,7 @@
             this.cancelButton.TabIndex = 89;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = false;
+            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // label18
             // 
@@ -580,7 +579,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader12;
         private System.Windows.Forms.ColumnHeader columnHeader13;
         private System.Windows.Forms.ColumnHeader columnHeader14;
-        private System.Windows.Forms.ColumnHeader columnHeader15;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label userInstructionLabel;
