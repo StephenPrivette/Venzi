@@ -10,15 +10,3 @@ C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\o
 C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CopyComplete
 C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.dll
 C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.pdb
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.dll
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.pdb
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\Dapper.dll
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\Dapper.xml
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.xml
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csprojAssemblyReference.cache
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CoreCompileInputs.cache
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CopyComplete
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.dll
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.pdb
