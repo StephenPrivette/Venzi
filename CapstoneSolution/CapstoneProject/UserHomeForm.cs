@@ -87,6 +87,7 @@ namespace CapstoneProject
                 lvItem.SubItems.Add(i.eventName);
                 lvItem.SubItems.Add(i.eventTypeName);
                 lvItem.SubItems.Add(i.locationName);
+                lvItem.SubItems.Add(i.description);
                 lv.Items.Add(lvItem);
             }
         }
@@ -127,7 +128,7 @@ namespace CapstoneProject
             bool delete = false;
             Event eveCopy = new Event();
 
-            // making sure something was selected
+            // If statement that makes sure an item from the list is selected.
             if (itineraryListView.SelectedItems.Count != 0)
             {
                 foreach (Event eve in Apex.i.mainUser.getItinerary())
@@ -323,6 +324,35 @@ namespace CapstoneProject
             body.Append(bodyRichTextBox.Text);
 
             Apex.i.sendEmail(toTextBox.Text, subjectTextbox.Text, body.ToString());
+        }
+
+        // Method that will display more details about an event that a user selects - ATW.
+        private void eventDetailsButton_Click(object sender, EventArgs e)
+        {
+            {
+                // Checks to make sure that an item is selected
+                if (scheduleListView.SelectedItems.Count != 0)
+                {
+                    foreach (Event eve in Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList())
+                    {
+                        if (eve.eventName == scheduleListView.SelectedItems[0].SubItems[2].Text)
+                        {
+                            // Creates an instance of the DetailsForm and fills it with information from the database
+                            DetailsForm form1 = new DetailsForm();
+                            form1.populateForm(scheduleListView.SelectedItems[0].SubItems[2].Text, scheduleListView.SelectedItems[0].SubItems[1].Text,
+                                               scheduleListView.SelectedItems[0].SubItems[4].Text, scheduleListView.SelectedItems[0].SubItems[3].Text,
+                                                scheduleListView.SelectedItems[0].SubItems[5].Text);
+                            form1.Show();
+
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You must select an event from the schedule.");
+                }
+
+            }
         }
     }
 }
