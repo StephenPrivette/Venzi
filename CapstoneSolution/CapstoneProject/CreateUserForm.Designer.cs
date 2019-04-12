@@ -43,6 +43,12 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.firstTextBox = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lastTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // userTextBox
@@ -65,7 +71,7 @@
             this.passwordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passwordTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordTextBox.ForeColor = System.Drawing.Color.White;
-            this.passwordTextBox.Location = new System.Drawing.Point(268, 397);
+            this.passwordTextBox.Location = new System.Drawing.Point(268, 528);
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(340, 30);
@@ -125,7 +131,7 @@
             this.emailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.emailTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailTextBox.ForeColor = System.Drawing.Color.White;
-            this.emailTextBox.Location = new System.Drawing.Point(268, 533);
+            this.emailTextBox.Location = new System.Drawing.Point(268, 618);
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(340, 30);
@@ -140,7 +146,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(200, 20);
             this.label14.TabIndex = 78;
-            this.label14.Text = "(4 to 20 characters)";
+            this.label14.Text = "(4 to 30 characters)";
             this.label14.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label18
@@ -161,7 +167,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label5.Location = new System.Drawing.Point(89, 397);
+            this.label5.Location = new System.Drawing.Point(89, 527);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label5.Size = new System.Drawing.Size(173, 27);
@@ -174,7 +180,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label6.Location = new System.Drawing.Point(89, 533);
+            this.label6.Location = new System.Drawing.Point(89, 617);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label6.Size = new System.Drawing.Size(173, 27);
@@ -187,11 +193,11 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(268, 375);
+            this.label1.Location = new System.Drawing.Point(268, 506);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(340, 20);
             this.label1.TabIndex = 85;
-            this.label1.Text = "(1 lower, 1 upper, 1 special, 4 to 20 characters)";
+            this.label1.Text = "(1 lower, 1 upper, 1 special, 4 to 12 characters)";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label3
@@ -199,11 +205,11 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(408, 511);
+            this.label3.Location = new System.Drawing.Point(408, 596);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(200, 20);
             this.label3.TabIndex = 86;
-            this.label3.Text = "(4 to 20 characters)";
+            this.label3.Text = "(4 to 40 characters)";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label4
@@ -243,6 +249,82 @@
             this.label8.TabIndex = 89;
             this.label8.Text = "Create New User";
             // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label2.Location = new System.Drawing.Point(89, 348);
+            this.label2.Name = "label2";
+            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label2.Size = new System.Drawing.Size(173, 27);
+            this.label2.TabIndex = 92;
+            this.label2.Text = "First Name";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // label9
+            // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(408, 326);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(200, 20);
+            this.label9.TabIndex = 91;
+            this.label9.Text = "(4 to 20 characters)";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // firstTextBox
+            // 
+            this.firstTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.firstTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.firstTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.firstTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstTextBox.ForeColor = System.Drawing.Color.White;
+            this.firstTextBox.Location = new System.Drawing.Point(268, 348);
+            this.firstTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.firstTextBox.Name = "firstTextBox";
+            this.firstTextBox.Size = new System.Drawing.Size(340, 30);
+            this.firstTextBox.TabIndex = 90;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label10.Location = new System.Drawing.Point(89, 437);
+            this.label10.Name = "label10";
+            this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label10.Size = new System.Drawing.Size(173, 27);
+            this.label10.TabIndex = 95;
+            this.label10.Text = "Last Name";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(408, 416);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(200, 20);
+            this.label11.TabIndex = 94;
+            this.label11.Text = "(4 to 20 characters)";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // lastTextBox
+            // 
+            this.lastTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lastTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.lastTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lastTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastTextBox.ForeColor = System.Drawing.Color.White;
+            this.lastTextBox.Location = new System.Drawing.Point(268, 438);
+            this.lastTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lastTextBox.Name = "lastTextBox";
+            this.lastTextBox.Size = new System.Drawing.Size(340, 30);
+            this.lastTextBox.TabIndex = 93;
+            // 
             // CreateUserForm
             // 
             this.AcceptButton = this.createUserButton;
@@ -250,6 +332,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(1181, 753);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.lastTextBox);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.firstTextBox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label4);
@@ -290,5 +378,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox firstTextBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox lastTextBox;
     }
 }

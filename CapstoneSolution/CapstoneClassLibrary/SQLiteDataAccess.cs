@@ -37,6 +37,7 @@ namespace CapstoneClassLibrary
             }
 
             query = query.Substring(0, (query.Length - 2));
+
             query += " WHERE " + obj.GetType().GetProperties()[1].Name + " = '"
                 + obj.GetType().GetProperties()[1].GetValue(obj).ToString() + "'";
 
@@ -383,6 +384,43 @@ namespace CapstoneClassLibrary
             }
 
             return events; ;
+        }
+
+        // deletes passed in event id from all itineraries
+        public void deleteEventFromAllItineraries(int id)
+        {
+            List<int> userIDs = new List<int>();
+
+            using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
+            {
+                cnn.Open();
+                SQLiteCommand command = cnn.CreateCommand();
+                command.CommandText = "SELECT UserID FROM Users";
+                SQLiteDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    userIDs.Add(reader.GetInt32(0));
+                }
+
+                reader.Close();
+                cnn.Close();
+            }
+
+            // for every user id select that itinerary and delete the event from it
+            foreach (int i in userIDs)
+            {
+                string query = "DELETE FROM Itinerary" + i + " WHERE EventID = " + id;
+
+                using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
+                {
+                    cnn.Open();
+                    SQLiteCommand command = cnn.CreateCommand();
+                    command.CommandText = query;
+                    command.ExecuteNonQuery();
+                    cnn.Close();
+                }
+            }
         }
     }
 }

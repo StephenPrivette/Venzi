@@ -30,10 +30,13 @@
         {
             this.label12 = new System.Windows.Forms.Label();
             this.eventsListView = new System.Windows.Forms.ListView();
-            this.columnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader13 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader14 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.setupColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.startColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.endColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.breakdownColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.titleColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.typeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.locationColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.userInstructionLabel = new System.Windows.Forms.Label();
@@ -59,11 +62,14 @@
             this.label17 = new System.Windows.Forms.Label();
             this.saveButton = new System.Windows.Forms.Button();
             this.clearButton = new System.Windows.Forms.Button();
-            this.cancelButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.eventDurationTextBox = new System.Windows.Forms.MaskedTextBox();
             this.setupDurationTextBox = new System.Windows.Forms.MaskedTextBox();
             this.breakdownDurationTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.deleteButton = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.eventsComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label12
@@ -72,7 +78,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label12.Location = new System.Drawing.Point(235, 47);
+            this.label12.Location = new System.Drawing.Point(100, 44);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(126, 23);
             this.label12.TabIndex = 51;
@@ -84,10 +90,13 @@
             this.eventsListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.eventsListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.eventsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader11,
-            this.columnHeader12,
-            this.columnHeader13,
-            this.columnHeader14});
+            this.setupColumnHeader,
+            this.startColumnHeader,
+            this.endColumnHeader,
+            this.breakdownColumnHeader,
+            this.titleColumnHeader,
+            this.typeColumnHeader,
+            this.locationColumnHeader});
             this.eventsListView.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventsListView.ForeColor = System.Drawing.Color.White;
             this.eventsListView.FullRowSelect = true;
@@ -100,25 +109,40 @@
             this.eventsListView.View = System.Windows.Forms.View.Details;
             this.eventsListView.SelectedIndexChanged += new System.EventHandler(this.eventsListView_SelectedIndexChanged);
             // 
-            // columnHeader11
+            // setupColumnHeader
             // 
-            this.columnHeader11.Text = "Time";
-            this.columnHeader11.Width = 169;
+            this.setupColumnHeader.Text = "Setup Start";
+            this.setupColumnHeader.Width = 120;
             // 
-            // columnHeader12
+            // startColumnHeader
             // 
-            this.columnHeader12.Text = "Title";
-            this.columnHeader12.Width = 169;
+            this.startColumnHeader.Text = "Event Start";
+            this.startColumnHeader.Width = 90;
             // 
-            // columnHeader13
+            // endColumnHeader
             // 
-            this.columnHeader13.Text = "Type";
-            this.columnHeader13.Width = 169;
+            this.endColumnHeader.Text = "Event End";
+            this.endColumnHeader.Width = 90;
             // 
-            // columnHeader14
+            // breakdownColumnHeader
             // 
-            this.columnHeader14.Text = "Location";
-            this.columnHeader14.Width = 169;
+            this.breakdownColumnHeader.Text = "Breakdown End";
+            this.breakdownColumnHeader.Width = 90;
+            // 
+            // titleColumnHeader
+            // 
+            this.titleColumnHeader.Text = "Title";
+            this.titleColumnHeader.Width = 120;
+            // 
+            // typeColumnHeader
+            // 
+            this.typeColumnHeader.Text = "Type";
+            this.typeColumnHeader.Width = 100;
+            // 
+            // locationColumnHeader
+            // 
+            this.locationColumnHeader.Text = "Location";
+            this.locationColumnHeader.Width = 100;
             // 
             // label4
             // 
@@ -344,7 +368,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(232, 20);
             this.label11.TabIndex = 78;
-            this.label11.Text = "(duration in hours and minutes)";
+            this.label11.Text = "(hours and minutes)";
             this.label11.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label13
@@ -356,7 +380,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(232, 20);
             this.label13.TabIndex = 79;
-            this.label13.Text = "(duration in hours and minutes)";
+            this.label13.Text = "(hours and minutes)";
             this.label13.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label14
@@ -368,7 +392,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(232, 20);
             this.label14.TabIndex = 82;
-            this.label14.Text = "(duration in hours and minutes)";
+            this.label14.Text = "(hours and minutes)";
             this.label14.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label15
@@ -406,7 +430,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(232, 20);
             this.label16.TabIndex = 85;
-            this.label16.Text = "(4 to 80 characters)";
+            this.label16.Text = "(4 to 400 characters)";
             this.label16.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label17
@@ -445,7 +469,7 @@
             this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.clearButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.clearButton.ForeColor = System.Drawing.Color.White;
-            this.clearButton.Location = new System.Drawing.Point(993, 154);
+            this.clearButton.Location = new System.Drawing.Point(993, 175);
             this.clearButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.clearButton.Name = "clearButton";
             this.clearButton.Size = new System.Drawing.Size(149, 60);
@@ -454,28 +478,28 @@
             this.clearButton.UseVisualStyleBackColor = false;
             this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
-            // cancelButton
+            // exitButton
             // 
-            this.cancelButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.cancelButton.BackColor = System.Drawing.Color.SaddleBrown;
-            this.cancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cancelButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cancelButton.ForeColor = System.Drawing.Color.White;
-            this.cancelButton.Location = new System.Drawing.Point(993, 69);
-            this.cancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(149, 60);
-            this.cancelButton.TabIndex = 89;
-            this.cancelButton.Text = "Cancel";
-            this.cancelButton.UseVisualStyleBackColor = false;
-            this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
+            this.exitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.exitButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitButton.ForeColor = System.Drawing.Color.White;
+            this.exitButton.Location = new System.Drawing.Point(993, 47);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(149, 60);
+            this.exitButton.TabIndex = 89;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = false;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // label18
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(791, 47);
+            this.label18.Location = new System.Drawing.Point(232, 47);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(165, 20);
             this.label18.TabIndex = 90;
@@ -524,17 +548,64 @@
             this.breakdownDurationTextBox.TabIndex = 93;
             this.breakdownDurationTextBox.ValidatingType = typeof(System.DateTime);
             // 
+            // deleteButton
+            // 
+            this.deleteButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.deleteButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.deleteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteButton.ForeColor = System.Drawing.Color.White;
+            this.deleteButton.Location = new System.Drawing.Point(993, 111);
+            this.deleteButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.deleteButton.Name = "deleteButton";
+            this.deleteButton.Size = new System.Drawing.Size(149, 60);
+            this.deleteButton.TabIndex = 94;
+            this.deleteButton.Text = "Delete";
+            this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
+            // 
+            // label23
+            // 
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(756, 10);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(200, 20);
+            this.label23.TabIndex = 96;
+            this.label23.Text = "(order by)";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // eventsComboBox
+            // 
+            this.eventsComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.eventsComboBox.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventsComboBox.ForeColor = System.Drawing.Color.White;
+            this.eventsComboBox.FormattingEnabled = true;
+            this.eventsComboBox.Items.AddRange(new object[] {
+            "Time",
+            "Type",
+            "Location"});
+            this.eventsComboBox.Location = new System.Drawing.Point(768, 33);
+            this.eventsComboBox.Name = "eventsComboBox";
+            this.eventsComboBox.Size = new System.Drawing.Size(188, 31);
+            this.eventsComboBox.TabIndex = 95;
+            this.eventsComboBox.SelectedIndexChanged += new System.EventHandler(this.eventsComboBox_SelectedIndexChanged);
+            // 
             // EventEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.Controls.Add(this.label23);
+            this.Controls.Add(this.eventsComboBox);
+            this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.breakdownDurationTextBox);
             this.Controls.Add(this.setupDurationTextBox);
             this.Controls.Add(this.eventDurationTextBox);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.cancelButton);
+            this.Controls.Add(this.exitButton);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.label17);
@@ -575,10 +646,10 @@
 
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ListView eventsListView;
-        private System.Windows.Forms.ColumnHeader columnHeader11;
-        private System.Windows.Forms.ColumnHeader columnHeader12;
-        private System.Windows.Forms.ColumnHeader columnHeader13;
-        private System.Windows.Forms.ColumnHeader columnHeader14;
+        private System.Windows.Forms.ColumnHeader startColumnHeader;
+        private System.Windows.Forms.ColumnHeader titleColumnHeader;
+        private System.Windows.Forms.ColumnHeader typeColumnHeader;
+        private System.Windows.Forms.ColumnHeader locationColumnHeader;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox nameTextBox;
         private System.Windows.Forms.Label userInstructionLabel;
@@ -604,10 +675,16 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button clearButton;
-        private System.Windows.Forms.Button cancelButton;
+        private System.Windows.Forms.Button exitButton;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.MaskedTextBox eventDurationTextBox;
         private System.Windows.Forms.MaskedTextBox setupDurationTextBox;
         private System.Windows.Forms.MaskedTextBox breakdownDurationTextBox;
+        private System.Windows.Forms.ColumnHeader setupColumnHeader;
+        private System.Windows.Forms.ColumnHeader breakdownColumnHeader;
+        private System.Windows.Forms.ColumnHeader endColumnHeader;
+        private System.Windows.Forms.Button deleteButton;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox eventsComboBox;
     }
 }

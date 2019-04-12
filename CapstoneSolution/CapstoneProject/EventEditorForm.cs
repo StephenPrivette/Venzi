@@ -20,8 +20,9 @@ namespace CapstoneProject
 
         private void EventEditorForm_Load(object sender, EventArgs e)
         {
-            // on load populate info
-            populateEventListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList().OrderBy(x => x.startTime).ToList(), eventsListView);
+            eventsComboBox.SelectedIndex = 0;
+
+            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
 
             loadEventTypes();
             loadLocations();
@@ -52,15 +53,34 @@ namespace CapstoneProject
         }
 
         // populates the listviews on this form with data
-        private void populateEventListView(List<Event> events, ListView lv)
+        private void populateListView(List<Event> events, ListView lv, ComboBox cb)
         {
             lv.SelectedItems.Clear();
             lv.Items.Clear();
 
+            if (cb.SelectedIndex == 0)
+            {
+                events = events.OrderBy(x => x.startTime).ToList();
+            }
+            else if (cb.SelectedIndex == 1)
+            {
+                events = events.OrderBy(x => x.eventTypeName).ToList();
+            }
+            else if (cb.SelectedIndex == 2)
+            {
+                events = events.OrderBy(x => x.locationName).ToList();
+            }
+            else
+            {
+                events = events.OrderBy(x => x.startTime).ToList();
+            }
+
             foreach (Event i in events)
             {
-                ListViewItem lvItem = new ListViewItem(i.startTime.ToString("MM/dd h:mm tt")
-                    + " - " + (i.startTime + i.eventDuration).ToString("t"));
+                ListViewItem lvItem = new ListViewItem((i.startTime - i.setupDuration).ToString("MM/dd h:mm tt"));
+                lvItem.SubItems.Add(i.startTime.ToString("h:mm tt"));
+                lvItem.SubItems.Add((i.startTime + i.eventDuration).ToString("h:mm tt"));
+                lvItem.SubItems.Add((i.startTime + i.eventDuration + i.breakdownDuration).ToString("h:mm tt"));
                 lvItem.SubItems.Add(i.eventName);
                 lvItem.SubItems.Add(i.eventTypeName);
                 lvItem.SubItems.Add(i.locationName);
@@ -87,7 +107,7 @@ namespace CapstoneProject
         {
             if(eventsListView.SelectedIndices.Count > 0)
             {
-                Event currentEvent = (Event)Apex.i.getObjectFromDbByName(new Event(), eventsListView.SelectedItems[0].SubItems[1].Text);
+                Event currentEvent = (Event)Apex.i.getObjectFromDbByName(new Event(), eventsListView.SelectedItems[0].SubItems[4].Text);
 
                 nameTextBox.Text = currentEvent.eventName;
                 startTimePicker1.Value = currentEvent.startTime;
@@ -124,8 +144,7 @@ namespace CapstoneProject
                             locationListBox.SelectedItem.ToString(), startTimePicker1.Value, startTimePicker2.Value,
                             eDur, sDur, bDur, descriptionRichTextBox.Text));
 
-                            populateEventListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList().OrderBy(x => x.startTime).ToList(), eventsListView);
-                            // clearFields();
+                            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
                         }
                         else
                         {
@@ -135,7 +154,7 @@ namespace CapstoneProject
                 }
                 else
                 {
-                    if (MessageBox.Show("Are you sure you want to create a new event named " + nameTextBox.Text,
+                    if (MessageBox.Show("Are you sure you want to create a new event named " + nameTextBox.Text + "?",
                         "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         TimeSpan eDur = new TimeSpan();
@@ -150,8 +169,7 @@ namespace CapstoneProject
                             locationListBox.SelectedItem.ToString(), startTimePicker1.Value, startTimePicker2.Value,
                             eDur, sDur, bDur, descriptionRichTextBox.Text));
 
-                            populateEventListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList().OrderBy(x => x.startTime).ToList(), eventsListView);
-                            // clearFields();
+                            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
                         }
                         else
                         {
@@ -166,14 +184,42 @@ namespace CapstoneProject
             }
         }
 
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (eventsListView.SelectedIndices.Count > 0)
+            {
+                Event currentEvent = (Event)Apex.i.getObjectFromDbByName(new Event(), eventsListView.SelectedItems[0].SubItems[4].Text);
+
+                // checking with user to ensure they really want to delete the event
+                if (MessageBox.Show("Are you sure you want to delete the " + currentEvent.eventName +
+                    " Event?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    MessageBox.Show(Apex.i.deleteEventFromDb(new Event(), currentEvent.eventName));
+
+                    populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
+
+                    clearFields();
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must select an event from the list to delete.");
+            }
+        }
+
         private void clearButton_Click(object sender, EventArgs e)
         {
             clearFields();
         }
 
-        private void cancelButton_Click(object sender, EventArgs e)
+        private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void eventsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
         }
     }
 }

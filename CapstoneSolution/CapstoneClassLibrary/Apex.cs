@@ -39,9 +39,12 @@ namespace CapstoneClassLibrary
 
         // constants
         private int DEFAULTMIN = 4;
-        private int DEFAULTMAX = 20;
+        private int DEFAULTMAX = 30;
         private int EMAILMAX = 40;
-        private int DESCRIPTIONMAX = 80;
+        private int DESCRIPTIONMAX = 400;
+        private int PASSWORDMAX = 12;
+        private int FIRSTNAMEMAX = 20;
+        private int LASTNAMEMAX = 20;
 
         // validates length of user entries
         private bool valEntry(string entry, int min, int max)
@@ -50,7 +53,7 @@ namespace CapstoneClassLibrary
         }
 
         // returns true if the username and password are valid
-        public string createNewUser(string username, string password, string usertype, string email)
+        public string createNewUser(string username, string firstName, string lastName, string password, string usertype, string email)
         {
             // flags for each condition
             bool upper = false;
@@ -58,8 +61,9 @@ namespace CapstoneClassLibrary
             bool special = false;
 
             // validating password, email, and username length
-            if (valEntry(password, DEFAULTMIN, DEFAULTMAX) && valEntry(username, DEFAULTMIN, DEFAULTMAX) &&
-                valEntry(password, DEFAULTMIN, EMAILMAX))
+            if (valEntry(password, DEFAULTMIN, PASSWORDMAX) && valEntry(username, DEFAULTMIN, DEFAULTMAX) &&
+                valEntry(email, DEFAULTMIN, EMAILMAX) && valEntry(firstName, DEFAULTMIN, FIRSTNAMEMAX) &&
+                valEntry(lastName, DEFAULTMIN, LASTNAMEMAX))
             {
                 // for every char in password check to see if it meets each condition. if so that flag is true
                 foreach (char ch in password)
@@ -86,6 +90,8 @@ namespace CapstoneClassLibrary
                     // ATW: Creates a new user object to store values the current user inputs.
                     User newUser = new User();
                     newUser.userName = username;
+                    newUser.userFirstName = firstName;
+                    newUser.userLastName = lastName;
                     newUser.userPass = password;
                     newUser.userTypeName = usertype;
                     newUser.userEmail = email;
@@ -127,6 +133,12 @@ namespace CapstoneClassLibrary
 
                             db.createItinerary(newUser);
 
+                            /*
+                            * 
+                            * TODO: SEND EMAIL TO USER WELCOMING THEM TO VENZI
+                            * 
+                            */
+
                             return "The user has been created successfully.";
                         }
                         else
@@ -167,6 +179,12 @@ namespace CapstoneClassLibrary
                     return "This username already exists.";
                 }
 
+                /*
+                * 
+                * TODO: SEND EMAIL TO USER SAYING THEIR USERNAME WAS CHANGED
+                * 
+                */
+
                 return "The username has been changed successfully.";
             }
             else
@@ -184,7 +202,7 @@ namespace CapstoneClassLibrary
             bool special = false;
 
             // validating password length
-            if (valEntry(newPassword, DEFAULTMIN, DEFAULTMAX))
+            if (valEntry(newPassword, DEFAULTMIN, PASSWORDMAX))
             {
                 // for every char in password check to see if it meets each condition. if so that flag is true
                 foreach (char ch in newPassword)
@@ -210,6 +228,12 @@ namespace CapstoneClassLibrary
                 {
                     mainUser.userPass = newPassword;
                     db.updateDbFromObject(mainUser);
+
+                    /*
+                    * 
+                    * TODO: SEND EMAIL TO USER SAYING THEIR PASSWORD WAS CHANGED
+                    * 
+                    */
 
                     return "The password has been changed successfully.";
                 }
@@ -251,15 +275,22 @@ namespace CapstoneClassLibrary
         // adds event type to database
         public string addEventTypeToDb(object obj, string name)
         {
-            // making sure event type doesn't already exist
-            if (!db.isObjectNameInDb(obj, name))
+            if (valEntry(name, DEFAULTMIN, DEFAULTMAX))
             {
-                db.insertObjectIntoDb(obj);
-                return obj.GetType().Name + " has been added.";
+                // making sure event type doesn't already exist
+                if (!db.isObjectNameInDb(obj, name))
+                {
+                    db.insertObjectIntoDb(obj);
+                    return obj.GetType().Name + " has been added.";
+                }
+                else
+                {
+                    return "This name already exists.";
+                }
             }
             else
             {
-                return obj.GetType().Name + " this name already exists.";
+                return "The name does not meet the criteria.";
             }
         }
 
@@ -290,15 +321,106 @@ namespace CapstoneClassLibrary
         //adds location to database
         public string addLocationToDb(object obj, string name)
         {
-            // making sure location doesn't already exist
-            if (!db.isObjectNameInDb(obj, name))
+            if (valEntry(name, DEFAULTMIN, DEFAULTMAX))
             {
-                db.insertObjectIntoDb(obj);
+                // making sure location doesn't already exist
+                if (!db.isObjectNameInDb(obj, name))
+                {
+                    db.insertObjectIntoDb(obj);
+                    return obj.GetType().Name + " has been added.";
+                }
+                else
+                {
+                    return "This name already exists.";
+                }
+            }
+            else
+            {
+                return "The name does not meet the criteria.";
+            }
+        }
+
+        // deletes event type from database
+        public string deleteUserTypeFromDb(object obj, string name)
+        {
+            // making sure record exists
+            if (db.isObjectNameInDb(obj, name))
+            {
+                // checking events to make sure there aren't any with that event type
+                if (!db.isSelectWhereInDb("Users", "UserTypeName", name))
+                {
+                    db.deleteObjectFromDb(obj, name);
+                    return obj.GetType().Name + " has been deleted.";
+                }
+                else
+                {
+                    return "There are still user that use this type. " +
+                        "In order to delete this type, the type for these users must be changed first.";
+                }
+            }
+            else
+            {
+                return obj.GetType().Name + " does not exist in the database.";
+            }
+        }
+
+        //adds user type to database
+        public string addUserTypeToDb(object obj, string name)
+        {
+            if (valEntry(name, DEFAULTMIN, DEFAULTMAX))
+            {
+                // making sure user type doesn't already exist
+                if (!db.isObjectNameInDb(obj, name))
+                {
+                    db.insertObjectIntoDb(obj);
+                    return obj.GetType().Name + " has been added.";
+                }
+                else
+                {
+                    return "This name already exists.";
+                }
+            }
+            else
+            {
+                return "The name does not meet the criteria.";
+            }
+        }
+
+        //adds user type to database
+        public string updateUserTypePermissions(UserType obj)
+        {
+            if (db.isObjectNameInDb(obj, obj.userTypeName))
+            {
+                db.updateDbFromObject(obj);
                 return obj.GetType().Name + " has been added.";
             }
             else
             {
-                return obj.GetType().Name + " this name already exists.";
+                return "This user type does not exist.";
+            }
+        }
+
+        // deletes event type from database
+        public string deleteEventFromDb(object obj, string name)
+        {
+            // making sure record exists
+            if (db.isObjectNameInDb(obj, name))
+            {
+                Event eventToDelete = (Event)db.getObjectFromDbByName(obj, name);
+                db.deleteEventFromAllItineraries(eventToDelete.eventID);
+                db.deleteObjectFromDb(obj, name);
+
+                /*
+                * 
+                * TODO: SEND EMAIL TO ALL USERS TELLING THEM THAT THIS EVENT HAS BEEN CANCELLED
+                * 
+                */
+
+                return obj.GetType().Name + " has been deleted.";
+            }
+            else
+            {
+                return obj.GetType().Name + " does not exist in the database.";
             }
         }
 
@@ -306,6 +428,12 @@ namespace CapstoneClassLibrary
         public object getObjectFromDbByName(object obj, string name)
         {
             return db.getObjectFromDbByName(obj, name);
+        }
+
+        // retrieves corresponding object from the database by looking up its ID
+        public object getObjectFromDbById(object obj, int id)
+        {
+            return db.getObjectFromDbById(obj, id);
         }
 
         // saves itinerary to the database
@@ -415,18 +543,72 @@ namespace CapstoneClassLibrary
             }
         }
 
+        // grants a user request for a specific user type
+        public string grantUserTypeRequest(string username)
+        {
+            User userWhoRequested = (User)getObjectFromDbByName(new User(), username);
+            UserTypeRequest requestCopy = new UserTypeRequest();
+            List<UserTypeRequest> requests = getAllFromTable(new UserTypeRequest()).Cast<UserTypeRequest>().ToList();
+
+            foreach (UserTypeRequest request in requests)
+            {
+                if (userWhoRequested.userID == request.userID)
+                {
+                    userWhoRequested.userTypeName = request.userTypeName;
+                    requestCopy = request;
+                }
+            }
+
+            db.updateDbFromObject(userWhoRequested);
+            db.deleteObjectFromDb(requestCopy, requestCopy.userID.ToString());
+
+            /*
+             * 
+             * TODO: SEND EMAIL TO USER SAYING THEIR REQUEST WAS ACCEPTED
+             * 
+             */
+
+            return "Request granted successfully.";
+        }
+
+        // grants a user request for a specific user type
+        public string denyUserTypeRequest(string username)
+        {
+            User userWhoRequested = (User)getObjectFromDbByName(new User(), username);
+            UserTypeRequest requestCopy = new UserTypeRequest();
+            List<UserTypeRequest> requests = getAllFromTable(new UserTypeRequest()).Cast<UserTypeRequest>().ToList();
+
+            foreach (UserTypeRequest request in requests)
+            {
+                if (userWhoRequested.userID == request.userID)
+                {
+                    requestCopy = request;
+                }
+            }
+
+            db.deleteObjectFromDb(requestCopy, requestCopy.userID.ToString());
+
+            /*
+             * 
+             * TODO: SEND EMAIL TO USER SAYING THEIR REQUEST WAS DENIED
+             * 
+             */
+
+            return "Request denied successfully.";
+        }
+
         //This will be used to send emails
         public void sendEmail(string to, string subject, string body)
         {
-            string adminEmail = "cp5k.owner@gmail.com"; //User login credential
+            string fromAddress = "cp5k.owner@gmail.com";
 
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Settings for gmail
             client.UseDefaultCredentials = false; //required by gmail smtp
             client.EnableSsl = true; //required by gmail smtp
-            client.Credentials = new System.Net.NetworkCredential(adminEmail, "Password!@#"); //hardcoded password
+            client.Credentials = new System.Net.NetworkCredential(fromAddress, "Password!@#"); //hardcoded password
 
             //Basics of en email
-            MailAddress fromMailAddress = new MailAddress(adminEmail); //admin username
+            MailAddress fromMailAddress = new MailAddress(fromAddress);
             MailMessage mail = new MailMessage();
 
             //Everything here needs to get passed when calling SendEmail(from, )
@@ -437,6 +619,32 @@ namespace CapstoneClassLibrary
             mail.IsBodyHtml = false;
 
             client.Send(mail);
+
+            /*
+             * 
+             * TODO: A TRY CATCH TO CATCH EXCEPTIONS THROWN BY EMAIL ADDRESSES THAT ARE NOT WORKING.
+             * EVEN IF THE ADDRESS IS VALIDATED BY SYSTEM.NET.MAIL IT DOESN'T MEAN THAT IT'S A WORKING ADDRESS.
+             * 
+             */
+
+
+
+            /*
+             * TODO: POSSIBLE WAY TO VALIDATE EMAIL ADDRESS
+             * 
+            bool IsValidEmail(string email)
+            {
+                try
+                {
+                    var addr = new System.Net.Mail.MailAddress(email);
+                    return addr.Address == email;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            */
         }
     }
 }

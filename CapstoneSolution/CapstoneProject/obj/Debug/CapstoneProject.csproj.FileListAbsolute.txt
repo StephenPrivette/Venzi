@@ -20,3 +20,4 @@ C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\De
 C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.exe
 C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.pdb
 C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.EventEditorForm.resources
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.UserAssignmentForm.resources

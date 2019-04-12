@@ -34,6 +34,8 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.eventsTabPage = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.eveManComboBox = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -59,7 +61,35 @@
             this.columnHeader15 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label8 = new System.Windows.Forms.Label();
             this.userTabPage = new System.Windows.Forms.TabPage();
+            this.assignButton = new System.Windows.Forms.Button();
+            this.denyButton = new System.Windows.Forms.Button();
+            this.grantButton = new System.Windows.Forms.Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.userRequestsComboBox = new System.Windows.Forms.ComboBox();
+            this.userRequestsListView = new System.Windows.Forms.ListView();
+            this.typeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.usernameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.firstNameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lastNameColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.label34 = new System.Windows.Forms.Label();
+            this.changePermissionsButton = new System.Windows.Forms.Button();
+            this.permissionsLabel = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.permissionsComboBox = new System.Windows.Forms.ComboBox();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.deleteUserTypeButton = new System.Windows.Forms.Button();
+            this.userTypeListBox = new System.Windows.Forms.ListBox();
+            this.addUserTypeButton = new System.Windows.Forms.Button();
+            this.userTypeTextBox = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.scheduleTabPage = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
+            this.itineraryComboBox = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.scheduleComboBox = new System.Windows.Forms.ComboBox();
             this.itineraryListView = new System.Windows.Forms.ListView();
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -94,6 +124,7 @@
             this.userInstructionLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.eventsTabPage.SuspendLayout();
+            this.userTabPage.SuspendLayout();
             this.scheduleTabPage.SuspendLayout();
             this.emailTabPage.SuspendLayout();
             this.accountTabPage.SuspendLayout();
@@ -175,6 +206,8 @@
             // eventsTabPage
             // 
             this.eventsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.eventsTabPage.Controls.Add(this.label16);
+            this.eventsTabPage.Controls.Add(this.eveManComboBox);
             this.eventsTabPage.Controls.Add(this.label12);
             this.eventsTabPage.Controls.Add(this.label11);
             this.eventsTabPage.Controls.Add(this.label10);
@@ -202,6 +235,33 @@
             this.eventsTabPage.Size = new System.Drawing.Size(1174, 717);
             this.eventsTabPage.TabIndex = 3;
             this.eventsTabPage.Text = "Event Management";
+            // 
+            // label16
+            // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(942, 35);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(200, 20);
+            this.label16.TabIndex = 87;
+            this.label16.Text = "(order by)";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // eveManComboBox
+            // 
+            this.eveManComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.eveManComboBox.ForeColor = System.Drawing.Color.White;
+            this.eveManComboBox.FormattingEnabled = true;
+            this.eveManComboBox.Items.AddRange(new object[] {
+            "Time",
+            "Type",
+            "Location"});
+            this.eveManComboBox.Location = new System.Drawing.Point(954, 58);
+            this.eveManComboBox.Name = "eveManComboBox";
+            this.eveManComboBox.Size = new System.Drawing.Size(188, 31);
+            this.eveManComboBox.TabIndex = 86;
+            this.eveManComboBox.SelectedIndexChanged += new System.EventHandler(this.eveManComboBox_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -277,7 +337,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(200, 19);
             this.label17.TabIndex = 78;
-            this.label17.Text = "(4 to 20 characters)";
+            this.label17.Text = "(4 to 30 characters)";
             this.label17.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label14
@@ -289,7 +349,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(200, 19);
             this.label14.TabIndex = 77;
-            this.label14.Text = "(4 to 20 characters)";
+            this.label14.Text = "(4 to 30 characters)";
             this.label14.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // deleteLocationButton
@@ -476,22 +536,22 @@
             // columnHeader12
             // 
             this.columnHeader12.Text = "Time";
-            this.columnHeader12.Width = 169;
+            this.columnHeader12.Width = 210;
             // 
             // columnHeader13
             // 
             this.columnHeader13.Text = "Title";
-            this.columnHeader13.Width = 169;
+            this.columnHeader13.Width = 186;
             // 
             // columnHeader14
             // 
             this.columnHeader14.Text = "Type";
-            this.columnHeader14.Width = 169;
+            this.columnHeader14.Width = 140;
             // 
             // columnHeader15
             // 
             this.columnHeader15.Text = "Location";
-            this.columnHeader15.Width = 169;
+            this.columnHeader15.Width = 140;
             // 
             // label8
             // 
@@ -508,16 +568,342 @@
             // userTabPage
             // 
             this.userTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
-            this.userTabPage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.userTabPage.Controls.Add(this.assignButton);
+            this.userTabPage.Controls.Add(this.denyButton);
+            this.userTabPage.Controls.Add(this.grantButton);
+            this.userTabPage.Controls.Add(this.label31);
+            this.userTabPage.Controls.Add(this.userRequestsComboBox);
+            this.userTabPage.Controls.Add(this.userRequestsListView);
+            this.userTabPage.Controls.Add(this.label34);
+            this.userTabPage.Controls.Add(this.changePermissionsButton);
+            this.userTabPage.Controls.Add(this.permissionsLabel);
+            this.userTabPage.Controls.Add(this.label30);
+            this.userTabPage.Controls.Add(this.label32);
+            this.userTabPage.Controls.Add(this.permissionsComboBox);
+            this.userTabPage.Controls.Add(this.label29);
+            this.userTabPage.Controls.Add(this.label26);
+            this.userTabPage.Controls.Add(this.label27);
+            this.userTabPage.Controls.Add(this.deleteUserTypeButton);
+            this.userTabPage.Controls.Add(this.userTypeListBox);
+            this.userTabPage.Controls.Add(this.addUserTypeButton);
+            this.userTabPage.Controls.Add(this.userTypeTextBox);
+            this.userTabPage.Controls.Add(this.label28);
+            this.userTabPage.ForeColor = System.Drawing.Color.White;
             this.userTabPage.Location = new System.Drawing.Point(4, 32);
             this.userTabPage.Name = "userTabPage";
             this.userTabPage.Size = new System.Drawing.Size(1174, 717);
             this.userTabPage.TabIndex = 4;
             this.userTabPage.Text = "User Management";
             // 
+            // assignButton
+            // 
+            this.assignButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.assignButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.assignButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.assignButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.assignButton.ForeColor = System.Drawing.Color.White;
+            this.assignButton.Location = new System.Drawing.Point(934, 378);
+            this.assignButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.assignButton.Name = "assignButton";
+            this.assignButton.Size = new System.Drawing.Size(165, 90);
+            this.assignButton.TabIndex = 110;
+            this.assignButton.Text = "Assign Level 1 Users";
+            this.assignButton.UseVisualStyleBackColor = false;
+            this.assignButton.Click += new System.EventHandler(this.assignButton_Click);
+            // 
+            // denyButton
+            // 
+            this.denyButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.denyButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.denyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.denyButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.denyButton.ForeColor = System.Drawing.Color.White;
+            this.denyButton.Location = new System.Drawing.Point(47, 246);
+            this.denyButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.denyButton.Name = "denyButton";
+            this.denyButton.Size = new System.Drawing.Size(165, 54);
+            this.denyButton.TabIndex = 109;
+            this.denyButton.Text = "Deny";
+            this.denyButton.UseVisualStyleBackColor = false;
+            this.denyButton.Click += new System.EventHandler(this.denyButton_Click);
+            // 
+            // grantButton
+            // 
+            this.grantButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grantButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.grantButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.grantButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grantButton.ForeColor = System.Drawing.Color.White;
+            this.grantButton.Location = new System.Drawing.Point(47, 127);
+            this.grantButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.grantButton.Name = "grantButton";
+            this.grantButton.Size = new System.Drawing.Size(165, 54);
+            this.grantButton.TabIndex = 108;
+            this.grantButton.Text = "Grant";
+            this.grantButton.UseVisualStyleBackColor = false;
+            this.grantButton.Click += new System.EventHandler(this.grantButton_Click);
+            // 
+            // label31
+            // 
+            this.label31.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label31.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.ForeColor = System.Drawing.Color.White;
+            this.label31.Location = new System.Drawing.Point(941, 44);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(200, 20);
+            this.label31.TabIndex = 107;
+            this.label31.Text = "(order by)";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // userRequestsComboBox
+            // 
+            this.userRequestsComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.userRequestsComboBox.ForeColor = System.Drawing.Color.White;
+            this.userRequestsComboBox.FormattingEnabled = true;
+            this.userRequestsComboBox.Items.AddRange(new object[] {
+            "Requested Type"});
+            this.userRequestsComboBox.Location = new System.Drawing.Point(953, 67);
+            this.userRequestsComboBox.Name = "userRequestsComboBox";
+            this.userRequestsComboBox.Size = new System.Drawing.Size(188, 31);
+            this.userRequestsComboBox.TabIndex = 106;
+            // 
+            // userRequestsListView
+            // 
+            this.userRequestsListView.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userRequestsListView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.userRequestsListView.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userRequestsListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.typeColumnHeader,
+            this.usernameColumnHeader,
+            this.firstNameColumnHeader,
+            this.lastNameColumnHeader});
+            this.userRequestsListView.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userRequestsListView.ForeColor = System.Drawing.Color.White;
+            this.userRequestsListView.FullRowSelect = true;
+            this.userRequestsListView.Location = new System.Drawing.Point(241, 103);
+            this.userRequestsListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userRequestsListView.Name = "userRequestsListView";
+            this.userRequestsListView.Size = new System.Drawing.Size(900, 230);
+            this.userRequestsListView.TabIndex = 104;
+            this.userRequestsListView.UseCompatibleStateImageBehavior = false;
+            this.userRequestsListView.View = System.Windows.Forms.View.Details;
+            // 
+            // typeColumnHeader
+            // 
+            this.typeColumnHeader.Text = "Requested Type";
+            this.typeColumnHeader.Width = 169;
+            // 
+            // usernameColumnHeader
+            // 
+            this.usernameColumnHeader.Text = "Username";
+            this.usernameColumnHeader.Width = 169;
+            // 
+            // firstNameColumnHeader
+            // 
+            this.firstNameColumnHeader.Text = "First Name";
+            this.firstNameColumnHeader.Width = 169;
+            // 
+            // lastNameColumnHeader
+            // 
+            this.lastNameColumnHeader.Text = "Last Name";
+            this.lastNameColumnHeader.Width = 169;
+            // 
+            // label34
+            // 
+            this.label34.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.White;
+            this.label34.Location = new System.Drawing.Point(556, 30);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(263, 38);
+            this.label34.TabIndex = 103;
+            this.label34.Text = "User Type Requests";
+            // 
+            // changePermissionsButton
+            // 
+            this.changePermissionsButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.changePermissionsButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.changePermissionsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.changePermissionsButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changePermissionsButton.ForeColor = System.Drawing.Color.White;
+            this.changePermissionsButton.Location = new System.Drawing.Point(86, 517);
+            this.changePermissionsButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.changePermissionsButton.Name = "changePermissionsButton";
+            this.changePermissionsButton.Size = new System.Drawing.Size(211, 40);
+            this.changePermissionsButton.TabIndex = 102;
+            this.changePermissionsButton.Text = "Change Permissions";
+            this.changePermissionsButton.UseVisualStyleBackColor = false;
+            this.changePermissionsButton.Click += new System.EventHandler(this.changePermissionsButton_Click);
+            // 
+            // permissionsLabel
+            // 
+            this.permissionsLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.permissionsLabel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.permissionsLabel.ForeColor = System.Drawing.Color.White;
+            this.permissionsLabel.Location = new System.Drawing.Point(651, 608);
+            this.permissionsLabel.Name = "permissionsLabel";
+            this.permissionsLabel.Size = new System.Drawing.Size(338, 84);
+            this.permissionsLabel.TabIndex = 101;
+            // 
+            // label30
+            // 
+            this.label30.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label30.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label30.ForeColor = System.Drawing.Color.White;
+            this.label30.Location = new System.Drawing.Point(332, 433);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(275, 19);
+            this.label30.TabIndex = 100;
+            this.label30.Text = "(highlight to see permissions)";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // label32
+            // 
+            this.label32.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label32.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.Color.White;
+            this.label32.Location = new System.Drawing.Point(728, 515);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(117, 20);
+            this.label32.TabIndex = 99;
+            this.label32.Text = "(0, 1, or 2)";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // permissionsComboBox
+            // 
+            this.permissionsComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.permissionsComboBox.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.permissionsComboBox.ForeColor = System.Drawing.Color.White;
+            this.permissionsComboBox.FormattingEnabled = true;
+            this.permissionsComboBox.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2"});
+            this.permissionsComboBox.Location = new System.Drawing.Point(718, 538);
+            this.permissionsComboBox.Name = "permissionsComboBox";
+            this.permissionsComboBox.Size = new System.Drawing.Size(127, 49);
+            this.permissionsComboBox.TabIndex = 98;
+            this.permissionsComboBox.SelectedIndexChanged += new System.EventHandler(this.permissionsComboBox_SelectedIndexChanged);
+            // 
+            // label29
+            // 
+            this.label29.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label29.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label29.Location = new System.Drawing.Point(684, 488);
+            this.label29.Name = "label29";
+            this.label29.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label29.Size = new System.Drawing.Size(173, 27);
+            this.label29.TabIndex = 96;
+            this.label29.Text = "Permissions Level";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // label26
+            // 
+            this.label26.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label26.Location = new System.Drawing.Point(153, 661);
+            this.label26.Name = "label26";
+            this.label26.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label26.Size = new System.Drawing.Size(173, 27);
+            this.label26.TabIndex = 90;
+            this.label26.Text = "New User Type";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // label27
+            // 
+            this.label27.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.White;
+            this.label27.Location = new System.Drawing.Point(407, 639);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(200, 19);
+            this.label27.TabIndex = 89;
+            this.label27.Text = "(4 to 30 characters)";
+            this.label27.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // deleteUserTypeButton
+            // 
+            this.deleteUserTypeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.deleteUserTypeButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.deleteUserTypeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.deleteUserTypeButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deleteUserTypeButton.ForeColor = System.Drawing.Color.White;
+            this.deleteUserTypeButton.Location = new System.Drawing.Point(86, 454);
+            this.deleteUserTypeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.deleteUserTypeButton.Name = "deleteUserTypeButton";
+            this.deleteUserTypeButton.Size = new System.Drawing.Size(211, 40);
+            this.deleteUserTypeButton.TabIndex = 88;
+            this.deleteUserTypeButton.Text = "Delete Type";
+            this.deleteUserTypeButton.UseVisualStyleBackColor = false;
+            this.deleteUserTypeButton.Click += new System.EventHandler(this.deleteUserTypeButton_Click);
+            // 
+            // userTypeListBox
+            // 
+            this.userTypeListBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userTypeListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.userTypeListBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userTypeListBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userTypeListBox.ForeColor = System.Drawing.Color.White;
+            this.userTypeListBox.FormattingEnabled = true;
+            this.userTypeListBox.ItemHeight = 23;
+            this.userTypeListBox.Location = new System.Drawing.Point(332, 454);
+            this.userTypeListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userTypeListBox.Name = "userTypeListBox";
+            this.userTypeListBox.Size = new System.Drawing.Size(275, 163);
+            this.userTypeListBox.TabIndex = 86;
+            this.userTypeListBox.SelectedIndexChanged += new System.EventHandler(this.userTypeListBox_SelectedIndexChanged);
+            // 
+            // addUserTypeButton
+            // 
+            this.addUserTypeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.addUserTypeButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.addUserTypeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addUserTypeButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addUserTypeButton.ForeColor = System.Drawing.Color.White;
+            this.addUserTypeButton.Location = new System.Drawing.Point(86, 577);
+            this.addUserTypeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.addUserTypeButton.Name = "addUserTypeButton";
+            this.addUserTypeButton.Size = new System.Drawing.Size(211, 40);
+            this.addUserTypeButton.TabIndex = 87;
+            this.addUserTypeButton.Text = "Add Type";
+            this.addUserTypeButton.UseVisualStyleBackColor = false;
+            this.addUserTypeButton.Click += new System.EventHandler(this.addUserTypeButton_Click);
+            // 
+            // userTypeTextBox
+            // 
+            this.userTypeTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.userTypeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.userTypeTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.userTypeTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userTypeTextBox.ForeColor = System.Drawing.Color.White;
+            this.userTypeTextBox.Location = new System.Drawing.Point(332, 662);
+            this.userTypeTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userTypeTextBox.Name = "userTypeTextBox";
+            this.userTypeTextBox.Size = new System.Drawing.Size(275, 30);
+            this.userTypeTextBox.TabIndex = 85;
+            // 
+            // label28
+            // 
+            this.label28.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label28.ForeColor = System.Drawing.Color.White;
+            this.label28.Location = new System.Drawing.Point(453, 378);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(154, 38);
+            this.label28.TabIndex = 84;
+            this.label28.Text = "User Types";
+            // 
             // scheduleTabPage
             // 
             this.scheduleTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.scheduleTabPage.Controls.Add(this.label24);
+            this.scheduleTabPage.Controls.Add(this.itineraryComboBox);
+            this.scheduleTabPage.Controls.Add(this.label23);
+            this.scheduleTabPage.Controls.Add(this.scheduleComboBox);
             this.scheduleTabPage.Controls.Add(this.itineraryListView);
             this.scheduleTabPage.Controls.Add(this.scheduleListView);
             this.scheduleTabPage.Controls.Add(this.deleteButton);
@@ -531,6 +917,60 @@
             this.scheduleTabPage.Size = new System.Drawing.Size(1174, 717);
             this.scheduleTabPage.TabIndex = 0;
             this.scheduleTabPage.Text = "Schedule";
+            // 
+            // label24
+            // 
+            this.label24.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.ForeColor = System.Drawing.Color.White;
+            this.label24.Location = new System.Drawing.Point(732, 397);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(200, 20);
+            this.label24.TabIndex = 91;
+            this.label24.Text = "(order by)";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // itineraryComboBox
+            // 
+            this.itineraryComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.itineraryComboBox.ForeColor = System.Drawing.Color.White;
+            this.itineraryComboBox.FormattingEnabled = true;
+            this.itineraryComboBox.Items.AddRange(new object[] {
+            "Time",
+            "Type",
+            "Location"});
+            this.itineraryComboBox.Location = new System.Drawing.Point(744, 420);
+            this.itineraryComboBox.Name = "itineraryComboBox";
+            this.itineraryComboBox.Size = new System.Drawing.Size(188, 31);
+            this.itineraryComboBox.TabIndex = 90;
+            this.itineraryComboBox.SelectedIndexChanged += new System.EventHandler(this.itineraryComboBox_SelectedIndexChanged);
+            // 
+            // label23
+            // 
+            this.label23.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.White;
+            this.label23.Location = new System.Drawing.Point(732, 41);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(200, 20);
+            this.label23.TabIndex = 89;
+            this.label23.Text = "(order by)";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // scheduleComboBox
+            // 
+            this.scheduleComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.scheduleComboBox.ForeColor = System.Drawing.Color.White;
+            this.scheduleComboBox.FormattingEnabled = true;
+            this.scheduleComboBox.Items.AddRange(new object[] {
+            "Time",
+            "Type",
+            "Location"});
+            this.scheduleComboBox.Location = new System.Drawing.Point(744, 64);
+            this.scheduleComboBox.Name = "scheduleComboBox";
+            this.scheduleComboBox.Size = new System.Drawing.Size(188, 31);
+            this.scheduleComboBox.TabIndex = 88;
+            this.scheduleComboBox.SelectedIndexChanged += new System.EventHandler(this.scheduleComboBox_SelectedIndexChanged);
             // 
             // itineraryListView
             // 
@@ -557,22 +997,22 @@
             // columnHeader6
             // 
             this.columnHeader6.Text = "Time";
-            this.columnHeader6.Width = 169;
+            this.columnHeader6.Width = 210;
             // 
             // columnHeader7
             // 
             this.columnHeader7.Text = "Title";
-            this.columnHeader7.Width = 169;
+            this.columnHeader7.Width = 186;
             // 
             // columnHeader8
             // 
             this.columnHeader8.Text = "Type";
-            this.columnHeader8.Width = 169;
+            this.columnHeader8.Width = 140;
             // 
             // columnHeader9
             // 
             this.columnHeader9.Text = "Location";
-            this.columnHeader9.Width = 169;
+            this.columnHeader9.Width = 140;
             // 
             // scheduleListView
             // 
@@ -599,22 +1039,22 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Time";
-            this.columnHeader1.Width = 169;
+            this.columnHeader1.Width = 210;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Title";
-            this.columnHeader2.Width = 169;
+            this.columnHeader2.Width = 186;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Type";
-            this.columnHeader3.Width = 169;
+            this.columnHeader3.Width = 140;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Location";
-            this.columnHeader4.Width = 169;
+            this.columnHeader4.Width = 140;
             // 
             // emailTabPage
             // 
@@ -788,7 +1228,7 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(341, 20);
             this.label22.TabIndex = 86;
-            this.label22.Text = "(1 lower, 1 upper, 1 special, 4 to 20 characters)";
+            this.label22.Text = "(1 lower, 1 upper, 1 special, 4 to 12 characters)";
             this.label22.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label15
@@ -800,7 +1240,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(200, 19);
             this.label15.TabIndex = 67;
-            this.label15.Text = "(4 to 20 characters)";
+            this.label15.Text = "(4 to 30 characters)";
             this.label15.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // signOutButton
@@ -931,7 +1371,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Black;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1182, 753);
             this.Controls.Add(this.tabControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -942,6 +1382,8 @@
             this.tabControl1.ResumeLayout(false);
             this.eventsTabPage.ResumeLayout(false);
             this.eventsTabPage.PerformLayout();
+            this.userTabPage.ResumeLayout(false);
+            this.userTabPage.PerformLayout();
             this.scheduleTabPage.ResumeLayout(false);
             this.scheduleTabPage.PerformLayout();
             this.emailTabPage.ResumeLayout(false);
@@ -1018,5 +1460,35 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox eveManComboBox;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.ComboBox itineraryComboBox;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox scheduleComboBox;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button deleteUserTypeButton;
+        private System.Windows.Forms.ListBox userTypeListBox;
+        private System.Windows.Forms.Button addUserTypeButton;
+        private System.Windows.Forms.TextBox userTypeTextBox;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ComboBox permissionsComboBox;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label permissionsLabel;
+        private System.Windows.Forms.Button changePermissionsButton;
+        private System.Windows.Forms.Button denyButton;
+        private System.Windows.Forms.Button grantButton;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.ComboBox userRequestsComboBox;
+        private System.Windows.Forms.ListView userRequestsListView;
+        private System.Windows.Forms.ColumnHeader typeColumnHeader;
+        private System.Windows.Forms.ColumnHeader usernameColumnHeader;
+        private System.Windows.Forms.ColumnHeader firstNameColumnHeader;
+        private System.Windows.Forms.ColumnHeader lastNameColumnHeader;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Button assignButton;
     }
 }

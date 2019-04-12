@@ -13,6 +13,8 @@ namespace CapstoneClassLibrary
         public string userPass { get; set; }
         public string userTypeName { get; set; }
         public string userEmail { get; set; }
+        public string userFirstName { get; set; }
+        public string userLastName { get; set; }
         private List<Event> itinerary;
 
         // adds passed in event to itinerary

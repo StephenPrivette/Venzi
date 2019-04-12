@@ -17,24 +17,27 @@ namespace CapstoneProject
         {
             InitializeComponent();
 
-            if (Apex.i.mainUser.userTypeName == "Administrator")
+            UserType currentUserType = (UserType)Apex.i.getObjectFromDbByName(new UserType(), Apex.i.mainUser.userTypeName);
+
+            if (currentUserType.userPermissionsLevel == 0)
             {
                 tabControl1.TabPages.Remove(scheduleTabPage);
             }
-            else if (Apex.i.mainUser.userTypeName == "Attendee")
+            else if (currentUserType.userPermissionsLevel == 1)
             {
                 tabControl1.TabPages.Remove(eventsTabPage);
                 tabControl1.TabPages.Remove(userTabPage);
+                tabControl1.TabPages.Remove(emailTabPage);
+
+                label2.Text = "Your Work Schedule";
+                addButton.Visible = false;
+                deleteButton.Visible = false;
             }
-            else if (Apex.i.mainUser.userTypeName == "Performer")
+            else
             {
                 tabControl1.TabPages.Remove(eventsTabPage);
                 tabControl1.TabPages.Remove(userTabPage);
-            }
-            else if (Apex.i.mainUser.userTypeName == "Staff")
-            {
-                tabControl1.TabPages.Remove(eventsTabPage);
-                tabControl1.TabPages.Remove(userTabPage);
+                tabControl1.TabPages.Remove(emailTabPage);
             }
         }
 
@@ -44,18 +47,28 @@ namespace CapstoneProject
             Apex.i.loadItineraryFromDb();
 
             // on form load populate listviews
-            populateEventListView(Apex.i.mainUser.getItinerary().OrderBy(x => x.startTime).ToList(), itineraryListView);
-            populateEventListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList().OrderBy(x => x.startTime).ToList(), scheduleListView);
-            populateEventListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList().OrderBy(x => x.startTime).ToList(), eveManEventsListView);
+            eveManComboBox.SelectedIndex = 0;
+            scheduleComboBox.SelectedIndex = 0;
+            itineraryComboBox.SelectedIndex = 0;
+            userRequestsComboBox.SelectedIndex = 0;
+
+            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eveManEventsListView, eveManComboBox);
+            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), scheduleListView, scheduleComboBox);
+            populateListView(Apex.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
+
+            populateUserRequestListView(Apex.i.getAllFromTable(new UserTypeRequest()).Cast<UserTypeRequest>().ToList(),
+                userRequestsListView);
 
             loadEventTypes();
             loadLocations();
+            loadUserTypes();
         }
 
         private void loadEventTypes()
         {
             eventTypeListBox.SelectedItems.Clear();
             eventTypeListBox.Items.Clear();
+            eventTypeTextBox.Clear();
 
             foreach (EventType type in Apex.i.getAllFromTable(new EventType()).Cast<EventType>().ToList())
             {
@@ -67,6 +80,7 @@ namespace CapstoneProject
         {
             locationListBox.SelectedItems.Clear();
             locationListBox.Items.Clear();
+            locationTextBox.Clear();
 
             foreach (Location loc in Apex.i.getAllFromTable(new Location()).Cast<Location>().ToList())
             {
@@ -74,11 +88,40 @@ namespace CapstoneProject
             }
         }
 
+        private void loadUserTypes()
+        {
+            userTypeListBox.SelectedItems.Clear();
+            userTypeListBox.Items.Clear();
+            userTypeTextBox.Clear();
+
+            foreach (UserType type in Apex.i.getAllFromTable(new UserType()).Cast<UserType>().ToList())
+            {
+                userTypeListBox.Items.Add(type.userTypeName);
+            }
+        }
+
         // populates the listviews on this form with data
-        private void populateEventListView(List<Event> events, ListView lv)
+        private void populateListView(List<Event> events, ListView lv, ComboBox cb)
         {
             lv.SelectedItems.Clear();
             lv.Items.Clear();
+
+            if (cb.SelectedIndex == 0)
+            {
+                events = events.OrderBy(x => x.startTime).ToList();
+            }
+            else if (cb.SelectedIndex == 1)
+            {
+                events = events.OrderBy(x => x.eventTypeName).ToList();
+            }
+            else if (cb.SelectedIndex == 2)
+            {
+                events = events.OrderBy(x => x.locationName).ToList();
+            }
+            else
+            {
+                events = events.OrderBy(x => x.startTime).ToList();
+            }
 
             foreach (Event i in events)
             {
@@ -87,6 +130,26 @@ namespace CapstoneProject
                 lvItem.SubItems.Add(i.eventName);
                 lvItem.SubItems.Add(i.eventTypeName);
                 lvItem.SubItems.Add(i.locationName);
+                lv.Items.Add(lvItem);
+            }
+        }
+
+        // populates the listviews on this form with data
+        private void populateUserRequestListView(List<UserTypeRequest> requests, ListView lv)
+        {
+            lv.SelectedItems.Clear();
+            lv.Items.Clear();
+
+            requests = requests.OrderBy(x => x.userTypeName).ToList();
+
+            foreach (UserTypeRequest i in requests)
+            {
+                User userWhoRequested = (User)Apex.i.getObjectFromDbById(new User(), i.userID);
+
+                ListViewItem lvItem = new ListViewItem(i.userTypeName.ToString());
+                lvItem.SubItems.Add(userWhoRequested.userName);
+                lvItem.SubItems.Add(userWhoRequested.userFirstName);
+                lvItem.SubItems.Add(userWhoRequested.userLastName);
                 lv.Items.Add(lvItem);
             }
         }
@@ -105,7 +168,7 @@ namespace CapstoneProject
                             Apex.i.saveItineraryToDb();
                             Apex.i.loadItineraryFromDb();
 
-                            populateEventListView(Apex.i.mainUser.getItinerary().OrderBy(x => x.startTime).ToList(), itineraryListView);
+                            populateListView(Apex.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
                         }
                         else
                         {
@@ -152,7 +215,7 @@ namespace CapstoneProject
                     Apex.i.saveItineraryToDb();
                     Apex.i.loadItineraryFromDb();
 
-                    populateEventListView(Apex.i.mainUser.getItinerary().OrderBy(x => x.startTime).ToList(), itineraryListView);
+                    populateListView(Apex.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
                 }
                 else
                 {
@@ -214,6 +277,8 @@ namespace CapstoneProject
         {
             EventEditorForm eventEditorForm1 = new EventEditorForm();
             eventEditorForm1.ShowDialog();
+
+            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eveManEventsListView, eveManComboBox);
         }
 
         // deletes event type 
@@ -323,6 +388,195 @@ namespace CapstoneProject
             body.Append(bodyRichTextBox.Text);
 
             Apex.i.sendEmail(toTextBox.Text, subjectTextbox.Text, body.ToString());
+        }
+
+        private void eveManComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eveManEventsListView, eveManComboBox);
+        }
+
+        private void scheduleComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), scheduleListView, scheduleComboBox);
+        }
+
+        private void itineraryComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            populateListView(Apex.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
+        }
+
+        private void deleteUserTypeButton_Click(object sender, EventArgs e)
+        {
+            if (userTypeListBox.SelectedIndex >= 0)
+            {
+                // checking with user to ensure they really want to delete the event type
+                if (MessageBox.Show("Are you sure you want to delete the " + userTypeListBox.SelectedItem.ToString() +
+                    " User Type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    string message = Apex.i.deleteUserTypeFromDb(new UserType(), userTypeListBox.SelectedItem.ToString());
+
+                    // if the message is good don't show it
+                    if (message != new UserType().GetType().Name + " has been deleted.")
+                    {
+                        MessageBox.Show(message);
+                    }
+
+                    loadUserTypes();
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must select a user type from the list.");
+            }
+        }
+
+        private void addUserTypeButton_Click(object sender, EventArgs e)
+        {
+            // making sure text box is not empty
+            if (userTypeTextBox.Text.Length > 0)
+            {
+                if(permissionsComboBox.SelectedIndex != -1)
+                {
+                    UserType ut = new UserType();
+                    ut.userTypeName = userTypeTextBox.Text;
+                    ut.userPermissionsLevel = permissionsComboBox.SelectedIndex;
+
+                    string message = Apex.i.addUserTypeToDb(ut, userTypeTextBox.Text);
+
+                    // if message is good don't show it
+                    if (message != ut.GetType().Name + " has been added.")
+                    {
+                        MessageBox.Show(message);
+                    }
+
+                    loadUserTypes();
+                }
+                else
+                {
+                    MessageBox.Show("You must select a permissions level");
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must type a name in the text box.");
+            }
+        }
+
+        private void userTypeListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (userTypeListBox.SelectedIndex >= 0)
+            {
+                UserType ut = (UserType)Apex.i.getObjectFromDbByName(new UserType(), userTypeListBox.SelectedItem.ToString());
+                permissionsComboBox.SelectedIndex = ut.userPermissionsLevel;
+                if(ut.userPermissionsLevel == 0)
+                {
+                    permissionsLabel.Text = "Full access. (the permissions you are currently logged in with)" +
+                        " The ability to create/delete events, locations, types, etc. Recommended for administrators only.";
+                }
+                else if (ut.userPermissionsLevel == 1)
+                {
+                    permissionsLabel.Text = "Limited access. Changes the itinerary to a work schedule." +
+                        " The ability to view but not create or delete. Recommended for staff only.";
+                }
+                else
+                {
+                    permissionsLabel.Text = "Very limited access. Adds the ability to add or delete events from a personal itinerary." +
+                        " The ability to view but not create or delete. Recommended for attendees/non-employees.";
+                }
+            }
+        }
+
+        private void changePermissionsButton_Click(object sender, EventArgs e)
+        {
+            if (userTypeListBox.SelectedIndex >= 0)
+            {
+                if (permissionsComboBox.SelectedIndex != -1)
+                {
+                    // checking with user to ensure they really want to delete the event type
+                    if (MessageBox.Show("Are you sure you want to update the permissions for " + userTypeListBox.SelectedItem.ToString() +
+                        " User Type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        UserType ut = new UserType();
+                        ut.userTypeName = userTypeListBox.SelectedItem.ToString();
+                        ut.userPermissionsLevel = permissionsComboBox.SelectedIndex;
+
+                        string message = Apex.i.updateUserTypePermissions(ut);
+
+                        // if message is good don't show it
+                        if (message != ut.GetType().Name + " has been added.")
+                        {
+                            MessageBox.Show(message);
+                        }
+
+                        loadUserTypes();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("You must select a permissions level");
+                }
+            }
+            else
+            {
+                MessageBox.Show("A type must be selected in the list box.");
+            }
+        }
+
+        private void permissionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (permissionsComboBox.SelectedIndex == 0)
+            {
+                permissionsLabel.Text = "Full access. (the permissions you are currently logged in with)" +
+                    " The ability to create/delete events, locations, types, etc. Recommended for administrators only.";
+            }
+            else if (permissionsComboBox.SelectedIndex == 1)
+            {
+                permissionsLabel.Text = "Limited access. Changes the itinerary to a work schedule." +
+                    " The ability to view but not create or delete. Recommended for staff only.";
+            }
+            else
+            {
+                permissionsLabel.Text = "Very limited access. Adds the ability to add or delete events from a personal itinerary." +
+                    " The ability to view but not create or delete. Recommended for attendees/non-employees.";
+            }
+        }
+
+        private void assignButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            UserAssignmentForm userAssignmentForm1 = new UserAssignmentForm();
+            userAssignmentForm1.ShowDialog();
+            this.Show();
+        }
+
+        private void grantButton_Click(object sender, EventArgs e)
+        {
+            if (userRequestsListView.SelectedItems.Count != 0)
+            {
+                MessageBox.Show(Apex.i.grantUserTypeRequest(userRequestsListView.SelectedItems[0].SubItems[1].Text));
+
+                populateUserRequestListView(Apex.i.getAllFromTable(new UserTypeRequest()).Cast<UserTypeRequest>().ToList(),
+                userRequestsListView);
+            }
+            else
+            {
+                MessageBox.Show("A request from the list must be selected.");
+            }
+        }
+
+        private void denyButton_Click(object sender, EventArgs e)
+        {
+            if (userRequestsListView.SelectedItems.Count != 0)
+            {
+                MessageBox.Show(Apex.i.denyUserTypeRequest(userRequestsListView.SelectedItems[0].SubItems[1].Text));
+
+                populateUserRequestListView(Apex.i.getAllFromTable(new UserTypeRequest()).Cast<UserTypeRequest>().ToList(),
+                userRequestsListView);
+            }
+            else
+            {
+                MessageBox.Show("A request from the list must be selected.");
+            }
         }
     }
 }
