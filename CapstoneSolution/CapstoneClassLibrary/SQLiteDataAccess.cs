@@ -37,8 +37,9 @@ namespace CapstoneClassLibrary
             }
 
             query = query.Substring(0, (query.Length - 2));
-            query += " WHERE " + obj.GetType().GetProperties()[0].Name + " = "
-                + obj.GetType().GetProperties()[0].GetValue(obj).ToString();
+
+            query += " WHERE " + obj.GetType().GetProperties()[1].Name + " = '"
+                + obj.GetType().GetProperties()[1].GetValue(obj).ToString() + "'";
 
             using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
             {
@@ -73,6 +74,22 @@ namespace CapstoneClassLibrary
             query = query.Substring(0, (query.Length - 2)) + ")";
             values = values.Substring(0, (values.Length - 2)) + ")";
             query += values;
+
+            using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
+            {
+                cnn.Open();
+                SQLiteCommand command = cnn.CreateCommand();
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+                cnn.Close();
+            }
+        }
+
+        // deletes passed in object from database
+        public void deleteObjectFromDb(object obj, string name)
+        {
+            string objTable = obj.GetType().Name + "s";
+            string query = "DELETE FROM " + objTable + " WHERE " + obj.GetType().GetProperties()[1].Name + " = '" + name + "'";
 
             using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
             {
@@ -226,6 +243,27 @@ namespace CapstoneClassLibrary
             return isInDB;
         }
 
+        // generic method for seeing if an entry exists in a record via a select query with a where clause
+        public bool isSelectWhereInDb(string table, string column, string item)
+        {
+            string query = "SELECT * FROM " + table + " WHERE " + column + " = '" + item + "'";
+
+            bool isInDB;
+
+            using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
+            {
+                cnn.Open();
+                SQLiteCommand command = cnn.CreateCommand();
+                command.CommandText = query;
+                SQLiteDataReader reader = command.ExecuteReader();
+                isInDB = reader.Read();
+                reader.Close();
+                cnn.Close();
+            }
+
+            return isInDB;
+        }
+
         // gets all records from table
         public List<object> getAllFromTable(object obj)
         {
@@ -346,6 +384,43 @@ namespace CapstoneClassLibrary
             }
 
             return events; ;
+        }
+
+        // deletes passed in event id from all itineraries
+        public void deleteEventFromAllItineraries(int id)
+        {
+            List<int> userIDs = new List<int>();
+
+            using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
+            {
+                cnn.Open();
+                SQLiteCommand command = cnn.CreateCommand();
+                command.CommandText = "SELECT UserID FROM Users";
+                SQLiteDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    userIDs.Add(reader.GetInt32(0));
+                }
+
+                reader.Close();
+                cnn.Close();
+            }
+
+            // for every user id select that itinerary and delete the event from it
+            foreach (int i in userIDs)
+            {
+                string query = "DELETE FROM Itinerary" + i + " WHERE EventID = " + id;
+
+                using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
+                {
+                    cnn.Open();
+                    SQLiteCommand command = cnn.CreateCommand();
+                    command.CommandText = query;
+                    command.ExecuteNonQuery();
+                    cnn.Close();
+                }
+            }
         }
     }
 }

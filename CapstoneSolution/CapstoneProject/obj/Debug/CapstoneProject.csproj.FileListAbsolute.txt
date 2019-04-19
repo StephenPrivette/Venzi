@@ -1,172 +1,23 @@
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.exe.config
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.exe
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.pdb
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.Properties.Resources.resources
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.GenerateResource.Cache
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.CoreCompileInputs.cache
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.exe
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.pdb
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.CreateUserForm.resources
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.LoginForm.resources
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.StartForm.resources
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.exe.config
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.exe
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.pdb
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csprojAssemblyReference.cache
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.CreateUserForm.resources
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.LoginForm.resources
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.StartForm.resources
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.Properties.Resources.resources
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.GenerateResource.cache
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.CoreCompileInputs.cache
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.exe
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.pdb
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\Dapper.dll
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.dll
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\Dapper.xml
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.xml
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.CopyComplete
-C:\Users\Gorord\Downloads\Capstone-Project-master\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\UserDB.db
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\bin\Debug\Dapper.dll
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.dll
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\bin\Debug\Dapper.xml
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.xml
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csprojAssemblyReference.cache
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.CopyComplete
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\bin\Debug\CapstoneClassLibrary.dll
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\bin\Debug\CapstoneClassLibrary.pdb
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\bin\Debug\CapstoneDatabase.db
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.UserHomeForm.resources
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\bin\Debug\CapstoneDatabase.db
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.exe.config
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.exe
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.pdb
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\bin\Debug\CapstoneClassLibrary.dll
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\bin\Debug\Dapper.dll
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.dll
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\bin\Debug\CapstoneClassLibrary.pdb
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\bin\Debug\Dapper.xml
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.xml
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csprojAssemblyReference.cache
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.CreateUserForm.resources
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.LoginForm.resources
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.StartForm.resources
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.Properties.Resources.resources
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.UserHomeForm.resources
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.GenerateResource.cache
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.CoreCompileInputs.cache
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.CopyComplete
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.exe
-C:\Users\privetts3931\Desktop\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.pdb
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\CapstoneDatabase.db
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.exe.config
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.exe
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.pdb
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\CapstoneClassLibrary.dll
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\Dapper.dll
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.dll
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\CapstoneClassLibrary.pdb
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\Dapper.xml
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.xml
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csprojAssemblyReference.cache
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.CreateUserForm.resources
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.LoginForm.resources
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.StartForm.resources
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.Properties.Resources.resources
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.UserHomeForm.resources
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.GenerateResource.cache
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.CoreCompileInputs.cache
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.CopyComplete
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.exe
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.pdb
-C:\Users\Gorord\Downloads\Capstone-Project-master (1)\Capstone-Project-master\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.ChangeUserForm.resources
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\bin\Debug\CapstoneDatabase.db
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.exe.config
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.exe
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\bin\Debug\CapstoneProject.pdb
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\bin\Debug\CapstoneClassLibrary.dll
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\bin\Debug\Dapper.dll
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.dll
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\bin\Debug\CapstoneClassLibrary.pdb
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\bin\Debug\Dapper.xml
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.xml
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csprojAssemblyReference.cache
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.ChangeUserForm.resources
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.CreateUserForm.resources
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.LoginForm.resources
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.StartForm.resources
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.Properties.Resources.resources
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.UserHomeForm.resources
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.GenerateResource.cache
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.CoreCompileInputs.cache
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.csproj.CopyComplete
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.exe
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\Capstone-Project-AaronBranch\Capstone-Project-AaronBranch\CapstoneProject\CapstoneProject\obj\Debug\CapstoneProject.pdb
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csprojAssemblyReference.cache
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.CreateUserForm.resources
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.StartForm.resources
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.Properties.Resources.resources
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.GenerateResource.cache
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CoreCompileInputs.cache
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.exe
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.pdb
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneDatabase.db
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.exe.config
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.exe
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.pdb
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneClassLibrary.dll
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\bin\Debug\Dapper.dll
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.dll
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneClassLibrary.pdb
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\bin\Debug\Dapper.xml
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.xml
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CopyComplete
-C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.UserHomeForm.resources
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneDatabase.db
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.exe.config
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.exe
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.pdb
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneClassLibrary.dll
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\Dapper.dll
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.dll
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneClassLibrary.pdb
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\Dapper.xml
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.xml
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.dll.config
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csprojAssemblyReference.cache
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.CreateUserForm.resources
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.StartForm.resources
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.Properties.Resources.resources
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.UserHomeForm.resources
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.GenerateResource.cache
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CoreCompileInputs.cache
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CopyComplete
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.exe
-C:\Test\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.pdb
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneDatabase.db
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.exe.config
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.exe
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.pdb
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneClassLibrary.dll
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\bin\Debug\Dapper.dll
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.dll
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneClassLibrary.pdb
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\bin\Debug\Dapper.xml
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.xml
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csprojAssemblyReference.cache
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.CreateUserForm.resources
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.StartForm.resources
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.Properties.Resources.resources
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.UserHomeForm.resources
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.GenerateResource.cache
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CoreCompileInputs.cache
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CopyComplete
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.exe
-C:\Users\Gorord\Documents\GitHub\Capstone-Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.pdb
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneDatabase.db
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.exe.config
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.exe
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.pdb
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneClassLibrary.dll
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\Dapper.dll
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.dll
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneClassLibrary.pdb
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\Dapper.xml
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.xml
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csprojAssemblyReference.cache
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.CreateUserForm.resources
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.StartForm.resources
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.Properties.Resources.resources
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.UserHomeForm.resources
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.GenerateResource.cache
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CoreCompileInputs.cache
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CopyComplete
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.exe
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.pdb
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.EventEditorForm.resources
+C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.UserAssignmentForm.resources

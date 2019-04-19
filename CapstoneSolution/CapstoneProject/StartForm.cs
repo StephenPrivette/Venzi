@@ -32,7 +32,7 @@ namespace CapstoneProject
                 attendeeHomeForm1.ShowDialog();
 
                 // since control returned after home form we must clear password and username and user object
-                MessageBox.Show("Signed out.");
+                // MessageBox.Show("Signed out.");
                 userTextBox.Clear();
                 passwordTextBox.Clear();
                 Apex.i.mainUser = null;
