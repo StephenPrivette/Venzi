@@ -17,6 +17,9 @@ namespace CapstoneProject
         {
             InitializeComponent();
 
+            scheduleListView.MouseDoubleClick += new MouseEventHandler(scheduleListView_MouseDoubleClick);
+
+
             UserType currentUserType = (UserType)Apex.i.getObjectFromDbByName(new UserType(), Apex.i.mainUser.userTypeName);
 
             if (currentUserType.userPermissionsLevel == 0)
@@ -577,6 +580,37 @@ namespace CapstoneProject
             {
                 MessageBox.Show("A request from the list must be selected.");
             }
+        }
+
+        private void scheduleListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo info = scheduleListView.HitTest(e.X, e.Y);
+            ListViewItem item = info.Item;
+
+            if (item != null)
+            {
+                EventDetailsForm DetailedView = new EventDetailsForm();
+                DetailedView.PopulateForm(item.Text);
+                DetailedView.Show();
+            }
+            
+            /*
+            if (item != null)
+            {
+                foreach (Event eve in Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList())
+                {
+                    EventDetailsForm DetailedView = new EventDetailsForm();
+                    DetailedView.PopulateForm(eve.eventName);
+                    DetailedView.Show();
+                    MessageBox.Show(eve.eventName);
+                }
+            }
+            else
+            {
+                MessageBox.Show("You must select an event from the schedule.");
+            }
+            */
+            
         }
     }
 }
