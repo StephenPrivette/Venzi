@@ -11,11 +11,11 @@ namespace CapstoneClassLibrary
         public int eventID { get; set; }
         public string eventName { get; set; }
         public TimeSpan eventDuration { get; set; }
-        public string eventType { get; set; }
-        public int minimumSF { get; set; }
-        public TimeSpan setupDur { get; set; }
-        public TimeSpan breakdownDur { get; set; }
+        public string eventTypeName { get; set; }
+        public TimeSpan setupDuration { get; set; }
+        public TimeSpan breakdownDuration { get; set; }
         public DateTime startTime { get; set; }
-        public string spaceName { get; set; }
+        public string locationName { get; set; }
+        public string description { get; set; }
     }
 }

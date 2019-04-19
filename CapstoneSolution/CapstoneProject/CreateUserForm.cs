@@ -17,9 +17,10 @@ namespace CapstoneProject
         {
             InitializeComponent();
 
+            // populating list box
             foreach (UserType type in Apex.i.getAllFromTable(new UserType()).Cast<UserType>().ToList())
             {
-                userTypeListBox.Items.Add(type.userType);
+                userTypeListBox.Items.Add(type.userTypeName);
             }
         }
 
@@ -29,7 +30,7 @@ namespace CapstoneProject
             if (userTypeListBox.SelectedIndex >= 0)
             {
                 // method returns string showing errors or completion
-                string mes = Apex.i.createNewUser(userTextBox.Text, passwordTextBox.Text, userTypeListBox.SelectedItem.ToString(), emailTextBox.Text);
+                string mes = Apex.i.createNewUser(userTextBox.Text, firstTextBox.Text, lastTextBox.Text, passwordTextBox.Text, userTypeListBox.SelectedItem.ToString(), emailTextBox.Text);
 
                 // did this to ensure form would close if successful
                 if (mes == "The user has been created successfully.")

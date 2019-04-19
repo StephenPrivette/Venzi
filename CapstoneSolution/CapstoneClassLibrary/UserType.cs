@@ -9,6 +9,7 @@ namespace CapstoneClassLibrary
     public class UserType
     {
         public int userTypeID { get; set; }
-        public string userType { get; set; }
+        public string userTypeName { get; set; }
+        public int userPermissionsLevel { get; set; }
     }
 }
