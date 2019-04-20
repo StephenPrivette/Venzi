@@ -17,6 +17,9 @@ namespace CapstoneProject
         {
             InitializeComponent();
 
+            scheduleListView.MouseDoubleClick += new MouseEventHandler(scheduleListView_MouseDoubleClick);
+
+
             UserType currentUserType = (UserType)Apex.i.getObjectFromDbByName(new UserType(), Apex.i.mainUser.userTypeName);
 
             if (currentUserType.userPermissionsLevel == 0)
@@ -576,6 +579,30 @@ namespace CapstoneProject
             else
             {
                 MessageBox.Show("A request from the list must be selected.");
+            }
+        }
+
+        // Method that allows the user to double click and event to see more details about it.
+        private void scheduleListView_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            ListViewHitTestInfo info = scheduleListView.HitTest(e.X, e.Y);
+            ListViewItem item = info.Item;
+
+            if (item != null)
+            {
+                foreach (Event eve in Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList())
+                {
+                    // The if statement is written this way due to how the double click feature reads from the listview,
+                    // so it has to look like this for it work - ATW
+                    if (eve.startTime.ToString("MM/dd h:mm tt") + " - " + (eve.startTime + eve.eventDuration).ToString("t") == item.Text)
+                    {
+                        EventDetailsForm DetailedView = new EventDetailsForm();
+                        DetailedView.PopulateForm(eve.eventName, eve.startTime.ToString(), eve.eventDuration.ToString(), eve.locationName,
+                                                  eve.eventTypeName, eve.setupDuration.ToString(), eve.breakdownDuration.ToString(),  eve.description);
+                        DetailedView.Show();
+                    }
+                }
+
             }
         }
     }
