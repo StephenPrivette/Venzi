@@ -582,6 +582,7 @@ namespace CapstoneProject
             }
         }
 
+        // Method that allows the user to double click and event to see more details about it.
         private void scheduleListView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListViewHitTestInfo info = scheduleListView.HitTest(e.X, e.Y);
@@ -589,28 +590,20 @@ namespace CapstoneProject
 
             if (item != null)
             {
-                EventDetailsForm DetailedView = new EventDetailsForm();
-                DetailedView.PopulateForm(item.Text);
-                DetailedView.Show();
-            }
-            
-            /*
-            if (item != null)
-            {
                 foreach (Event eve in Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList())
                 {
-                    EventDetailsForm DetailedView = new EventDetailsForm();
-                    DetailedView.PopulateForm(eve.eventName);
-                    DetailedView.Show();
-                    MessageBox.Show(eve.eventName);
+                    // The if statement is written this way due to how the double click feature reads from the listview,
+                    // so it has to look like this for it work - ATW
+                    if (eve.startTime.ToString("MM/dd h:mm tt") + " - " + (eve.startTime + eve.eventDuration).ToString("t") == item.Text)
+                    {
+                        EventDetailsForm DetailedView = new EventDetailsForm();
+                        DetailedView.PopulateForm(eve.eventName, eve.startTime.ToString(), eve.eventDuration.ToString(), eve.locationName,
+                                                  eve.eventTypeName, eve.setupDuration.ToString(), eve.breakdownDuration.ToString(),  eve.description);
+                        DetailedView.Show();
+                    }
                 }
+
             }
-            else
-            {
-                MessageBox.Show("You must select an event from the schedule.");
-            }
-            */
-            
         }
     }
 }
