@@ -88,13 +88,19 @@ namespace CapstoneClassLibrary
                 if (upper && lower && special)
                 {
                     // ATW: Creates a new user object to store values the current user inputs.
+                    // SaltingHashing is used to encrypt the password
+                    // First variable in CreateSaltHash can be changed to increase or decrease length of hash
+                    SaltingHashing userHashSalt = SaltingHashing.CreateSaltHash(30, password);
+                    string passwordHash = userHashSalt.passHash;
+                    string passwordSalt = userHashSalt.passSalt;
                     User newUser = new User();
                     newUser.userName = username;
                     newUser.userFirstName = firstName;
                     newUser.userLastName = lastName;
-                    newUser.userPass = password;
+                    newUser.userPass = passwordHash;
                     newUser.userTypeName = usertype;
                     newUser.userEmail = email;
+                    newUser.userSalt = passwordSalt;
 
                     // making sure email is unique
                     if (!db.isObjectNameInDb(newUser, username))
@@ -469,9 +475,9 @@ namespace CapstoneClassLibrary
             if(db.isObjectNameInDb(user1, username))
             {
                 user1 = (User)db.getObjectFromDbByName(user1, username);
-
+                bool authenticPassword = SaltingHashing.AuthenticPass(password, user1.userPass, user1.userSalt);
                 // making sure user has the correct password
-                if(user1.userPass == password)
+                if(authenticPassword)
                 {
                     mainUser = user1;
                     return "Login successful.";

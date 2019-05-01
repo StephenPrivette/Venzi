@@ -20,7 +20,7 @@ namespace CapstoneProject
 
         private void loginButton_Click(object sender, EventArgs e)
         {
-            // loading main user method returns a string telling of it's errors or completion
+            // loading main user method returns a string that shows if login is successful or if there was an error
             MessageBox.Show(Apex.i.loadMainUserFromDb(userTextBox.Text, passwordTextBox.Text));
 
             // if the main user has indeed been loaded
