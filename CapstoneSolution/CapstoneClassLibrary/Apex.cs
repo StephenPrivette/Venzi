@@ -43,7 +43,9 @@ namespace CapstoneClassLibrary
         private int EMAILMAX = 40;
         private int DESCRIPTIONMAX = 400;
         private int PASSWORDMAX = 12;
+        private int FIRSTNAMEMIN = 2;
         private int FIRSTNAMEMAX = 20;
+        private int LASTNAMEMIN = 2;
         private int LASTNAMEMAX = 20;
 
         // validates length of user entries
@@ -62,8 +64,8 @@ namespace CapstoneClassLibrary
 
             // validating password, email, and username length
             if (valEntry(password, DEFAULTMIN, PASSWORDMAX) && valEntry(username, DEFAULTMIN, DEFAULTMAX) &&
-                valEntry(email, DEFAULTMIN, EMAILMAX) && valEntry(firstName, DEFAULTMIN, FIRSTNAMEMAX) &&
-                valEntry(lastName, DEFAULTMIN, LASTNAMEMAX))
+                valEntry(email, DEFAULTMIN, EMAILMAX) && valEntry(firstName, FIRSTNAMEMIN, FIRSTNAMEMAX) &&
+                valEntry(lastName, LASTNAMEMIN, LASTNAMEMAX))
             {
                 // for every char in password check to see if it meets each condition. if so that flag is true
                 foreach (char ch in password)
@@ -111,13 +113,15 @@ namespace CapstoneClassLibrary
 
                         if (!doesEmailAlreadyExist)
                         {
+                            UserType newUsersType = (UserType)Apex.i.getObjectFromDbByName(new UserType(), newUser.userTypeName);
+
                             // if the user is not an attendee it must be sent for approval. in the meantime it will be created as an attendee
-                            if (newUser.userTypeName != "Attendee")
+                            if (newUsersType.userPermissionsLevel != 2)
                             {
                                 UserTypeRequest request = new UserTypeRequest();
                                 request.userTypeName = newUser.userTypeName;
 
-                                newUser.userTypeName = "Attendee";
+                                newUser.userTypeName = "Basic";
                                 db.insertObjectIntoDb(newUser);
                                 newUser = (User)db.getObjectFromDbByName(newUser, username);
 
@@ -172,7 +176,7 @@ namespace CapstoneClassLibrary
                 if (!db.isObjectNameInDb(new User(), newUsername))
                 {
                     mainUser.userName = newUsername;
-                    db.updateDbFromObject(mainUser);
+                    db.updateDbFromObjectById(mainUser);
                 }
                 else
                 {
@@ -227,7 +231,7 @@ namespace CapstoneClassLibrary
                 if (upper && lower && special)
                 {
                     mainUser.userPass = newPassword;
-                    db.updateDbFromObject(mainUser);
+                    db.updateDbFromObjectByName(mainUser);
 
                     /*
                     * 
@@ -391,7 +395,7 @@ namespace CapstoneClassLibrary
         {
             if (db.isObjectNameInDb(obj, obj.userTypeName))
             {
-                db.updateDbFromObject(obj);
+                db.updateDbFromObjectByName(obj);
                 return obj.GetType().Name + " has been added.";
             }
             else
@@ -442,10 +446,34 @@ namespace CapstoneClassLibrary
             db.saveItineraryToDb(mainUser.userID, mainUser.getItinerary());
         }
 
-        // gets itinerary from the database
+        // gets itinerary from the database and loads it into the main user's itinerary
         public void loadItineraryFromDb()
         {
             mainUser.setItinerary(db.getItineraryFromDb(mainUser.userID));
+        }
+
+        // gets itinerary as list of events from database
+        public List<Event> getItineraryFromDb(int id)
+        {
+            return db.getItineraryFromDb(id);
+        }
+
+        // deleted event id from user id's itinerary
+        public void deleteEventFromItinerary(int userID, int eventID)
+        {
+            db.deleteEventFromItinerary(userID, eventID);
+        }
+
+        // gets all users who have scheduled passed in event id
+        public List<User> getStaffAssignedToEvent(int id)
+        {
+            return db.getStaffAssignedToEvent(id);
+        }
+
+        // adds event to staff user's itinerary
+        public void assignStaffToEvent(string eventname, string username)
+        {
+            db.assignStaffToEvent(eventname, username);
         }
 
         // returns all records in a table as a list of the corresponding objects
@@ -489,7 +517,7 @@ namespace CapstoneClassLibrary
 
         // updates or inserts edited event
         public string editEvent(string name, string type, string location, DateTime startTime1, DateTime startTime2,
-            TimeSpan eventDur, TimeSpan setupDur, TimeSpan breakdownDur, string description)
+            TimeSpan eventDur, TimeSpan setupDur, TimeSpan breakdownDur, string description, int staffReq)
         {
             if (valEntry(name, DEFAULTMIN, DEFAULTMAX) && valEntry(description, DEFAULTMIN, DESCRIPTIONMAX))
             {
@@ -502,6 +530,8 @@ namespace CapstoneClassLibrary
                 event1.setupDuration = setupDur;
                 event1.breakdownDuration = breakdownDur;
                 event1.description = description;
+                event1.staffRequired = staffReq;
+                event1.staffAssigned = 0;
 
                 DateTime locationStartTime = event1.startTime - event1.setupDuration;
                 DateTime locationEndTime = event1.startTime + event1.eventDuration + event1.breakdownDuration;
@@ -526,7 +556,7 @@ namespace CapstoneClassLibrary
 
                 if (db.isObjectNameInDb(new Event(), name))
                 {
-                    db.updateDbFromObject(event1);
+                    db.updateDbFromObjectByName(event1);
 
                     return "Event updated successfully.";
                 }
@@ -559,7 +589,7 @@ namespace CapstoneClassLibrary
                 }
             }
 
-            db.updateDbFromObject(userWhoRequested);
+            db.updateDbFromObjectByName(userWhoRequested);
             db.deleteObjectFromDb(requestCopy, requestCopy.userID.ToString());
 
             /*

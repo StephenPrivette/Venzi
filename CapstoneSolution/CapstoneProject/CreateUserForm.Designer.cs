@@ -75,12 +75,12 @@
             this.passwordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(340, 30);
-            this.passwordTextBox.TabIndex = 1;
+            this.passwordTextBox.TabIndex = 3;
             // 
             // createUserButton
             // 
             this.createUserButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.createUserButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.createUserButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(50)))), ((int)(((byte)(40)))));
             this.createUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.createUserButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createUserButton.ForeColor = System.Drawing.Color.White;
@@ -88,7 +88,7 @@
             this.createUserButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.createUserButton.Name = "createUserButton";
             this.createUserButton.Size = new System.Drawing.Size(131, 39);
-            this.createUserButton.TabIndex = 3;
+            this.createUserButton.TabIndex = 6;
             this.createUserButton.Text = "Create User";
             this.createUserButton.UseVisualStyleBackColor = false;
             this.createUserButton.Click += new System.EventHandler(this.createUserButton_Click);
@@ -96,7 +96,7 @@
             // exitButton
             // 
             this.exitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.exitButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(50)))), ((int)(((byte)(40)))));
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.White;
@@ -104,7 +104,7 @@
             this.exitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(131, 39);
-            this.exitButton.TabIndex = 4;
+            this.exitButton.TabIndex = 7;
             this.exitButton.Text = "Cancel";
             this.exitButton.UseVisualStyleBackColor = false;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
@@ -122,7 +122,7 @@
             this.userTypeListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userTypeListBox.Name = "userTypeListBox";
             this.userTypeListBox.Size = new System.Drawing.Size(340, 140);
-            this.userTypeListBox.TabIndex = 2;
+            this.userTypeListBox.TabIndex = 5;
             // 
             // emailTextBox
             // 
@@ -135,7 +135,7 @@
             this.emailTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(340, 30);
-            this.emailTextBox.TabIndex = 37;
+            this.emailTextBox.TabIndex = 4;
             // 
             // label14
             // 
@@ -271,7 +271,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(200, 20);
             this.label9.TabIndex = 91;
-            this.label9.Text = "(4 to 20 characters)";
+            this.label9.Text = "(2 to 20 characters)";
             this.label9.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // firstTextBox
@@ -285,7 +285,7 @@
             this.firstTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.firstTextBox.Name = "firstTextBox";
             this.firstTextBox.Size = new System.Drawing.Size(340, 30);
-            this.firstTextBox.TabIndex = 90;
+            this.firstTextBox.TabIndex = 1;
             // 
             // label10
             // 
@@ -309,7 +309,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(200, 20);
             this.label11.TabIndex = 94;
-            this.label11.Text = "(4 to 20 characters)";
+            this.label11.Text = "(2 to 20 characters)";
             this.label11.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // lastTextBox
@@ -323,7 +323,7 @@
             this.lastTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lastTextBox.Name = "lastTextBox";
             this.lastTextBox.Size = new System.Drawing.Size(340, 30);
-            this.lastTextBox.TabIndex = 93;
+            this.lastTextBox.TabIndex = 2;
             // 
             // CreateUserForm
             // 

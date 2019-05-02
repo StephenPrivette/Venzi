@@ -21,7 +21,7 @@ namespace CapstoneClassLibrary
         }
 
         // saves the passed in object to its appropriate table in the database via an update query
-        public void updateDbFromObject(object obj)
+        public void updateDbFromObjectByName(object obj)
         {
             string objTable = obj.GetType().Name + "s";
             string query = "UPDATE " + objTable + " SET "; // start concatenating string for query
@@ -40,6 +40,37 @@ namespace CapstoneClassLibrary
 
             query += " WHERE " + obj.GetType().GetProperties()[1].Name + " = '"
                 + obj.GetType().GetProperties()[1].GetValue(obj).ToString() + "'";
+
+            using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
+            {
+                cnn.Open();
+                SQLiteCommand command = cnn.CreateCommand();
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+                cnn.Close();
+            }
+        }
+
+        // saves the passed in object to its appropriate table in the database via an update query
+        public void updateDbFromObjectById(object obj)
+        {
+            string objTable = obj.GetType().Name + "s";
+            string query = "UPDATE " + objTable + " SET "; // start concatenating string for query
+
+            int count = 1;
+
+            // iterating through the properties of the object and concatenating string with them
+            foreach (var i in obj.GetType().GetProperties())
+            {
+                if (count != 1)
+                    query += i.Name + " = '" + i.GetValue(obj) + "', ";
+                count++;
+            }
+
+            query = query.Substring(0, (query.Length - 2));
+
+            query += " WHERE " + obj.GetType().GetProperties()[0].Name + " = '"
+                + obj.GetType().GetProperties()[0].GetValue(obj).ToString() + "'";
 
             using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
             {
@@ -386,6 +417,26 @@ namespace CapstoneClassLibrary
             return events; ;
         }
 
+        // deletes event id from user id's itinerary
+        public void deleteEventFromItinerary(int userID, int eventID)
+        {
+            string query = "DELETE FROM Itinerary" + userID + " WHERE EventID = " + eventID;
+
+            Event eventToRemove = (Event)getObjectFromDbById(new Event(), eventID);
+            int numStaffAssigned = eventToRemove.staffAssigned - 1;
+
+            using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
+            {
+                cnn.Open();
+                SQLiteCommand command = cnn.CreateCommand();
+                command.CommandText = query;
+                command.ExecuteNonQuery();
+                command.CommandText = "UPDATE events SET staffAssigned = " + numStaffAssigned + " WHERE eventID = " + eventID;
+                command.ExecuteNonQuery();
+                cnn.Close();
+            }
+        }
+
         // deletes passed in event id from all itineraries
         public void deleteEventFromAllItineraries(int id)
         {
@@ -421,6 +472,92 @@ namespace CapstoneClassLibrary
                     cnn.Close();
                 }
             }
+        }
+
+        // adds event to staff user's itinerary
+        public void assignStaffToEvent(string eventname, string username)
+        {
+            User staffer = (User)getObjectFromDbByName(new User(), username);
+            Event eventToAdd = (Event)getObjectFromDbByName(new Event(), eventname);
+            int numStaffAssigned = eventToAdd.staffAssigned + 1;
+
+            using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
+            {
+                cnn.Open();
+                SQLiteCommand command = cnn.CreateCommand();
+                command.CommandText = "INSERT INTO Itinerary" + staffer.userID + " (eventID) VALUES ('" + eventToAdd.eventID + "')";
+                command.ExecuteNonQuery();
+                command.CommandText = "UPDATE events SET staffAssigned = " + numStaffAssigned + " WHERE eventID = " + eventToAdd.eventID;
+                command.ExecuteNonQuery();
+                cnn.Close();
+            }
+        }
+
+        // gets all users who have scheduled passed in event id
+        public List<User> getStaffAssignedToEvent(int id)
+        {
+            List<int> userIDs = new List<int>();
+
+            using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
+            {
+                cnn.Open();
+                SQLiteCommand command = cnn.CreateCommand();
+                command.CommandText = "SELECT UserID FROM Users";
+                SQLiteDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    userIDs.Add(reader.GetInt32(0));
+                }
+
+                reader.Close();
+                cnn.Close();
+            }
+
+            List<int> userIdsWhoScheduledEvent = new List<int>();
+            List<User> staffWhoScheduledEvent = new List<User>();
+
+            // for every user id select that itinerary and delete the event from it
+            foreach (int i in userIDs)
+            {
+                string query = "SELECT * FROM Itinerary" + i + " WHERE EventID = " + id;
+
+                bool isInDB;
+
+                using (SQLiteConnection cnn = new SQLiteConnection(loadConnectionString()))
+                {
+                    cnn.Open();
+                    SQLiteCommand command = cnn.CreateCommand();
+                    command.CommandText = query;
+                    SQLiteDataReader reader = command.ExecuteReader();
+                    isInDB = reader.Read();
+                    reader.Close();
+                    cnn.Close();
+                }
+
+                if (isInDB)
+                {
+                    userIdsWhoScheduledEvent.Add(i);
+                }
+            }
+
+            foreach(int userId in userIdsWhoScheduledEvent)
+            {
+                User user1 = (User)getObjectFromDbById(new User(), userId);
+
+                foreach(UserType ut in getAllFromTable(new UserType()).Cast<UserType>().ToList())
+                {
+                    if(ut.userPermissionsLevel == 1)
+                    {
+                        if(user1.userTypeName == ut.userTypeName)
+                        {
+                            staffWhoScheduledEvent.Add(user1);
+                        }
+                    }
+                }
+            }
+
+            return staffWhoScheduledEvent;
         }
     }
 }

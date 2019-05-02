@@ -70,6 +70,11 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.eventsComboBox = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.staffRequiredTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.requiredColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.assignedColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label12
@@ -96,7 +101,9 @@
             this.breakdownColumnHeader,
             this.titleColumnHeader,
             this.typeColumnHeader,
-            this.locationColumnHeader});
+            this.locationColumnHeader,
+            this.requiredColumnHeader,
+            this.assignedColumnHeader});
             this.eventsListView.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventsListView.ForeColor = System.Drawing.Color.White;
             this.eventsListView.FullRowSelect = true;
@@ -364,7 +371,7 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(859, 415);
+            this.label11.Location = new System.Drawing.Point(641, 416);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(232, 20);
             this.label11.TabIndex = 78;
@@ -376,7 +383,7 @@
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(859, 479);
+            this.label13.Location = new System.Drawing.Point(641, 480);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(232, 20);
             this.label13.TabIndex = 79;
@@ -388,7 +395,7 @@
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(859, 545);
+            this.label14.Location = new System.Drawing.Point(641, 545);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(232, 20);
             this.label14.TabIndex = 82;
@@ -481,7 +488,7 @@
             // exitButton
             // 
             this.exitButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.exitButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.exitButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(50)))), ((int)(((byte)(40)))));
             this.exitButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.exitButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitButton.ForeColor = System.Drawing.Color.White;
@@ -516,7 +523,7 @@
             this.eventDurationTextBox.Location = new System.Drawing.Point(741, 439);
             this.eventDurationTextBox.Mask = "90:00";
             this.eventDurationTextBox.Name = "eventDurationTextBox";
-            this.eventDurationTextBox.Size = new System.Drawing.Size(351, 30);
+            this.eventDurationTextBox.Size = new System.Drawing.Size(132, 30);
             this.eventDurationTextBox.TabIndex = 91;
             this.eventDurationTextBox.ValidatingType = typeof(System.DateTime);
             // 
@@ -530,7 +537,7 @@
             this.setupDurationTextBox.Location = new System.Drawing.Point(741, 503);
             this.setupDurationTextBox.Mask = "90:00";
             this.setupDurationTextBox.Name = "setupDurationTextBox";
-            this.setupDurationTextBox.Size = new System.Drawing.Size(351, 30);
+            this.setupDurationTextBox.Size = new System.Drawing.Size(132, 30);
             this.setupDurationTextBox.TabIndex = 92;
             this.setupDurationTextBox.ValidatingType = typeof(System.DateTime);
             // 
@@ -544,7 +551,7 @@
             this.breakdownDurationTextBox.Location = new System.Drawing.Point(741, 568);
             this.breakdownDurationTextBox.Mask = "90:00";
             this.breakdownDurationTextBox.Name = "breakdownDurationTextBox";
-            this.breakdownDurationTextBox.Size = new System.Drawing.Size(351, 30);
+            this.breakdownDurationTextBox.Size = new System.Drawing.Size(132, 30);
             this.breakdownDurationTextBox.TabIndex = 93;
             this.breakdownDurationTextBox.ValidatingType = typeof(System.DateTime);
             // 
@@ -592,12 +599,64 @@
             this.eventsComboBox.TabIndex = 95;
             this.eventsComboBox.SelectedIndexChanged += new System.EventHandler(this.eventsComboBox_SelectedIndexChanged);
             // 
+            // label19
+            // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label19.Location = new System.Drawing.Point(912, 453);
+            this.label19.Name = "label19";
+            this.label19.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label19.Size = new System.Drawing.Size(166, 27);
+            this.label19.TabIndex = 97;
+            this.label19.Text = "Staff Required";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // staffRequiredTextBox
+            // 
+            this.staffRequiredTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.staffRequiredTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.staffRequiredTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.staffRequiredTextBox.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.staffRequiredTextBox.ForeColor = System.Drawing.Color.White;
+            this.staffRequiredTextBox.Location = new System.Drawing.Point(960, 503);
+            this.staffRequiredTextBox.Mask = "990";
+            this.staffRequiredTextBox.Name = "staffRequiredTextBox";
+            this.staffRequiredTextBox.Size = new System.Drawing.Size(132, 30);
+            this.staffRequiredTextBox.TabIndex = 99;
+            this.staffRequiredTextBox.ValidatingType = typeof(int);
+            // 
+            // label20
+            // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.Location = new System.Drawing.Point(860, 480);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(232, 20);
+            this.label20.TabIndex = 98;
+            this.label20.Text = "(1 - 999)";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // requiredColumnHeader
+            // 
+            this.requiredColumnHeader.Text = "Staff Required";
+            this.requiredColumnHeader.Width = 100;
+            // 
+            // assignedColumnHeader
+            // 
+            this.assignedColumnHeader.Text = "Staff Assigned";
+            this.assignedColumnHeader.Width = 100;
+            // 
             // EventEditorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.ClientSize = new System.Drawing.Size(1182, 753);
+            this.Controls.Add(this.staffRequiredTextBox);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.eventsComboBox);
             this.Controls.Add(this.deleteButton);
@@ -686,5 +745,10 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.ComboBox eventsComboBox;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.MaskedTextBox staffRequiredTextBox;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ColumnHeader requiredColumnHeader;
+        private System.Windows.Forms.ColumnHeader assignedColumnHeader;
     }
 }
