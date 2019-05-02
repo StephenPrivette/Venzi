@@ -133,11 +133,11 @@ namespace CapstoneClassLibrary
 
                             db.createItinerary(newUser);
 
-                            /*
-                            * 
-                            * TODO: SEND EMAIL TO USER WELCOMING THEM TO VENZI
-                            * 
-                            */
+
+
+                            //SEND EMAIL TO USER WELCOMING THEM TO VENZI (this email notification reuires passing newuser.email instead of main user)
+                            EmailNotifications.WelcomeNotification(newUser.userEmail);
+                            
 
                             return "The user has been created successfully.";
                         }
@@ -179,11 +179,10 @@ namespace CapstoneClassLibrary
                     return "This username already exists.";
                 }
 
-                /*
-                * 
-                * TODO: SEND EMAIL TO USER SAYING THEIR USERNAME WAS CHANGED
-                * 
-                */
+
+                //SEND EMAIL TO USER SAYING THEIR USERNAME WAS CHANGED
+                EmailNotifications.changeUsernameNotification();
+                
 
                 return "The username has been changed successfully.";
             }
@@ -229,11 +228,10 @@ namespace CapstoneClassLibrary
                     mainUser.userPass = newPassword;
                     db.updateDbFromObject(mainUser);
 
-                    /*
-                    * 
-                    * TODO: SEND EMAIL TO USER SAYING THEIR PASSWORD WAS CHANGED
-                    * 
-                    */
+
+                    //SEND EMAIL TO USER SAYING THEIR PASSWORD WAS CHANGED
+                    EmailNotifications.changePasswordNotification();
+                    
 
                     return "The password has been changed successfully.";
                 }
@@ -410,11 +408,23 @@ namespace CapstoneClassLibrary
                 db.deleteEventFromAllItineraries(eventToDelete.eventID);
                 db.deleteObjectFromDb(obj, name);
 
-                /*
-                * 
-                * TODO: SEND EMAIL TO ALL USERS TELLING THEM THAT THIS EVENT HAS BEEN CANCELLED
-                * 
-                */
+              
+                //Get all users from DB
+                List<User> allUsers = db.getAllFromTable(new User()).Cast<User>().ToList();
+
+                //Get all emails from user list stores into another list allEmails
+                List<string> allEmails = new List<string>();
+                foreach (User i in allUsers)
+                {
+                    allEmails.Add(i.userEmail);
+                }
+
+                //SEND EMAIL TO ALL USERS TELLING THEM THAT THIS EVENT HAS BEEN CANCELLED
+                
+                string to = ToCsv.convert(allEmails);//Calls to CSV with allEmail list passed to return a comma seperated list (which email "to" accepts)
+                string subject = "Your event has been cancelled";
+                string body = eventToDelete.eventName + " has been deleted.";
+                Apex.i.sendEmail(to, subject, body);
 
                 return obj.GetType().Name + " has been deleted.";
             }
@@ -562,11 +572,8 @@ namespace CapstoneClassLibrary
             db.updateDbFromObject(userWhoRequested);
             db.deleteObjectFromDb(requestCopy, requestCopy.userID.ToString());
 
-            /*
-             * 
-             * TODO: SEND EMAIL TO USER SAYING THEIR REQUEST WAS ACCEPTED
-             * 
-             */
+            //Send email notification
+            EmailNotifications.requestAcceptedNotification(userWhoRequested.userEmail);
 
             return "Request granted successfully.";
         }
@@ -588,18 +595,15 @@ namespace CapstoneClassLibrary
 
             db.deleteObjectFromDb(requestCopy, requestCopy.userID.ToString());
 
-            /*
-             * 
-             * TODO: SEND EMAIL TO USER SAYING THEIR REQUEST WAS DENIED
-             * 
-             */
-
+            //Sends email notification
+            EmailNotifications.requestDeniedNotification(userWhoRequested.userEmail);
             return "Request denied successfully.";
         }
 
         //This will be used to send emails
-        public void sendEmail(string to, string subject, string body)
+        public int sendEmail(string to, string subject, string body)
         {
+            //Returns 1 for pass 0 for fail
             string fromAddress = "cp5k.owner@gmail.com";
 
             SmtpClient client = new SmtpClient("smtp.gmail.com", 587); //Settings for gmail
@@ -611,14 +615,30 @@ namespace CapstoneClassLibrary
             MailAddress fromMailAddress = new MailAddress(fromAddress);
             MailMessage mail = new MailMessage();
 
-            //Everything here needs to get passed when calling SendEmail(from, )
-            mail.To.Add(to);
+            //Everything here needs to get passed when calling SendEmail()
+            /*mail.To.Add(to);
             mail.From = fromMailAddress;
             mail.Subject = subject;
             mail.Body = body;
-            mail.IsBodyHtml = false;
+            mail.IsBodyHtml = false;*/
 
-            client.Send(mail);
+            if (valEntry(to, 1, 50) && valEntry(subject, 1, 50) && valEntry(body, 1, 50))
+            {
+                //Everything here needs to get passed when calling SendEmail()
+                mail.To.Add(to);
+                mail.From = fromMailAddress;
+                mail.Subject = subject;
+                mail.Body = body;
+                mail.IsBodyHtml = false;
+                client.Send(mail);
+                return 1;
+            }
+            else
+            {
+                MessageBox.Show("Check 'to', 'subject' and 'body'");
+                return 0;
+            }
+
 
             /*
              * 
@@ -646,5 +666,27 @@ namespace CapstoneClassLibrary
             }
             */
         }
+
+        public void testMassEmail()//DELTE if you want
+        {
+            //Get all users from DB
+            List<User> allUsers = db.getAllFromTable(new User()).Cast<User>().ToList();
+
+            //Get all emails from user list stores into another list allEmails
+            List<string> allEmails = new List<string>();
+            foreach (User i in allUsers)
+            {
+                allEmails.Add(i.userEmail);
+            }
+
+            //SEND EMAIL TO ALL USERS TELLING THEM THAT THIS EVENT HAS BEEN CANCELLED
+
+            string to = ToCsv.convert(allEmails);//Calls to CSV with allEmail list passed to return a comma seperated list (which email "to" accepts)
+            string subject = "Your event has been cancelled";
+            string body = Apex.i.GetType().Name + " has been deleted.";
+            Apex.i.sendEmail(to, subject, body);
+        }
+
+
     }
 }

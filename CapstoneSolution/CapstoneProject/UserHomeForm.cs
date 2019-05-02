@@ -386,8 +386,15 @@ namespace CapstoneProject
         {
             StringBuilder body = new StringBuilder();
             body.Append(bodyRichTextBox.Text);
+            if (Apex.i.sendEmail(toTextBox.Text, subjectTextbox.Text, body.ToString()) == 1)
+            {
+                MessageBox.Show("Email Sent");
+                toTextBox.Text = "";
+                subjectTextbox.Text = "";
+                bodyRichTextBox.Text = "";
+            }
+            
 
-            Apex.i.sendEmail(toTextBox.Text, subjectTextbox.Text, body.ToString());
         }
 
         private void eveManComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -404,7 +411,7 @@ namespace CapstoneProject
         {
             populateListView(Apex.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
         }
-
+        
         private void deleteUserTypeButton_Click(object sender, EventArgs e)
         {
             if (userTypeListBox.SelectedIndex >= 0)
@@ -578,5 +585,7 @@ namespace CapstoneProject
                 MessageBox.Show("A request from the list must be selected.");
             }
         }
+
+        
     }
 }
