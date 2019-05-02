@@ -41,7 +41,7 @@
             // newUserButton
             // 
             this.newUserButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.newUserButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.newUserButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(50)))), ((int)(((byte)(40)))));
             this.newUserButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.newUserButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.newUserButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -71,7 +71,7 @@
             // loginButton
             // 
             this.loginButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.loginButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.loginButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(50)))), ((int)(((byte)(40)))));
             this.loginButton.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
             this.loginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.loginButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

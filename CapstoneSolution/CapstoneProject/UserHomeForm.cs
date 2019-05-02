@@ -279,8 +279,9 @@ namespace CapstoneProject
         private void eventEditorButton_Click(object sender, EventArgs e)
         {
             EventEditorForm eventEditorForm1 = new EventEditorForm();
+            this.Hide();
             eventEditorForm1.ShowDialog();
-
+            this.Show();
             populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eveManEventsListView, eveManComboBox);
         }
 
@@ -412,19 +413,26 @@ namespace CapstoneProject
         {
             if (userTypeListBox.SelectedIndex >= 0)
             {
-                // checking with user to ensure they really want to delete the event type
-                if (MessageBox.Show("Are you sure you want to delete the " + userTypeListBox.SelectedItem.ToString() +
-                    " User Type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if(userTypeListBox.SelectedItem.ToString() != "Administrator" && userTypeListBox.SelectedItem.ToString() != "Basic")
                 {
-                    string message = Apex.i.deleteUserTypeFromDb(new UserType(), userTypeListBox.SelectedItem.ToString());
-
-                    // if the message is good don't show it
-                    if (message != new UserType().GetType().Name + " has been deleted.")
+                    // checking with user to ensure they really want to delete the event type
+                    if (MessageBox.Show("Are you sure you want to delete the " + userTypeListBox.SelectedItem.ToString() +
+                        " User Type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        MessageBox.Show(message);
-                    }
+                        string message = Apex.i.deleteUserTypeFromDb(new UserType(), userTypeListBox.SelectedItem.ToString());
 
-                    loadUserTypes();
+                        // if the message is good don't show it
+                        if (message != new UserType().GetType().Name + " has been deleted.")
+                        {
+                            MessageBox.Show(message);
+                        }
+
+                        loadUserTypes();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The user types Administrator and Basic cannot be deleted.");
                 }
             }
             else
@@ -493,31 +501,38 @@ namespace CapstoneProject
         {
             if (userTypeListBox.SelectedIndex >= 0)
             {
-                if (permissionsComboBox.SelectedIndex != -1)
+                if (userTypeListBox.SelectedItem.ToString() != "Administrator" && userTypeListBox.SelectedItem.ToString() != "Basic")
                 {
-                    // checking with user to ensure they really want to delete the event type
-                    if (MessageBox.Show("Are you sure you want to update the permissions for " + userTypeListBox.SelectedItem.ToString() +
-                        " User Type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    if (permissionsComboBox.SelectedIndex != -1)
                     {
-                        UserType ut = new UserType();
-                        ut.userTypeName = userTypeListBox.SelectedItem.ToString();
-                        ut.userPermissionsLevel = permissionsComboBox.SelectedIndex;
-
-                        string message = Apex.i.updateUserTypePermissions(ut);
-
-                        // if message is good don't show it
-                        if (message != ut.GetType().Name + " has been added.")
+                        // checking with user to ensure they really want to delete the event type
+                        if (MessageBox.Show("Are you sure you want to update the permissions for " + userTypeListBox.SelectedItem.ToString() +
+                            " User Type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            MessageBox.Show(message);
-                        }
+                            UserType ut = new UserType();
+                            ut.userTypeName = userTypeListBox.SelectedItem.ToString();
+                            ut.userPermissionsLevel = permissionsComboBox.SelectedIndex;
 
-                        loadUserTypes();
+                            string message = Apex.i.updateUserTypePermissions(ut);
+
+                            // if message is good don't show it
+                            if (message != ut.GetType().Name + " has been added.")
+                            {
+                                MessageBox.Show(message);
+                            }
+
+                            loadUserTypes();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("You must select a permissions level");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("You must select a permissions level");
-                }
+                    MessageBox.Show("The permissions levels for Administrator and Basic cannot be changed.");
+                }  
             }
             else
             {
@@ -547,8 +562,8 @@ namespace CapstoneProject
         private void assignButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            UserAssignmentForm userAssignmentForm1 = new UserAssignmentForm();
-            userAssignmentForm1.ShowDialog();
+            AssignmentForm assignmentForm1 = new AssignmentForm();
+            assignmentForm1.ShowDialog();
             this.Show();
         }
 

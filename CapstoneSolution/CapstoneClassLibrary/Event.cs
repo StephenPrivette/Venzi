@@ -17,5 +17,7 @@ namespace CapstoneClassLibrary
         public DateTime startTime { get; set; }
         public string locationName { get; set; }
         public string description { get; set; }
+        public int staffRequired { get; set; }
+        public int staffAssigned { get; set; }
     }
 }

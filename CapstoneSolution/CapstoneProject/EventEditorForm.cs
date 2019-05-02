@@ -84,6 +84,8 @@ namespace CapstoneProject
                 lvItem.SubItems.Add(i.eventName);
                 lvItem.SubItems.Add(i.eventTypeName);
                 lvItem.SubItems.Add(i.locationName);
+                lvItem.SubItems.Add(i.staffRequired.ToString());
+                lvItem.SubItems.Add(i.staffAssigned.ToString());
                 lv.Items.Add(lvItem);
             }
         }
@@ -118,6 +120,7 @@ namespace CapstoneProject
                 descriptionRichTextBox.Text = currentEvent.description;
                 eventTypeListBox.SelectedItem = currentEvent.eventTypeName;
                 locationListBox.SelectedItem = currentEvent.locationName;
+                staffRequiredTextBox.Text = currentEvent.staffRequired.ToString();
             }
         }
 
@@ -125,7 +128,7 @@ namespace CapstoneProject
         {
             if (eventTypeListBox.SelectedIndex >= 0 && locationListBox.SelectedIndex >= 0 &&
                 eventDurationTextBox.MaskCompleted && setupDurationTextBox.MaskCompleted &&
-                breakdownDurationTextBox.MaskCompleted)
+                breakdownDurationTextBox.MaskCompleted && staffRequiredTextBox.MaskCompleted)
             {
                 if (Apex.i.isObjectNameInDb(new Event(), nameTextBox.Text))
                 {
@@ -142,7 +145,7 @@ namespace CapstoneProject
                         {
                             MessageBox.Show(Apex.i.editEvent(nameTextBox.Text, eventTypeListBox.SelectedItem.ToString(),
                             locationListBox.SelectedItem.ToString(), startTimePicker1.Value, startTimePicker2.Value,
-                            eDur, sDur, bDur, descriptionRichTextBox.Text));
+                            eDur, sDur, bDur, descriptionRichTextBox.Text, int.Parse(staffRequiredTextBox.Text)));
 
                             populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
                         }
@@ -167,7 +170,7 @@ namespace CapstoneProject
                         {
                             MessageBox.Show(Apex.i.editEvent(nameTextBox.Text, eventTypeListBox.SelectedItem.ToString(),
                             locationListBox.SelectedItem.ToString(), startTimePicker1.Value, startTimePicker2.Value,
-                            eDur, sDur, bDur, descriptionRichTextBox.Text));
+                            eDur, sDur, bDur, descriptionRichTextBox.Text, int.Parse(staffRequiredTextBox.Text)));
 
                             populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
                         }

@@ -513,7 +513,7 @@
             // eventEditorButton
             // 
             this.eventEditorButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.eventEditorButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.eventEditorButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(50)))), ((int)(((byte)(40)))));
             this.eventEditorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.eventEditorButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventEditorButton.ForeColor = System.Drawing.Color.White;
@@ -614,7 +614,7 @@
             // assignButton
             // 
             this.assignButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.assignButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.assignButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(50)))), ((int)(((byte)(40)))));
             this.assignButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.assignButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.assignButton.ForeColor = System.Drawing.Color.White;
@@ -623,7 +623,7 @@
             this.assignButton.Name = "assignButton";
             this.assignButton.Size = new System.Drawing.Size(124, 73);
             this.assignButton.TabIndex = 110;
-            this.assignButton.Text = "Assign Level 1 Users";
+            this.assignButton.Text = "Assign Staff";
             this.assignButton.UseVisualStyleBackColor = false;
             this.assignButton.Click += new System.EventHandler(this.assignButton_Click);
             // 
@@ -1280,7 +1280,7 @@
             // signOutButton
             // 
             this.signOutButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.signOutButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.signOutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(50)))), ((int)(((byte)(40)))));
             this.signOutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.signOutButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.signOutButton.ForeColor = System.Drawing.Color.White;
