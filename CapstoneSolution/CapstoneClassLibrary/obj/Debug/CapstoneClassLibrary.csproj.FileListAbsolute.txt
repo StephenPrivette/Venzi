@@ -10,3 +10,15 @@ C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\o
 C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CopyComplete
 C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.dll
 C:\Users\Steve\Documents\GitHub\Capstone\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.pdb
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.dll
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\CapstoneClassLibrary.pdb
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\Dapper.dll
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\Dapper.xml
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.xml
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csprojAssemblyReference.cache
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.csproj.CopyComplete
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.dll
+C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\obj\Debug\CapstoneClassLibrary.pdb

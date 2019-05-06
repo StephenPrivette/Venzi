@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapstoneClassLibrary
 {
+    // class for locations of convention events that directly corresponds to the Locations table in the database
     public class Location
     {
         public int locationID { get; set; }

@@ -37,6 +37,8 @@
             this.titleColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.typeColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.locationColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.requiredColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.assignedColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.nameTextBox = new System.Windows.Forms.TextBox();
             this.userInstructionLabel = new System.Windows.Forms.Label();
@@ -73,8 +75,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.staffRequiredTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.requiredColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.assignedColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label12
@@ -107,6 +107,7 @@
             this.eventsListView.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventsListView.ForeColor = System.Drawing.Color.White;
             this.eventsListView.FullRowSelect = true;
+            this.eventsListView.HideSelection = false;
             this.eventsListView.Location = new System.Drawing.Point(56, 69);
             this.eventsListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.eventsListView.Name = "eventsListView";
@@ -151,6 +152,16 @@
             this.locationColumnHeader.Text = "Location";
             this.locationColumnHeader.Width = 100;
             // 
+            // requiredColumnHeader
+            // 
+            this.requiredColumnHeader.Text = "Staff Required";
+            this.requiredColumnHeader.Width = 100;
+            // 
+            // assignedColumnHeader
+            // 
+            this.assignedColumnHeader.Text = "Staff Assigned";
+            this.assignedColumnHeader.Width = 100;
+            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -174,7 +185,7 @@
             this.nameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nameTextBox.Name = "nameTextBox";
             this.nameTextBox.Size = new System.Drawing.Size(351, 30);
-            this.nameTextBox.TabIndex = 52;
+            this.nameTextBox.TabIndex = 0;
             // 
             // userInstructionLabel
             // 
@@ -214,7 +225,7 @@
             this.startTimePicker1.MinDate = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             this.startTimePicker1.Name = "startTimePicker1";
             this.startTimePicker1.Size = new System.Drawing.Size(351, 30);
-            this.startTimePicker1.TabIndex = 60;
+            this.startTimePicker1.TabIndex = 3;
             this.startTimePicker1.Value = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             // 
             // eventTypeListBox
@@ -230,7 +241,7 @@
             this.eventTypeListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.eventTypeListBox.Name = "eventTypeListBox";
             this.eventTypeListBox.Size = new System.Drawing.Size(351, 140);
-            this.eventTypeListBox.TabIndex = 62;
+            this.eventTypeListBox.TabIndex = 1;
             // 
             // label7
             // 
@@ -254,7 +265,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(200, 20);
             this.label2.TabIndex = 66;
-            this.label2.Text = "(4 to 30 characters)";
+            this.label2.Text = "(1 to 30 characters)";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label3
@@ -296,7 +307,7 @@
             this.locationListBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.locationListBox.Name = "locationListBox";
             this.locationListBox.Size = new System.Drawing.Size(351, 140);
-            this.locationListBox.TabIndex = 69;
+            this.locationListBox.TabIndex = 2;
             // 
             // label6
             // 
@@ -338,7 +349,7 @@
             this.startTimePicker2.Name = "startTimePicker2";
             this.startTimePicker2.ShowUpDown = true;
             this.startTimePicker2.Size = new System.Drawing.Size(351, 30);
-            this.startTimePicker2.TabIndex = 73;
+            this.startTimePicker2.TabIndex = 4;
             this.startTimePicker2.Value = new System.DateTime(2019, 1, 1, 0, 0, 0, 0);
             // 
             // label9
@@ -383,9 +394,9 @@
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(641, 480);
+            this.label13.Location = new System.Drawing.Point(645, 480);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(232, 20);
+            this.label13.Size = new System.Drawing.Size(228, 20);
             this.label13.TabIndex = 79;
             this.label13.Text = "(hours and minutes)";
             this.label13.TextAlign = System.Drawing.ContentAlignment.BottomRight;
@@ -425,7 +436,7 @@
             this.descriptionRichTextBox.Location = new System.Drawing.Point(741, 629);
             this.descriptionRichTextBox.Name = "descriptionRichTextBox";
             this.descriptionRichTextBox.Size = new System.Drawing.Size(351, 105);
-            this.descriptionRichTextBox.TabIndex = 84;
+            this.descriptionRichTextBox.TabIndex = 9;
             this.descriptionRichTextBox.Text = "";
             // 
             // label16
@@ -437,7 +448,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(232, 20);
             this.label16.TabIndex = 85;
-            this.label16.Text = "(4 to 400 characters)";
+            this.label16.Text = "(1 to 400 characters)";
             this.label16.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label17
@@ -524,7 +535,7 @@
             this.eventDurationTextBox.Mask = "90:00";
             this.eventDurationTextBox.Name = "eventDurationTextBox";
             this.eventDurationTextBox.Size = new System.Drawing.Size(132, 30);
-            this.eventDurationTextBox.TabIndex = 91;
+            this.eventDurationTextBox.TabIndex = 5;
             this.eventDurationTextBox.ValidatingType = typeof(System.DateTime);
             // 
             // setupDurationTextBox
@@ -538,7 +549,7 @@
             this.setupDurationTextBox.Mask = "90:00";
             this.setupDurationTextBox.Name = "setupDurationTextBox";
             this.setupDurationTextBox.Size = new System.Drawing.Size(132, 30);
-            this.setupDurationTextBox.TabIndex = 92;
+            this.setupDurationTextBox.TabIndex = 6;
             this.setupDurationTextBox.ValidatingType = typeof(System.DateTime);
             // 
             // breakdownDurationTextBox
@@ -552,7 +563,7 @@
             this.breakdownDurationTextBox.Mask = "90:00";
             this.breakdownDurationTextBox.Name = "breakdownDurationTextBox";
             this.breakdownDurationTextBox.Size = new System.Drawing.Size(132, 30);
-            this.breakdownDurationTextBox.TabIndex = 93;
+            this.breakdownDurationTextBox.TabIndex = 7;
             this.breakdownDurationTextBox.ValidatingType = typeof(System.DateTime);
             // 
             // deleteButton
@@ -585,6 +596,7 @@
             // 
             // eventsComboBox
             // 
+            this.eventsComboBox.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.eventsComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.eventsComboBox.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventsComboBox.ForeColor = System.Drawing.Color.White;
@@ -623,7 +635,7 @@
             this.staffRequiredTextBox.Mask = "990";
             this.staffRequiredTextBox.Name = "staffRequiredTextBox";
             this.staffRequiredTextBox.Size = new System.Drawing.Size(132, 30);
-            this.staffRequiredTextBox.TabIndex = 99;
+            this.staffRequiredTextBox.TabIndex = 8;
             this.staffRequiredTextBox.ValidatingType = typeof(int);
             // 
             // label20
@@ -631,25 +643,16 @@
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.Location = new System.Drawing.Point(860, 480);
+            this.label20.Location = new System.Drawing.Point(940, 480);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(232, 20);
+            this.label20.Size = new System.Drawing.Size(152, 20);
             this.label20.TabIndex = 98;
             this.label20.Text = "(1 - 999)";
             this.label20.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
-            // requiredColumnHeader
-            // 
-            this.requiredColumnHeader.Text = "Staff Required";
-            this.requiredColumnHeader.Width = 100;
-            // 
-            // assignedColumnHeader
-            // 
-            this.assignedColumnHeader.Text = "Staff Assigned";
-            this.assignedColumnHeader.Width = 100;
-            // 
             // EventEditorForm
             // 
+            this.AcceptButton = this.saveButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));

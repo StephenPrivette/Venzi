@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace CapstoneProject
 {
+    // form for editing events
     public partial class EventEditorForm : Form
     {
         public EventEditorForm()
@@ -20,9 +21,10 @@ namespace CapstoneProject
 
         private void EventEditorForm_Load(object sender, EventArgs e)
         {
+            // setting up form
             eventsComboBox.SelectedIndex = 0;
 
-            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
+            populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
 
             loadEventTypes();
             loadLocations();
@@ -34,7 +36,7 @@ namespace CapstoneProject
             eventTypeListBox.SelectedItems.Clear();
             eventTypeListBox.Items.Clear();
 
-            foreach (EventType type in Apex.i.getAllFromTable(new EventType()).Cast<EventType>().ToList())
+            foreach (EventType type in ApplicationManager.i.getAllFromTable(new EventType()).Cast<EventType>().ToList())
             {
                 eventTypeListBox.Items.Add(type.eventTypeName);
             }
@@ -46,7 +48,7 @@ namespace CapstoneProject
             locationListBox.SelectedItems.Clear();
             locationListBox.Items.Clear();
 
-            foreach (Location loc in Apex.i.getAllFromTable(new Location()).Cast<Location>().ToList())
+            foreach (Location loc in ApplicationManager.i.getAllFromTable(new Location()).Cast<Location>().ToList())
             {
                 locationListBox.Items.Add(loc.locationName);
             }
@@ -58,6 +60,7 @@ namespace CapstoneProject
             lv.SelectedItems.Clear();
             lv.Items.Clear();
 
+            // orders list by comboBox selection
             if (cb.SelectedIndex == 0)
             {
                 events = events.OrderBy(x => x.startTime).ToList();
@@ -109,7 +112,7 @@ namespace CapstoneProject
         {
             if(eventsListView.SelectedIndices.Count > 0)
             {
-                Event currentEvent = (Event)Apex.i.getObjectFromDbByName(new Event(), eventsListView.SelectedItems[0].SubItems[4].Text);
+                Event currentEvent = (Event)ApplicationManager.i.getObjectFromDbByName(new Event(), eventsListView.SelectedItems[0].SubItems[4].Text);
 
                 nameTextBox.Text = currentEvent.eventName;
                 startTimePicker1.Value = currentEvent.startTime;
@@ -120,17 +123,33 @@ namespace CapstoneProject
                 descriptionRichTextBox.Text = currentEvent.description;
                 eventTypeListBox.SelectedItem = currentEvent.eventTypeName;
                 locationListBox.SelectedItem = currentEvent.locationName;
-                staffRequiredTextBox.Text = currentEvent.staffRequired.ToString();
+
+                // must add preceding zeroes because of the way the mask works
+                if (currentEvent.staffRequired < 10)
+                {
+                    staffRequiredTextBox.Text = "00" + currentEvent.staffRequired.ToString();
+                }
+                else if (currentEvent.staffRequired < 100)
+                {
+                    staffRequiredTextBox.Text = "0" + currentEvent.staffRequired.ToString();
+                }
+                else
+                {
+                    staffRequiredTextBox.Text = currentEvent.staffRequired.ToString();
+                }
             }
         }
 
+        // saves event
         private void saveButton_Click(object sender, EventArgs e)
         {
+            // making sure all fields are filled out
             if (eventTypeListBox.SelectedIndex >= 0 && locationListBox.SelectedIndex >= 0 &&
                 eventDurationTextBox.MaskCompleted && setupDurationTextBox.MaskCompleted &&
                 breakdownDurationTextBox.MaskCompleted && staffRequiredTextBox.MaskCompleted)
             {
-                if (Apex.i.isObjectNameInDb(new Event(), nameTextBox.Text))
+                // if event exists already ask to overwrite it
+                if (ApplicationManager.i.isObjectNameInDb(new Event(), nameTextBox.Text))
                 {
                     if (MessageBox.Show("Are you sure you want to overwrite the " + nameTextBox.Text +
                     " Event?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
@@ -139,15 +158,16 @@ namespace CapstoneProject
                         TimeSpan sDur = new TimeSpan();
                         TimeSpan bDur = new TimeSpan();
 
+                        // making sure times are valid
                         if (TimeSpan.TryParse(eventDurationTextBox.Text, out eDur) &&
                             TimeSpan.TryParse(setupDurationTextBox.Text, out sDur) &&
                             TimeSpan.TryParse(breakdownDurationTextBox.Text, out bDur))
                         {
-                            MessageBox.Show(Apex.i.editEvent(nameTextBox.Text, eventTypeListBox.SelectedItem.ToString(),
+                            MessageBox.Show(ApplicationManager.i.editEvent(nameTextBox.Text, eventTypeListBox.SelectedItem.ToString(),
                             locationListBox.SelectedItem.ToString(), startTimePicker1.Value, startTimePicker2.Value,
                             eDur, sDur, bDur, descriptionRichTextBox.Text, int.Parse(staffRequiredTextBox.Text)));
 
-                            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
+                            populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
                         }
                         else
                         {
@@ -157,6 +177,7 @@ namespace CapstoneProject
                 }
                 else
                 {
+                    // asking user if they want to create a new event since event doesn't exist in the database
                     if (MessageBox.Show("Are you sure you want to create a new event named " + nameTextBox.Text + "?",
                         "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
@@ -164,15 +185,16 @@ namespace CapstoneProject
                         TimeSpan sDur = new TimeSpan();
                         TimeSpan bDur = new TimeSpan();
 
+                        // making sure times are valid
                         if (TimeSpan.TryParse(eventDurationTextBox.Text, out eDur) &&
                             TimeSpan.TryParse(setupDurationTextBox.Text, out sDur) &&
                             TimeSpan.TryParse(breakdownDurationTextBox.Text, out bDur))
                         {
-                            MessageBox.Show(Apex.i.editEvent(nameTextBox.Text, eventTypeListBox.SelectedItem.ToString(),
+                            MessageBox.Show(ApplicationManager.i.editEvent(nameTextBox.Text, eventTypeListBox.SelectedItem.ToString(),
                             locationListBox.SelectedItem.ToString(), startTimePicker1.Value, startTimePicker2.Value,
                             eDur, sDur, bDur, descriptionRichTextBox.Text, int.Parse(staffRequiredTextBox.Text)));
 
-                            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
+                            populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
                         }
                         else
                         {
@@ -187,19 +209,21 @@ namespace CapstoneProject
             }
         }
 
+        // deletes event
         private void deleteButton_Click(object sender, EventArgs e)
         {
+            // making sure an event is selected
             if (eventsListView.SelectedIndices.Count > 0)
             {
-                Event currentEvent = (Event)Apex.i.getObjectFromDbByName(new Event(), eventsListView.SelectedItems[0].SubItems[4].Text);
+                Event currentEvent = (Event)ApplicationManager.i.getObjectFromDbByName(new Event(), eventsListView.SelectedItems[0].SubItems[4].Text);
 
                 // checking with user to ensure they really want to delete the event
                 if (MessageBox.Show("Are you sure you want to delete the " + currentEvent.eventName +
                     " Event?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    MessageBox.Show(Apex.i.deleteEventFromDb(new Event(), currentEvent.eventName));
+                    MessageBox.Show(ApplicationManager.i.deleteEventFromDb(new Event(), currentEvent.eventName));
 
-                    populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
+                    populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
 
                     clearFields();
                 }
@@ -210,19 +234,22 @@ namespace CapstoneProject
             }
         }
 
+        // clears fields
         private void clearButton_Click(object sender, EventArgs e)
         {
             clearFields();
         }
 
+        // exits form
         private void exitButton_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        // changes order of events list view
         private void eventsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
+            populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
         }
     }
 }

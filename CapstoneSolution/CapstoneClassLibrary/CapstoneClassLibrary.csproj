@@ -51,12 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Apex.cs" />
+    <Compile Include="ApplicationManager.cs" />
+    <Compile Include="ConventionTitle.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="EventType.cs" />
     <Compile Include="Location.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQLiteDataAccess.cs" />
+    <Compile Include="SaltingHashing.cs" />
+    <Compile Include="DatabaseManager.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserType.cs" />
     <Compile Include="UserTypeRequest.cs" />

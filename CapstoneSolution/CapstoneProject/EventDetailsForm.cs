@@ -10,26 +10,19 @@ using System.Windows.Forms;
 
 namespace CapstoneProject
 {
+    // form for displaying the description of the event
     public partial class EventDetailsForm : Form
     {
-        // Form for displaying details about whatever event the user selects.
         public EventDetailsForm()
         {
             InitializeComponent();
         }
 
-        public void PopulateForm(string name, string startTime, string duration, string location, string type, string setup, string breakdown, 
-                                 string description)
+        public void PopulateForm(string name, string description)
         {
             // Displays various attributes of selected event.
-            nameLabel.Text = name;
-            startLabel.Text = startTime;
-            durationLabel.Text = duration;
-            locationLabel.Text = location;
-            typeLabel.Text = type;
-            setupLabel.Text = setup;
+            eventNameLabel.Text = name;
             descriptionLabel.Text = description;
         }
     }
-
 }

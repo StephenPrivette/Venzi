@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapstoneClassLibrary
 {
+    // class for convention users that directly corresponds to the Users table in the database except for the itinerary
     public class User
     {
         public int userID { get; set; }
@@ -15,6 +16,9 @@ namespace CapstoneClassLibrary
         public string userEmail { get; set; }
         public string userFirstName { get; set; }
         public string userLastName { get; set; }
+        public string userSalt { get; set; }
+
+        // is stored in a seperate table in the database from the rest of the fields
         private List<Event> itinerary;
 
         // adds passed in event to itinerary

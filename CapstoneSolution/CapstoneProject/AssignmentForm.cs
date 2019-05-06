@@ -11,8 +11,13 @@ using System.Windows.Forms;
 
 namespace CapstoneProject
 {
+    // form for assigning users with permission levels of 1 to events
     public partial class AssignmentForm : Form
     {
+        // needed a way to have a list of just usernames with the same index as the combo box 
+        List<string> allStaffUsernames;
+        List<string> assignedStaffUsernames;
+
         public AssignmentForm()
         {
             InitializeComponent();
@@ -20,10 +25,13 @@ namespace CapstoneProject
 
         private void AssignmentForm_Load(object sender, EventArgs e)
         {
+            allStaffUsernames = new List<string>();
+            assignedStaffUsernames = new List<string>();
+
             eventsComboBox.SelectedIndex = 0;
             staffComboBox.SelectedIndex = 0;
 
-            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
+            populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
 
             loadAllStaff();
         }
@@ -34,6 +42,7 @@ namespace CapstoneProject
             lv.SelectedItems.Clear();
             lv.Items.Clear();
 
+            // orders list for listView based on comboBox setting
             if (cb.SelectedIndex == 0)
             {
                 events = events.OrderBy(x => x.startTime).ToList();
@@ -51,6 +60,7 @@ namespace CapstoneProject
                 events = events.OrderBy(x => x.startTime).ToList();
             }
 
+            // populating listView
             foreach (Event i in events)
             {
                 ListViewItem lvItem = new ListViewItem((i.startTime - i.setupDuration).ToString("MM/dd h:mm tt"));
@@ -66,69 +76,87 @@ namespace CapstoneProject
             }
         }
 
-        // method for populating event type list box
+        // method for populating all staff listBox
         private void loadAllStaff()
         {
-            allStaffListBox.SelectedItems.Clear();
-            allStaffListBox.Items.Clear();
+            allStaffUsernames.Clear();
+            allStaffComboBox.SelectedIndex = -1;
+            allStaffComboBox.Items.Clear();
 
-            List<UserType> allUserTypes = Apex.i.getAllFromTable(new UserType()).Cast<UserType>().ToList();
+            List<UserType> allUserTypes = ApplicationManager.i.getAllFromTable(new UserType()).Cast<UserType>().ToList();
 
-            foreach (User u in Apex.i.getAllFromTable(new User()).Cast<User>().ToList())
+            // for all users
+            foreach (User u in ApplicationManager.i.getAllFromTable(new User()).Cast<User>().ToList())
             {
+
+                // for all user types
                 foreach (UserType type in allUserTypes)
                 {
+                    // if user type is a staff type
                     if(type.userPermissionsLevel == 1)
                     {
+                        // if user is a staff user
                         if (type.userTypeName == u.userTypeName)
                         {
-                            allStaffListBox.Items.Add(u.userName + " " + u.userFirstName + " "
+                            // populated list box with all staff users
+                            allStaffComboBox.Items.Add(u.userName + ", " + u.userFirstName + " "
                                 + u.userLastName + " (" + u.userTypeName + ")");
+                            allStaffUsernames.Add(u.userName);
                         }
                     }
                 }
             }
+
+            if (allStaffComboBox.Items.Count > 0)
+            {
+                allStaffComboBox.SelectedIndex = 0;
+            }
         }
 
+        // method for populating assigned listBox with only staff assigned to selected event
         private void loadAssignedStaff()
         {
-            assignedListBox.SelectedItems.Clear();
-            assignedListBox.Items.Clear();
+            assignedStaffUsernames.Clear();
+            assignedStaffComboBox.SelectedIndex = -1;
+            assignedStaffComboBox.Items.Clear();
 
-            Event currentEvent = (Event)Apex.i.getObjectFromDbByName(new Event(), eventsListView.SelectedItems[0].SubItems[4].Text);
+            Event currentEvent = (Event)ApplicationManager.i.getObjectFromDbByName(new Event(),
+                eventsListView.SelectedItems[0].SubItems[4].Text);
 
-            foreach (User staff in Apex.i.getStaffAssignedToEvent(currentEvent.eventID))
+            // for all staff assigned to selected event
+            foreach (User staff in ApplicationManager.i.getStaffAssignedToEvent(currentEvent.eventID))
             {
-                assignedListBox.Items.Add(staff.userName + " " + staff.userFirstName + " " + staff.userLastName + " (" + staff.userTypeName + ")");
+                assignedStaffComboBox.Items.Add(staff.userName + ", " + staff.userFirstName + " "
+                    + staff.userLastName + " (" + staff.userTypeName + ")");
+                assignedStaffUsernames.Add(staff.userName);
+            }
+
+            if (assignedStaffComboBox.Items.Count > 0)
+            {
+                assignedStaffComboBox.SelectedIndex = 0;
             }
         }
 
+        // changes listView order
         private void eventsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
+            populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
         }
 
-        private void allStaffListBox_SelectedIndexChanged(object sender, EventArgs e)
+        // when a user is selected we want to show their itinerary
+        private void allStaffComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (allStaffListBox.SelectedIndex >= 0)
+            if (allStaffComboBox.SelectedIndex > -1)
             {
-                int length = 0;
-                foreach (char ch in allStaffListBox.SelectedItem.ToString())
-                {
-                    if (Char.IsWhiteSpace(ch))
-                    {
-                        break;
-                    }
-                    length++;
-                }
+                User selectedStaffer = (User)ApplicationManager.i.getObjectFromDbByName(new User(),
+                    allStaffUsernames[allStaffComboBox.SelectedIndex]);
 
-                User selectedStaffer = (User)Apex.i.getObjectFromDbByName(new User(),
-                    allStaffListBox.SelectedItem.ToString().Substring(0, length));
-
-                populateListView(Apex.i.getItineraryFromDb(selectedStaffer.userID).Cast<Event>().ToList(), staffListView, staffComboBox);
+                populateListView(ApplicationManager.i.getItineraryFromDb(selectedStaffer.userID).Cast<Event>().ToList(),
+                    staffListView, staffComboBox);
             }
         }
 
+        // load assigned staff for currently selected event
         private void eventsListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (eventsListView.SelectedIndices.Count > 0)
@@ -137,42 +165,22 @@ namespace CapstoneProject
             }
         }
 
+        // removes staff from event
         private void removeButton_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(eventsListView.SelectedItems.Count.ToString() + ", " + assignedStaffComboBox.SelectedIndex.ToString());
+
             if(eventsListView.SelectedItems.Count > 0)
             {
-                if (assignedListBox.SelectedItems.Count > 0)
+                if (assignedStaffComboBox.SelectedIndex > -1)
                 {
-                    int length = 0;
-                    foreach (char ch in assignedListBox.SelectedItem.ToString())
-                    {
-                        if (Char.IsWhiteSpace(ch))
-                        {
-                            break;
-                        }
-                        length++;
-                    }
-
-                    User selectedAssignedStaffer = (User)Apex.i.getObjectFromDbByName(new User(),
-                        assignedListBox.SelectedItem.ToString().Substring(0, length));
-
-                    List<Event> selectedAssignedItinerary = Apex.i.getItineraryFromDb(selectedAssignedStaffer.userID);
-
-                    Event currentEvent = (Event)Apex.i.getObjectFromDbByName(new Event(), eventsListView.SelectedItems[0].SubItems[4].Text);
-
-                    int itineraryIdToDelete = 0;
-                    foreach (Event eve in selectedAssignedItinerary)
-                    {
-                        if (eve.eventID == currentEvent.eventID)
-                        {
-                            itineraryIdToDelete = eve.eventID;
-                        }
-                    }
-
-                    Apex.i.deleteEventFromItinerary(selectedAssignedStaffer.userID, itineraryIdToDelete);
+                    // unassigning staff from event
+                    MessageBox.Show(ApplicationManager.i.deleteEventFromItinerary(eventsListView.SelectedItems[0].SubItems[4].Text,
+                        assignedStaffUsernames[assignedStaffComboBox.SelectedIndex]));
 
                     loadAssignedStaff();
-                    populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
+                    populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(),
+                        eventsListView, eventsComboBox);
                 }
                 else
                 {
@@ -185,27 +193,20 @@ namespace CapstoneProject
             }
         }
 
+        // assigns staff user to event
         private void assignButton_Click(object sender, EventArgs e)
         {
             if (eventsListView.SelectedIndices.Count > 0)
             {
-                if (allStaffListBox.SelectedIndex >= 0)
+                if (allStaffComboBox.SelectedIndex > -1)
                 {
-                    int length = 0;
-                    foreach (char ch in allStaffListBox.SelectedItem.ToString())
-                    {
-                        if (Char.IsWhiteSpace(ch))
-                        {
-                            break;
-                        }
-                        length++;
-                    }
-
-                    Apex.i.assignStaffToEvent(eventsListView.SelectedItems[0].SubItems[4].Text,
-                        allStaffListBox.SelectedItem.ToString().Substring(0, length));
+                    // assigning staff to event
+                    MessageBox.Show(ApplicationManager.i.assignStaffToEvent(eventsListView.SelectedItems[0].SubItems[4].Text,
+                        allStaffUsernames[allStaffComboBox.SelectedIndex]));
 
                     loadAssignedStaff();
-                    populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView, eventsComboBox);
+                    populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView,
+                        eventsComboBox);
                 }
                 else
                 {
@@ -216,6 +217,12 @@ namespace CapstoneProject
             {
                 MessageBox.Show("An event must be selected from the list view in order to assign someone to it.");
             }
+        }
+
+        // exits form
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapstoneClassLibrary
 {
+    // class for convention events that directly corresponds to the Events table in the database
     public class Event
     {
         public int eventID { get; set; }

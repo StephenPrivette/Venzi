@@ -11,17 +11,24 @@ using CapstoneClassLibrary;
 
 namespace CapstoneProject
 {
-    public partial class UserHomeForm : Form
+    // this form is the main form of the program. it is what the user sees once they log in
+    public partial class HomeForm : Form
     {
-        public UserHomeForm()
+        // captured email addresses from loadUserEmailAddresses. used because that method concantenates things with the email address
+        // so we needed a way to have a list of just email addresses with the same index as the combo box 
+        List<string> emailAddresses;
+
+        public HomeForm()
         {
             InitializeComponent();
 
+            // needed for double-click event to work
             scheduleListView.MouseDoubleClick += new MouseEventHandler(scheduleListView_MouseDoubleClick);
 
+            // getting permission level of user
+            UserType currentUserType = (UserType)ApplicationManager.i.getObjectFromDbByName(new UserType(), ApplicationManager.i.mainUser.userTypeName);
 
-            UserType currentUserType = (UserType)Apex.i.getObjectFromDbByName(new UserType(), Apex.i.mainUser.userTypeName);
-
+            // based on permission level of user's type different aspects of the form are displayed
             if (currentUserType.userPermissionsLevel == 0)
             {
                 tabControl1.TabPages.Remove(scheduleTabPage);
@@ -32,22 +39,54 @@ namespace CapstoneProject
                 tabControl1.TabPages.Remove(userTabPage);
                 tabControl1.TabPages.Remove(emailTabPage);
 
-                label2.Text = "Your Work Schedule";
+                itineraryLabel.Text = "Your Work Schedule";
                 addButton.Visible = false;
                 deleteButton.Visible = false;
+                conventionTitleTextBox.Visible = false;
+                conventionSubtitleTextBox.Visible = false;
+                conventionDescriptionTextBox.Visible = false;
+                conventionDisplayButton.Visible = false;
+                conventionSaveButton.Visible = false;
+            }
+            else if (currentUserType.userPermissionsLevel == 2)
+            {
+                tabControl1.TabPages.Remove(eventsTabPage);
+                tabControl1.TabPages.Remove(userTabPage);
+                tabControl1.TabPages.Remove(emailTabPage);
+
+                conventionTitleTextBox.Visible = false;
+                conventionSubtitleTextBox.Visible = false;
+                conventionDescriptionTextBox.Visible = false;
+                conventionDisplayButton.Visible = false;
+                conventionSaveButton.Visible = false;
             }
             else
             {
                 tabControl1.TabPages.Remove(eventsTabPage);
                 tabControl1.TabPages.Remove(userTabPage);
                 tabControl1.TabPages.Remove(emailTabPage);
+
+                itineraryListView.Visible = false;
+                itineraryComboBox.Visible = false;
+                addButton.Visible = false;
+                deleteButton.Visible = false;
+                itineraryLabel.Visible = false;
+                itineraryOrderLabel.Visible = false;
+                scheduleListView.Height += 100;
+                conventionTitleTextBox.Visible = false;
+                conventionSubtitleTextBox.Visible = false;
+                conventionDescriptionTextBox.Visible = false;
+                conventionDisplayButton.Visible = false;
+                conventionSaveButton.Visible = false;
             }
         }
 
         private void UserHomeForm_Load(object sender, EventArgs e)
         {
+            emailAddresses = new List<string>();
+
             // loading existing user itinerary from database into its user object
-            Apex.i.loadItineraryFromDb();
+            ApplicationManager.i.loadItineraryFromDb();
 
             // on form load populate listviews
             eveManComboBox.SelectedIndex = 0;
@@ -55,49 +94,57 @@ namespace CapstoneProject
             itineraryComboBox.SelectedIndex = 0;
             userRequestsComboBox.SelectedIndex = 0;
 
-            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eveManEventsListView, eveManComboBox);
-            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), scheduleListView, scheduleComboBox);
-            populateListView(Apex.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
+            populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eveManEventsListView, eveManComboBox);
+            populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(), scheduleListView, scheduleComboBox);
+            populateListView(ApplicationManager.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
 
-            populateUserRequestListView(Apex.i.getAllFromTable(new UserTypeRequest()).Cast<UserTypeRequest>().ToList(),
+            populateUserRequestListView(ApplicationManager.i.getAllFromTable(new UserTypeRequest()).Cast<UserTypeRequest>().ToList(),
                 userRequestsListView);
 
             loadEventTypes();
             loadLocations();
             loadUserTypes();
+            loadUserEmailAddresses();
+            loadGeneralInfo();
         }
 
+        // loads event types into list box
         private void loadEventTypes()
         {
             eventTypeListBox.SelectedItems.Clear();
             eventTypeListBox.Items.Clear();
-            eventTypeTextBox.Clear();
+            eventTypeTextBox.Text = "New Event Type";
+            eventTypeTextBox.ForeColor = Color.DarkGray;
 
-            foreach (EventType type in Apex.i.getAllFromTable(new EventType()).Cast<EventType>().ToList())
+            foreach (EventType type in ApplicationManager.i.getAllFromTable(new EventType()).Cast<EventType>().ToList())
             {
                 eventTypeListBox.Items.Add(type.eventTypeName);
             }
         }
 
+        // loads locations into list box
         private void loadLocations()
         {
             locationListBox.SelectedItems.Clear();
             locationListBox.Items.Clear();
-            locationTextBox.Clear();
+            locationTextBox.Text = "New Location";
+            locationTextBox.ForeColor = Color.DarkGray;
 
-            foreach (Location loc in Apex.i.getAllFromTable(new Location()).Cast<Location>().ToList())
+            foreach (Location loc in ApplicationManager.i.getAllFromTable(new Location()).Cast<Location>().ToList())
             {
                 locationListBox.Items.Add(loc.locationName);
             }
         }
 
+        // loads user types into list box
         private void loadUserTypes()
         {
             userTypeListBox.SelectedItems.Clear();
             userTypeListBox.Items.Clear();
-            userTypeTextBox.Clear();
+            userTypeTextBox.Text = "New User Type";
+            userTypeTextBox.ForeColor = Color.DarkGray;
 
-            foreach (UserType type in Apex.i.getAllFromTable(new UserType()).Cast<UserType>().ToList())
+            foreach (UserType type in ApplicationManager.i.getAllFromTable(new UserType()).Cast<UserType>().ToList())
             {
                 userTypeListBox.Items.Add(type.userTypeName);
             }
@@ -109,6 +156,7 @@ namespace CapstoneProject
             lv.SelectedItems.Clear();
             lv.Items.Clear();
 
+            // orders list differently depending on combo box selection
             if (cb.SelectedIndex == 0)
             {
                 events = events.OrderBy(x => x.startTime).ToList();
@@ -137,6 +185,30 @@ namespace CapstoneProject
             }
         }
 
+        // loads all user email addresses into combo box
+        private void loadUserEmailAddresses()
+        {
+            emailAddresses.Clear();
+            toComboBox.Items.Clear();
+
+            foreach (User u in ApplicationManager.i.getAllFromTable(new User()).Cast<User>().ToList())
+            {
+                toComboBox.Items.Add(u.userName + ", " + u.userFirstName + " " + u.userLastName + ", " + u.userEmail);
+                emailAddresses.Add(u.userEmail);
+            }
+        }
+
+        // loads the general information about the convention into the appropriate fields
+        private void loadGeneralInfo()
+        {
+            ConventionTitle conventionTitle1 = (ConventionTitle)ApplicationManager.i.getObjectFromDbByName(new ConventionTitle(),
+                "convention");
+
+            conventionTitleLabel.Text = conventionTitle1.conventionTitleTitle;
+            conventionSubtitleLabel.Text = conventionTitle1.conventionTitleSubtitle;
+            conventionDisplayDescTextBox.Text = conventionTitle1.conventionTitleDescription;
+        }
+
         // populates the listviews on this form with data
         private void populateUserRequestListView(List<UserTypeRequest> requests, ListView lv)
         {
@@ -145,9 +217,10 @@ namespace CapstoneProject
 
             requests = requests.OrderBy(x => x.userTypeName).ToList();
 
+            // getting each user who has a user request
             foreach (UserTypeRequest i in requests)
             {
-                User userWhoRequested = (User)Apex.i.getObjectFromDbById(new User(), i.userID);
+                User userWhoRequested = (User)ApplicationManager.i.getObjectFromDbById(new User(), i.userID);
 
                 ListViewItem lvItem = new ListViewItem(i.userTypeName.ToString());
                 lvItem.SubItems.Add(userWhoRequested.userName);
@@ -157,21 +230,22 @@ namespace CapstoneProject
             }
         }
 
+        // adds event to user's itinerary
         private void addButton_Click(object sender, EventArgs e)
         {
-            // adding selected event in schedule list view to the itinerary in the mainuser object
             if (scheduleListView.SelectedItems.Count != 0)
             {
-                foreach(Event eve in Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList())
+                foreach(Event eve in ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList())
                 {
+                    // if event in database matches event selected in list view
                     if(eve.eventName == scheduleListView.SelectedItems[0].SubItems[1].Text)
                     {
-                        if (Apex.i.mainUser.addEventToItinerary(eve))
+                        if (ApplicationManager.i.mainUser.addEventToItinerary(eve))
                         {
-                            Apex.i.saveItineraryToDb();
-                            Apex.i.loadItineraryFromDb();
+                            ApplicationManager.i.saveItineraryToDb();
+                            ApplicationManager.i.loadItineraryFromDb();
 
-                            populateListView(Apex.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
+                            populateListView(ApplicationManager.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
                         }
                         else
                         {
@@ -187,16 +261,16 @@ namespace CapstoneProject
             
         }
 
+        // deletes selected event from user's itinerary
         private void deleteItineraryItem_Click(object sender, EventArgs e)
         {
-            // deleting selected event in itinerary list view
             bool delete = false;
             Event eveCopy = new Event();
 
             // making sure something was selected
             if (itineraryListView.SelectedItems.Count != 0)
             {
-                foreach (Event eve in Apex.i.mainUser.getItinerary())
+                foreach (Event eve in ApplicationManager.i.mainUser.getItinerary())
                 {
                     if (eve.eventName == itineraryListView.SelectedItems[0].SubItems[1].Text)
                     {
@@ -213,12 +287,12 @@ namespace CapstoneProject
 
             if(delete)
             {
-                if (Apex.i.mainUser.deletEventFromItinerary(eveCopy))
+                if (ApplicationManager.i.mainUser.deletEventFromItinerary(eveCopy))
                 {
-                    Apex.i.saveItineraryToDb();
-                    Apex.i.loadItineraryFromDb();
+                    ApplicationManager.i.saveItineraryToDb();
+                    ApplicationManager.i.loadItineraryFromDb();
 
-                    populateListView(Apex.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
+                    populateListView(ApplicationManager.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
                 }
                 else
                 {
@@ -234,6 +308,7 @@ namespace CapstoneProject
             addButton.Enabled = true;
         }
 
+        // hiding and showing buttons based on which list view is clicked on
         private void itineraryListView_SelectedIndexChanged(object sender, EventArgs e)
         {
             deleteButton.Enabled = true;
@@ -246,7 +321,7 @@ namespace CapstoneProject
             // making sure there is text in the textbox
             if(changeUsernameTextBox.Text != null)
             {
-                MessageBox.Show(Apex.i.changeMainUserName(changeUsernameTextBox.Text));
+                MessageBox.Show(ApplicationManager.i.changeMainUserName(changeUsernameTextBox.Text));
             }
             else
             {
@@ -260,7 +335,7 @@ namespace CapstoneProject
             // checking to see that there is indeed text in the text box
             if (!String.IsNullOrEmpty(changePasswordTextBox.Text))
             {
-                MessageBox.Show(Apex.i.changeMainUserPassword(changePasswordTextBox.Text));
+                MessageBox.Show(ApplicationManager.i.changeMainUserPassword(changePasswordTextBox.Text));
             }
             else
             {
@@ -278,11 +353,28 @@ namespace CapstoneProject
         // loads event editor page when clicked
         private void eventEditorButton_Click(object sender, EventArgs e)
         {
-            EventEditorForm eventEditorForm1 = new EventEditorForm();
-            this.Hide();
-            eventEditorForm1.ShowDialog();
-            this.Show();
-            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eveManEventsListView, eveManComboBox);
+            // making sure event types exist before allowing event creation
+            if (ApplicationManager.i.getAllFromTable(new EventType()).Cast<EventType>().ToList().Count > 0)
+            {
+                // making sure locations exist before allowing event creation
+                if (ApplicationManager.i.getAllFromTable(new Location()).Cast<Location>().ToList().Count > 0)
+                {
+                    EventEditorForm eventEditorForm1 = new EventEditorForm();
+                    this.Hide();
+                    eventEditorForm1.ShowDialog();
+                    this.Show();
+                    populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(),
+                        eveManEventsListView, eveManComboBox);
+                }
+                else
+                {
+                    MessageBox.Show("Locations must be created first before creating events.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Event types must be created first before creating events.");
+            }
         }
 
         // deletes event type 
@@ -294,7 +386,7 @@ namespace CapstoneProject
                 if(MessageBox.Show("Are you sure you want to delete the " + eventTypeListBox.SelectedItem.ToString() +
                     " Event Type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    string message = Apex.i.deleteEventTypeFromDb(new EventType(), eventTypeListBox.SelectedItem.ToString());
+                    string message = ApplicationManager.i.deleteEventTypeFromDb(new EventType(), eventTypeListBox.SelectedItem.ToString());
 
                     // if the message is good don't show it
                     if(message != new EventType().GetType().Name + " has been deleted.")
@@ -319,7 +411,7 @@ namespace CapstoneProject
                 EventType et = new EventType();
                 et.eventTypeName = eventTypeTextBox.Text;
 
-                string message = Apex.i.addEventTypeToDb(et, eventTypeTextBox.Text);
+                string message = ApplicationManager.i.addEventTypeToDb(et, eventTypeTextBox.Text);
 
                 // if the message is good don't show it
                 if (message != et.GetType().Name + " has been added.")
@@ -344,7 +436,7 @@ namespace CapstoneProject
                 if (MessageBox.Show("Are you sure you want to delete the " + locationListBox.SelectedItem.ToString() +
                     " Location?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    string message = Apex.i.deleteLocationFromDb(new Location(), locationListBox.SelectedItem.ToString());
+                    string message = ApplicationManager.i.deleteLocationFromDb(new Location(), locationListBox.SelectedItem.ToString());
 
                     // if message is good don't show it
                     if (message != new Location().GetType().Name + " has been deleted.")
@@ -370,7 +462,7 @@ namespace CapstoneProject
                 Location loc = new Location();
                 loc.locationName = locationTextBox.Text;
 
-                string message = Apex.i.addLocationToDb(loc, locationTextBox.Text);
+                string message = ApplicationManager.i.addLocationToDb(loc, locationTextBox.Text);
 
                 // if message is good don't show it
                 if (message != loc.GetType().Name + " has been added.")
@@ -386,40 +478,36 @@ namespace CapstoneProject
             }
         }
 
-        private void sendEmailButton_Click(object sender, EventArgs e)
-        {
-            StringBuilder body = new StringBuilder();
-            body.Append(bodyRichTextBox.Text);
-
-            Apex.i.sendEmail(toTextBox.Text, subjectTextbox.Text, body.ToString());
-        }
-
+        // changes order of list view
         private void eveManComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eveManEventsListView, eveManComboBox);
+            populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eveManEventsListView, eveManComboBox);
         }
 
+        // changes order of list view
         private void scheduleComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            populateListView(Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList(), scheduleListView, scheduleComboBox);
+            populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(), scheduleListView, scheduleComboBox);
         }
 
+        // changes order of list view
         private void itineraryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            populateListView(Apex.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
+            populateListView(ApplicationManager.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
         }
 
+        // deletes user type
         private void deleteUserTypeButton_Click(object sender, EventArgs e)
         {
             if (userTypeListBox.SelectedIndex >= 0)
             {
                 if(userTypeListBox.SelectedItem.ToString() != "Administrator" && userTypeListBox.SelectedItem.ToString() != "Basic")
                 {
-                    // checking with user to ensure they really want to delete the event type
+                    // checking with user to ensure they really want to delete the user type
                     if (MessageBox.Show("Are you sure you want to delete the " + userTypeListBox.SelectedItem.ToString() +
                         " User Type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
-                        string message = Apex.i.deleteUserTypeFromDb(new UserType(), userTypeListBox.SelectedItem.ToString());
+                        string message = ApplicationManager.i.deleteUserTypeFromDb(new UserType(), userTypeListBox.SelectedItem.ToString());
 
                         // if the message is good don't show it
                         if (message != new UserType().GetType().Name + " has been deleted.")
@@ -441,6 +529,7 @@ namespace CapstoneProject
             }
         }
 
+        // adds user type to database
         private void addUserTypeButton_Click(object sender, EventArgs e)
         {
             // making sure text box is not empty
@@ -452,7 +541,7 @@ namespace CapstoneProject
                     ut.userTypeName = userTypeTextBox.Text;
                     ut.userPermissionsLevel = permissionsComboBox.SelectedIndex;
 
-                    string message = Apex.i.addUserTypeToDb(ut, userTypeTextBox.Text);
+                    string message = ApplicationManager.i.addUserTypeToDb(ut, userTypeTextBox.Text);
 
                     // if message is good don't show it
                     if (message != ut.GetType().Name + " has been added.")
@@ -473,12 +562,14 @@ namespace CapstoneProject
             }
         }
 
+        // changes permissions label to reflect currently selected user type
         private void userTypeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (userTypeListBox.SelectedIndex >= 0)
             {
-                UserType ut = (UserType)Apex.i.getObjectFromDbByName(new UserType(), userTypeListBox.SelectedItem.ToString());
+                UserType ut = (UserType)ApplicationManager.i.getObjectFromDbByName(new UserType(), userTypeListBox.SelectedItem.ToString());
                 permissionsComboBox.SelectedIndex = ut.userPermissionsLevel;
+
                 if(ut.userPermissionsLevel == 0)
                 {
                     permissionsLabel.Text = "Full access. (the permissions you are currently logged in with)" +
@@ -489,18 +580,25 @@ namespace CapstoneProject
                     permissionsLabel.Text = "Limited access. Changes the itinerary to a work schedule." +
                         " The ability to view but not create or delete. Recommended for staff only.";
                 }
-                else
+                else if (ut.userPermissionsLevel == 2)
                 {
                     permissionsLabel.Text = "Very limited access. Adds the ability to add or delete events from a personal itinerary." +
                         " The ability to view but not create or delete. Recommended for attendees/non-employees.";
                 }
+                else
+                {
+                    permissionsLabel.Text = "No access. The ability to view but not create or delete. Recommended for basic users.";
+                }
             }
         }
 
+        // saves the permissions level selected to the user type selected
         private void changePermissionsButton_Click(object sender, EventArgs e)
         {
+            // making sure user type is selected
             if (userTypeListBox.SelectedIndex >= 0)
             {
+                // cannot change Administrator or Basic user types
                 if (userTypeListBox.SelectedItem.ToString() != "Administrator" && userTypeListBox.SelectedItem.ToString() != "Basic")
                 {
                     if (permissionsComboBox.SelectedIndex != -1)
@@ -513,7 +611,7 @@ namespace CapstoneProject
                             ut.userTypeName = userTypeListBox.SelectedItem.ToString();
                             ut.userPermissionsLevel = permissionsComboBox.SelectedIndex;
 
-                            string message = Apex.i.updateUserTypePermissions(ut);
+                            string message = ApplicationManager.i.updateUserTypePermissions(ut);
 
                             // if message is good don't show it
                             if (message != ut.GetType().Name + " has been added.")
@@ -540,6 +638,7 @@ namespace CapstoneProject
             }
         }
 
+        // shows description of permission level
         private void permissionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (permissionsComboBox.SelectedIndex == 0)
@@ -552,13 +651,18 @@ namespace CapstoneProject
                 permissionsLabel.Text = "Limited access. Changes the itinerary to a work schedule." +
                     " The ability to view but not create or delete. Recommended for staff only.";
             }
-            else
+            else if (permissionsComboBox.SelectedIndex == 2)
             {
                 permissionsLabel.Text = "Very limited access. Adds the ability to add or delete events from a personal itinerary." +
                     " The ability to view but not create or delete. Recommended for attendees/non-employees.";
             }
+            else
+            {
+                permissionsLabel.Text = "No access. The ability to view but not create or delete. Recommended for basic users.";
+            }
         }
 
+        // shows assignment form
         private void assignButton_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -567,13 +671,15 @@ namespace CapstoneProject
             this.Show();
         }
 
+        // grants user type request
         private void grantButton_Click(object sender, EventArgs e)
         {
+            // making sure something is selected
             if (userRequestsListView.SelectedItems.Count != 0)
             {
-                MessageBox.Show(Apex.i.grantUserTypeRequest(userRequestsListView.SelectedItems[0].SubItems[1].Text));
+                MessageBox.Show(ApplicationManager.i.grantUserTypeRequest(userRequestsListView.SelectedItems[0].SubItems[1].Text));
 
-                populateUserRequestListView(Apex.i.getAllFromTable(new UserTypeRequest()).Cast<UserTypeRequest>().ToList(),
+                populateUserRequestListView(ApplicationManager.i.getAllFromTable(new UserTypeRequest()).Cast<UserTypeRequest>().ToList(),
                 userRequestsListView);
             }
             else
@@ -582,13 +688,15 @@ namespace CapstoneProject
             }
         }
 
+        // denies user type request
         private void denyButton_Click(object sender, EventArgs e)
         {
+            // making sure something is selected
             if (userRequestsListView.SelectedItems.Count != 0)
             {
-                MessageBox.Show(Apex.i.denyUserTypeRequest(userRequestsListView.SelectedItems[0].SubItems[1].Text));
+                MessageBox.Show(ApplicationManager.i.denyUserTypeRequest(userRequestsListView.SelectedItems[0].SubItems[1].Text));
 
-                populateUserRequestListView(Apex.i.getAllFromTable(new UserTypeRequest()).Cast<UserTypeRequest>().ToList(),
+                populateUserRequestListView(ApplicationManager.i.getAllFromTable(new UserTypeRequest()).Cast<UserTypeRequest>().ToList(),
                 userRequestsListView);
             }
             else
@@ -597,27 +705,229 @@ namespace CapstoneProject
             }
         }
 
-        // Method that allows the user to double click and event to see more details about it.
+        // allows the user to double click an event to see more details about it
         private void scheduleListView_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             ListViewHitTestInfo info = scheduleListView.HitTest(e.X, e.Y);
             ListViewItem item = info.Item;
 
+            // making sure something was selected
             if (item != null)
             {
-                foreach (Event eve in Apex.i.getAllFromTable(new Event()).Cast<Event>().ToList())
+                foreach (Event eve in ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList())
                 {
-                    // The if statement is written this way due to how the double click feature reads from the listview,
-                    // so it has to look like this for it work - ATW
+                    // the if statement is written this way due to how the double click feature reads from the listview,
+                    // so it has to look like this for it work
                     if (eve.startTime.ToString("MM/dd h:mm tt") + " - " + (eve.startTime + eve.eventDuration).ToString("t") == item.Text)
                     {
                         EventDetailsForm DetailedView = new EventDetailsForm();
-                        DetailedView.PopulateForm(eve.eventName, eve.startTime.ToString(), eve.eventDuration.ToString(), eve.locationName,
-                                                  eve.eventTypeName, eve.setupDuration.ToString(), eve.breakdownDuration.ToString(),  eve.description);
+                        DetailedView.PopulateForm(eve.eventName,  eve.description);
                         DetailedView.Show();
                     }
                 }
+            }
+        }
 
+        // sends email
+        private void sendEmailButton_Click_1(object sender, EventArgs e)
+        {
+            StringBuilder body = new StringBuilder();
+            body.Append(bodyTextBox.Text);
+
+            // sending email and displaying result of operation
+            string message = ApplicationManager.i.sendEmail(emailAddresses[toComboBox.SelectedIndex],
+                subjectTextBox.Text, body.ToString());
+
+            // if email went through successfully clear fields
+            if (message == "The email has been sent successfully")
+            {
+                subjectTextBox.Clear();
+                bodyTextBox.Clear();
+            }
+
+            MessageBox.Show(message);
+        }
+
+        // when user clicks in text box
+        private void eventTypeTextBox_Enter(object sender, EventArgs e)
+        {
+            if (eventTypeTextBox.Text == "New Event Type")
+            {
+                eventTypeTextBox.Text = "";
+                eventTypeTextBox.ForeColor = Color.White;
+            }
+        }
+
+        // when user clicks out of text box
+        private void eventTypeTextBox_Leave(object sender, EventArgs e)
+        {
+            if (eventTypeTextBox.Text == "")
+            {
+                eventTypeTextBox.Text = "New Event Type";
+                eventTypeTextBox.ForeColor = Color.DarkGray;
+            }
+        }
+
+        // when user clicks in text box
+        private void locationTextBox_Enter(object sender, EventArgs e)
+        {
+            if (locationTextBox.Text == "New Location")
+            {
+                locationTextBox.Text = "";
+                locationTextBox.ForeColor = Color.White;
+            }
+        }
+
+        // when user clicks out of text box
+        private void locationTextBox_Leave(object sender, EventArgs e)
+        {
+            if (locationTextBox.Text == "")
+            {
+                locationTextBox.Text = "New Location";
+                locationTextBox.ForeColor = Color.DarkGray;
+            }
+        }
+
+        // when user clicks in text box
+        private void userTypeTextBox_Enter(object sender, EventArgs e)
+        {
+            if (userTypeTextBox.Text == "New User Type")
+            {
+                userTypeTextBox.Text = "";
+                userTypeTextBox.ForeColor = Color.White;
+            }
+        }
+
+        // when user clicks out of text box
+        private void userTypeTextBox_Leave(object sender, EventArgs e)
+        {
+            if (userTypeTextBox.Text == "")
+            {
+                userTypeTextBox.Text = "New User Type";
+                userTypeTextBox.ForeColor = Color.DarkGray;
+            }
+        }
+
+        // when user clicks in text box
+        private void changeUsernameTextBox_Enter(object sender, EventArgs e)
+        {
+            if (changeUsernameTextBox.Text == "New Username")
+            {
+                changeUsernameTextBox.Text = "";
+                changeUsernameTextBox.ForeColor = Color.White;
+            }
+        }
+
+        // when user clicks out of text box
+        private void changeUsernameTextBox_Leave(object sender, EventArgs e)
+        {
+            if (changeUsernameTextBox.Text == "")
+            {
+                changeUsernameTextBox.Text = "New Username";
+                changeUsernameTextBox.ForeColor = Color.DarkGray;
+            }
+        }
+
+        // when user clicks in text box
+        private void changePasswordTextBox_Enter(object sender, EventArgs e)
+        {
+            if (changePasswordTextBox.Text == "New Password")
+            {
+                changePasswordTextBox.Text = "";
+                changePasswordTextBox.ForeColor = Color.White;
+            }
+        }
+
+        // when user clicks out of text box
+        private void changePasswordTextBox_Leave(object sender, EventArgs e)
+        {
+            if (changePasswordTextBox.Text == "")
+            {
+                changePasswordTextBox.Text = "New Password";
+                changePasswordTextBox.ForeColor = Color.DarkGray;
+            }
+        }
+
+        // when user clicks in text box
+        private void conventionTitleTextBox_Enter(object sender, EventArgs e)
+        {
+            if (conventionTitleTextBox.Text == "Enter the convention title here.")
+            {
+                conventionTitleTextBox.Text = "";
+                conventionTitleTextBox.ForeColor = Color.White;
+            }
+        }
+
+        // when user clicks out of text box
+        private void conventionTitleTextBox_Leave(object sender, EventArgs e)
+        {
+            if (conventionTitleTextBox.Text == "")
+            {
+                conventionTitleTextBox.Text = "Enter the convention title here.";
+                conventionTitleTextBox.ForeColor = Color.DarkGray;
+            }
+        }
+
+        // when user clicks in text box
+        private void conventionSubtitleTextBox_Enter(object sender, EventArgs e)
+        {
+            if (conventionSubtitleTextBox.Text == "Enter the convention subtitle here.")
+            {
+                conventionSubtitleTextBox.Text = "";
+                conventionSubtitleTextBox.ForeColor = Color.White;
+            }
+        }
+
+        // when user clicks out of text box
+        private void conventionSubtitleTextBox_Leave(object sender, EventArgs e)
+        {
+            if (conventionSubtitleTextBox.Text == "")
+            {
+                conventionSubtitleTextBox.Text = "Enter the convention subtitle here.";
+                conventionSubtitleTextBox.ForeColor = Color.DarkGray;
+            }
+        }
+
+        // when user clicks in text box
+        private void conventionDescriptionTextBox_Enter(object sender, EventArgs e)
+        {
+            if (conventionDescriptionTextBox.Text == "Enter the convention description here.")
+            {
+                conventionDescriptionTextBox.Text = "";
+                conventionDescriptionTextBox.ForeColor = Color.White;
+            }
+        }
+
+        // when user clicks out of text box
+        private void conventionDescriptionTextBox_Leave(object sender, EventArgs e)
+        {
+            if (conventionDescriptionTextBox.Text == "")
+            {
+                conventionDescriptionTextBox.Text = "Enter the convention description here.";
+                conventionDescriptionTextBox.ForeColor = Color.DarkGray;
+            }
+        }
+
+        // displays the general information entered on the screen
+        private void conventionDisplayButton_Click(object sender, EventArgs e)
+        {
+            conventionTitleLabel.Text = conventionTitleTextBox.Text;
+            conventionSubtitleLabel.Text = conventionSubtitleTextBox.Text;
+            conventionDisplayDescTextBox.Text = conventionDescriptionTextBox.Text;
+        }
+
+        // saves the general information about the convention to the database
+        private void conventionSaveButton_Click(object sender, EventArgs e)
+        {
+            // making sure fields aren't blank
+            if (conventionTitleLabel.Text != "" && conventionSubtitleLabel.Text != "" && conventionDisplayDescTextBox.Text != "")
+            {
+                MessageBox.Show(ApplicationManager.i.saveGeneralInfo(conventionTitleLabel.Text,
+                    conventionSubtitleLabel.Text, conventionDisplayDescTextBox.Text));
+            }
+            else
+            {
+                MessageBox.Show("All fields must be filled in.");
             }
         }
     }
