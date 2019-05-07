@@ -168,8 +168,6 @@ namespace CapstoneProject
         // removes staff from event
         private void removeButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(eventsListView.SelectedItems.Count.ToString() + ", " + assignedStaffComboBox.SelectedIndex.ToString());
-
             if(eventsListView.SelectedItems.Count > 0)
             {
                 if (assignedStaffComboBox.SelectedIndex > -1)
@@ -207,6 +205,15 @@ namespace CapstoneProject
                     loadAssignedStaff();
                     populateListView(ApplicationManager.i.getAllFromTable(new Event()).Cast<Event>().ToList(), eventsListView,
                         eventsComboBox);
+
+                    if (allStaffComboBox.SelectedIndex > -1)
+                    {
+                        User selectedStaffer = (User)ApplicationManager.i.getObjectFromDbByName(new User(),
+                            allStaffUsernames[allStaffComboBox.SelectedIndex]);
+
+                        populateListView(ApplicationManager.i.getItineraryFromDb(selectedStaffer.userID).Cast<Event>().ToList(),
+                            staffListView, staffComboBox);
+                    }
                 }
                 else
                 {

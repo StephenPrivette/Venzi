@@ -71,7 +71,7 @@
             this.label23.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.White;
-            this.label23.Location = new System.Drawing.Point(837, 36);
+            this.label23.Location = new System.Drawing.Point(926, 36);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(200, 20);
             this.label23.TabIndex = 102;
@@ -89,7 +89,7 @@
             "Time",
             "Type",
             "Location"});
-            this.eventsComboBox.Location = new System.Drawing.Point(849, 59);
+            this.eventsComboBox.Location = new System.Drawing.Point(938, 59);
             this.eventsComboBox.Name = "eventsComboBox";
             this.eventsComboBox.Size = new System.Drawing.Size(188, 31);
             this.eventsComboBox.TabIndex = 101;
@@ -138,10 +138,10 @@
             this.eventsListView.ForeColor = System.Drawing.Color.White;
             this.eventsListView.FullRowSelect = true;
             this.eventsListView.HideSelection = false;
-            this.eventsListView.Location = new System.Drawing.Point(137, 95);
+            this.eventsListView.Location = new System.Drawing.Point(53, 95);
             this.eventsListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.eventsListView.Name = "eventsListView";
-            this.eventsListView.Size = new System.Drawing.Size(900, 230);
+            this.eventsListView.Size = new System.Drawing.Size(1073, 230);
             this.eventsListView.TabIndex = 97;
             this.eventsListView.UseCompatibleStateImageBehavior = false;
             this.eventsListView.View = System.Windows.Forms.View.Details;
@@ -238,7 +238,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(837, 453);
+            this.label2.Location = new System.Drawing.Point(926, 453);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(200, 20);
             this.label2.TabIndex = 110;
@@ -254,7 +254,7 @@
             this.staffComboBox.FormattingEnabled = true;
             this.staffComboBox.Items.AddRange(new object[] {
             "Time"});
-            this.staffComboBox.Location = new System.Drawing.Point(849, 476);
+            this.staffComboBox.Location = new System.Drawing.Point(938, 476);
             this.staffComboBox.Name = "staffComboBox";
             this.staffComboBox.Size = new System.Drawing.Size(188, 31);
             this.staffComboBox.TabIndex = 109;
@@ -290,10 +290,10 @@
             this.staffListView.ForeColor = System.Drawing.Color.White;
             this.staffListView.FullRowSelect = true;
             this.staffListView.HideSelection = false;
-            this.staffListView.Location = new System.Drawing.Point(137, 512);
+            this.staffListView.Location = new System.Drawing.Point(53, 512);
             this.staffListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.staffListView.Name = "staffListView";
-            this.staffListView.Size = new System.Drawing.Size(900, 230);
+            this.staffListView.Size = new System.Drawing.Size(1073, 230);
             this.staffListView.TabIndex = 107;
             this.staffListView.UseCompatibleStateImageBehavior = false;
             this.staffListView.View = System.Windows.Forms.View.Details;

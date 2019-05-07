@@ -760,14 +760,15 @@ namespace CapstoneClassLibrary
                 // if event already exists update it else insert a new record
                 if (db.isObjectNameInDb(new Event(), name))
                 {
+                    // getting object just for staff assigned
+                    Event event2 = (Event)db.getObjectFromDbByName(new Event(), name);
+                    newEvent.staffAssigned = event2.staffAssigned;
                     db.updateDbFromObjectByName(newEvent);
-
                     return "Event updated successfully.";
                 }
                 else
                 {
                     db.insertObjectIntoDb(newEvent);
-
                     return "Event created successfully.";
                 }
             }

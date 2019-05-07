@@ -47,6 +47,8 @@ namespace CapstoneProject
                 conventionDescriptionTextBox.Visible = false;
                 conventionDisplayButton.Visible = false;
                 conventionSaveButton.Visible = false;
+                itineraryListView.Columns[2].Width = 100;
+                itineraryListView.Columns[3].Width = 100;
             }
             else if (currentUserType.userPermissionsLevel == 2)
             {
@@ -59,6 +61,8 @@ namespace CapstoneProject
                 conventionDescriptionTextBox.Visible = false;
                 conventionDisplayButton.Visible = false;
                 conventionSaveButton.Visible = false;
+                itineraryListView.Columns[4].Width = 0;
+                itineraryListView.Columns[5].Width = 0;
             }
             else
             {
@@ -78,6 +82,8 @@ namespace CapstoneProject
                 conventionDescriptionTextBox.Visible = false;
                 conventionDisplayButton.Visible = false;
                 conventionSaveButton.Visible = false;
+                itineraryListView.Columns[4].Width = 0;
+                itineraryListView.Columns[5].Width = 0;
             }
         }
 
@@ -174,6 +180,9 @@ namespace CapstoneProject
                 events = events.OrderBy(x => x.startTime).ToList();
             }
 
+            UserType ut = (UserType)ApplicationManager.i.getObjectFromDbByName(new UserType(),
+                    ApplicationManager.i.mainUser.userTypeName);
+
             foreach (Event i in events)
             {
                 ListViewItem lvItem = new ListViewItem(i.startTime.ToString("MM/dd h:mm tt")
@@ -181,6 +190,13 @@ namespace CapstoneProject
                 lvItem.SubItems.Add(i.eventName);
                 lvItem.SubItems.Add(i.eventTypeName);
                 lvItem.SubItems.Add(i.locationName);
+
+                if (ut.userPermissionsLevel == 1)
+                {
+                    lvItem.SubItems.Add((i.startTime - i.setupDuration).ToString("t"));
+                    lvItem.SubItems.Add((i.startTime + i.eventDuration + i.breakdownDuration).ToString("t"));
+                }
+
                 lv.Items.Add(lvItem);
             }
         }

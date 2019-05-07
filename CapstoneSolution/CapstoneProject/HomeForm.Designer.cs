@@ -53,6 +53,8 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.scheduleListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -452,7 +454,9 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8,
-            this.columnHeader9});
+            this.columnHeader9,
+            this.columnHeader5,
+            this.columnHeader10});
             this.itineraryListView.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itineraryListView.ForeColor = System.Drawing.Color.White;
             this.itineraryListView.FullRowSelect = true;
@@ -485,6 +489,16 @@
             // 
             this.columnHeader9.Text = "Location";
             this.columnHeader9.Width = 140;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Setup Start Time";
+            this.columnHeader5.Width = 100;
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Breakdown End Time";
+            this.columnHeader10.Width = 100;
             // 
             // scheduleListView
             // 
@@ -1676,5 +1690,7 @@
         private System.Windows.Forms.TextBox conventionSubtitleTextBox;
         private System.Windows.Forms.Button conventionDisplayButton;
         private System.Windows.Forms.Button conventionSaveButton;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
     }
 }
