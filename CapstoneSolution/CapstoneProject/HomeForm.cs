@@ -197,6 +197,10 @@ namespace CapstoneProject
                     lvItem.SubItems.Add((i.startTime + i.eventDuration + i.breakdownDuration).ToString("t"));
                 }
 
+                EventType et = (EventType)ApplicationManager.i.getObjectFromDbByName(new EventType(), i.eventTypeName);
+                lvItem.UseItemStyleForSubItems = false;
+                lvItem.SubItems[2].BackColor = Color.FromArgb(et.eventTypeColor);
+
                 lv.Items.Add(lvItem);
             }
         }
@@ -945,6 +949,87 @@ namespace CapstoneProject
             {
                 MessageBox.Show("All fields must be filled in.");
             }
+        }
+
+        private void eventTypeListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (eventTypeListBox.SelectedIndex >= 0)
+            {
+                EventType et = (EventType)ApplicationManager.i.getObjectFromDbByName(new EventType(), eventTypeListBox.SelectedItem.ToString());
+                colorLabel.BackColor = Color.FromArgb(et.eventTypeColor);
+            }
+        }
+
+        // selects color
+        private void colorLabel_Click(object sender, EventArgs e)
+        {
+            // making sure a color was selected
+            if (eventTypeColorDialog.ShowDialog() == DialogResult.OK)
+            {
+                colorLabel.BackColor = eventTypeColorDialog.Color;
+            }
+        }
+
+        private void changeColorButton_Click(object sender, EventArgs e)
+        {
+            // making sure event type is selected
+            if (eventTypeListBox.SelectedIndex >= 0)
+            {
+                // checking with user to ensure they really want to change the color
+                if (MessageBox.Show("Are you sure you want to change the color for " + eventTypeListBox.SelectedItem.ToString() +
+                    " Event Type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    EventType et = new EventType();
+                    et.eventTypeName = eventTypeListBox.SelectedItem.ToString();
+                    et.eventTypeColor = colorLabel.BackColor.ToArgb();
+
+                    string message = ApplicationManager.i.updateEventTypeColor(et);
+
+                    // if message is good don't show it
+                    if (message != et.GetType().Name + " has been updated.")
+                    {
+                        MessageBox.Show(message);
+                    }
+
+                    loadEventTypes();
+                }
+            }
+            else
+            {
+                MessageBox.Show("A type must be selected in the list box.");
+            }
+        }
+
+        // emails user's itinerary to them
+        private void emailItineraryLabel_Click(object sender, EventArgs e)
+        {
+            // loops through itinerary listview and concatenates string with items
+            string emailBodyWhole = "";
+            foreach (ListViewItem lvi in itineraryListView.Items)
+            {
+                string emailBodyLine = "Time: " + lvi.SubItems[0].Text + "\nEvent: " + lvi.SubItems[1].Text +
+                    "\nType: " + lvi.SubItems[2].Text + "\nLocation: " + lvi.SubItems[3].Text;
+
+                emailBodyWhole += emailBodyLine + "\n\n";
+            }
+
+            // sending email
+            MessageBox.Show(ApplicationManager.i.sendEmail(ApplicationManager.i.mainUser.userEmail,
+                "Venzi: Your Itinerary", emailBodyWhole));
+        }
+
+        // when mouse hovers over label
+        private void emailItineraryLabel_MouseEnter(object sender, EventArgs e)
+        {
+            emailItineraryLabel.Font = new Font(emailItineraryLabel.Font.FontFamily, 9);
+            emailItineraryLabel.ForeColor = Color.FromArgb(120, 255, 255);
+        }
+
+        // when mouse leaves label
+        private void emailItineraryLabel_MouseLeave(object sender, EventArgs e)
+        {
+            emailItineraryLabel.Font = new Font(emailItineraryLabel.Font.FontFamily, 8);
+            emailItineraryLabel.ForeColor = Color.FromArgb(60, 150, 255);
         }
     }
 }

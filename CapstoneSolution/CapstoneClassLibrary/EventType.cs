@@ -11,5 +11,6 @@ namespace CapstoneClassLibrary
     {
         public int eventTypeID { get; set; }
         public string eventTypeName { get; set; }
+        public int eventTypeColor { get; set; }
     }
 }

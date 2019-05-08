@@ -61,6 +61,9 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.eventsTabPage = new System.Windows.Forms.TabPage();
+            this.label18 = new System.Windows.Forms.Label();
+            this.colorLabel = new System.Windows.Forms.Label();
+            this.changeColorButton = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.eveManComboBox = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -133,6 +136,8 @@
             this.changePasswordButton = new System.Windows.Forms.Button();
             this.changeUsernameTextBox = new System.Windows.Forms.TextBox();
             this.changeUsernameButton = new System.Windows.Forms.Button();
+            this.eventTypeColorDialog = new System.Windows.Forms.ColorDialog();
+            this.emailItineraryLabel = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.generalInformationTabPage.SuspendLayout();
             this.scheduleTabPage.SuspendLayout();
@@ -356,6 +361,7 @@
             // scheduleTabPage
             // 
             this.scheduleTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.scheduleTabPage.Controls.Add(this.emailItineraryLabel);
             this.scheduleTabPage.Controls.Add(this.label2);
             this.scheduleTabPage.Controls.Add(this.itineraryOrderLabel);
             this.scheduleTabPage.Controls.Add(this.itineraryComboBox);
@@ -546,6 +552,9 @@
             // eventsTabPage
             // 
             this.eventsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.eventsTabPage.Controls.Add(this.label18);
+            this.eventsTabPage.Controls.Add(this.colorLabel);
+            this.eventsTabPage.Controls.Add(this.changeColorButton);
             this.eventsTabPage.Controls.Add(this.label16);
             this.eventsTabPage.Controls.Add(this.eveManComboBox);
             this.eventsTabPage.Controls.Add(this.label12);
@@ -574,6 +583,47 @@
             this.eventsTabPage.Size = new System.Drawing.Size(1173, 717);
             this.eventsTabPage.TabIndex = 3;
             this.eventsTabPage.Text = "Event Management";
+            // 
+            // label18
+            // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.White;
+            this.label18.Location = new System.Drawing.Point(49, 604);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(175, 20);
+            this.label18.TabIndex = 90;
+            this.label18.Text = "(click for color)";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
+            // colorLabel
+            // 
+            this.colorLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.colorLabel.BackColor = System.Drawing.Color.White;
+            this.colorLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.colorLabel.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colorLabel.ForeColor = System.Drawing.Color.White;
+            this.colorLabel.Location = new System.Drawing.Point(49, 628);
+            this.colorLabel.Name = "colorLabel";
+            this.colorLabel.Size = new System.Drawing.Size(175, 84);
+            this.colorLabel.TabIndex = 89;
+            this.colorLabel.Click += new System.EventHandler(this.colorLabel_Click);
+            // 
+            // changeColorButton
+            // 
+            this.changeColorButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.changeColorButton.BackColor = System.Drawing.Color.SaddleBrown;
+            this.changeColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.changeColorButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.changeColorButton.ForeColor = System.Drawing.Color.White;
+            this.changeColorButton.Location = new System.Drawing.Point(49, 549);
+            this.changeColorButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.changeColorButton.Name = "changeColorButton";
+            this.changeColorButton.Size = new System.Drawing.Size(175, 39);
+            this.changeColorButton.TabIndex = 88;
+            this.changeColorButton.Text = "Change Color";
+            this.changeColorButton.UseVisualStyleBackColor = false;
+            this.changeColorButton.Click += new System.EventHandler(this.changeColorButton_Click);
             // 
             // label16
             // 
@@ -690,7 +740,7 @@
             this.deleteTypeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.deleteTypeButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteTypeButton.ForeColor = System.Drawing.Color.White;
-            this.deleteTypeButton.Location = new System.Drawing.Point(49, 475);
+            this.deleteTypeButton.Location = new System.Drawing.Point(49, 446);
             this.deleteTypeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.deleteTypeButton.Name = "deleteTypeButton";
             this.deleteTypeButton.Size = new System.Drawing.Size(175, 39);
@@ -713,6 +763,7 @@
             this.eventTypeListBox.Name = "eventTypeListBox";
             this.eventTypeListBox.Size = new System.Drawing.Size(275, 140);
             this.eventTypeListBox.TabIndex = 69;
+            this.eventTypeListBox.SelectedIndexChanged += new System.EventHandler(this.eventTypeListBox_SelectedIndexChanged);
             // 
             // addTypeButton
             // 
@@ -721,7 +772,7 @@
             this.addTypeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addTypeButton.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addTypeButton.ForeColor = System.Drawing.Color.White;
-            this.addTypeButton.Location = new System.Drawing.Point(49, 545);
+            this.addTypeButton.Location = new System.Drawing.Point(49, 498);
             this.addTypeButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addTypeButton.Name = "addTypeButton";
             this.addTypeButton.Size = new System.Drawing.Size(175, 39);
@@ -1556,6 +1607,21 @@
             this.changeUsernameButton.UseVisualStyleBackColor = false;
             this.changeUsernameButton.Click += new System.EventHandler(this.changeUsernameButton_Click);
             // 
+            // emailItineraryLabel
+            // 
+            this.emailItineraryLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.emailItineraryLabel.AutoSize = true;
+            this.emailItineraryLabel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailItineraryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.emailItineraryLabel.Location = new System.Drawing.Point(122, 427);
+            this.emailItineraryLabel.Name = "emailItineraryLabel";
+            this.emailItineraryLabel.Size = new System.Drawing.Size(145, 19);
+            this.emailItineraryLabel.TabIndex = 93;
+            this.emailItineraryLabel.Text = "Email me my itinerary!";
+            this.emailItineraryLabel.Click += new System.EventHandler(this.emailItineraryLabel_Click);
+            this.emailItineraryLabel.MouseEnter += new System.EventHandler(this.emailItineraryLabel_MouseEnter);
+            this.emailItineraryLabel.MouseLeave += new System.EventHandler(this.emailItineraryLabel_MouseLeave);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1692,5 +1758,10 @@
         private System.Windows.Forms.Button conventionSaveButton;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.Label colorLabel;
+        private System.Windows.Forms.Button changeColorButton;
+        private System.Windows.Forms.ColorDialog eventTypeColorDialog;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label emailItineraryLabel;
     }
 }

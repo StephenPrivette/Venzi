@@ -49,7 +49,7 @@ namespace CapstoneClassLibrary
         private int DESCRIPTIONMAX = 400;
         private int USERNAMEMIN = 4;
         private int PASSWORDMIN = 6;
-        private int EMAILBODYMAX = 400;
+        private int EMAILBODYMAX = 1000;
 
         // validates length of user entries
         private bool valEntry(string entry, int min, int max)
@@ -530,6 +530,22 @@ namespace CapstoneClassLibrary
             }
         }
 
+        // changes permissions level of user type
+        public string updateEventTypeColor(EventType obj)
+        {
+            // making sure user type exists in database
+            if (db.isObjectNameInDb(obj, obj.eventTypeName))
+            {
+                // saving user type to database
+                db.updateDbFromObjectByName(obj);
+                return obj.GetType().Name + " has been updated.";
+            }
+            else
+            {
+                return "This event type does not exist.";
+            }
+        }
+
         // deletes event type from database
         public string deleteEventFromDb(object obj, string name)
         {
@@ -542,16 +558,12 @@ namespace CapstoneClassLibrary
                 db.deleteObjectFromDb(obj, name);
 
                 // getting all emails from database and adding them to a list
-                List<User> allUsers = db.getAllFromTable(new User()).Cast<User>().ToList();
-                List<string> allEmails = new List<string>();
-                foreach (User i in allUsers)
+                foreach (User i in db.getAllFromTable(new User()).Cast<User>().ToList())
                 {
-                    allEmails.Add(i.userEmail);
+                    // email informing of event cancellation sent to all users
+                    sendEmail(i.userEmail, "Venzi: Event Cancelled", eventToDelete.eventName + " has been cancelled. " +
+                        "We are sorry for the inconvienience.");
                 }
-
-                // email informing of event cancellation sent to all users
-                sendEmail(string.Join(",", allEmails), "Venzi: Event Cancelled", eventToDelete.eventName + " has been cancelled. " +
-                    "We are sorry for the inconvienience.");
 
                 return obj.GetType().Name + " has been deleted.";
             }
