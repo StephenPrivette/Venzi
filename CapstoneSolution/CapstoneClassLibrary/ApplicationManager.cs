@@ -49,7 +49,8 @@ namespace CapstoneClassLibrary
         private int DESCRIPTIONMAX = 400;
         private int USERNAMEMIN = 4;
         private int PASSWORDMIN = 6;
-        private int EMAILBODYMAX = 1000;
+        private int EMAILBODYMAX = 10000;
+        private int EMAILTOMAX = 10000;
 
         // validates length of user entries
         private bool valEntry(string entry, int min, int max)
@@ -558,12 +559,15 @@ namespace CapstoneClassLibrary
                 db.deleteObjectFromDb(obj, name);
 
                 // getting all emails from database and adding them to a list
+                List<string> userEmailAddresses = new List<string>();
                 foreach (User i in db.getAllFromTable(new User()).Cast<User>().ToList())
                 {
-                    // email informing of event cancellation sent to all users
-                    sendEmail(i.userEmail, "Venzi: Event Cancelled", eventToDelete.eventName + " has been cancelled. " +
-                        "We are sorry for the inconvienience.");
+                    userEmailAddresses.Add(i.userEmail);
                 }
+
+                // email informing of event cancellation sent to all users
+                sendEmail(string.Join(",", userEmailAddresses), "Venzi: Event Cancelled", eventToDelete.eventName + " has been cancelled. " +
+                    "We are sorry for the inconvienience.");
 
                 return obj.GetType().Name + " has been deleted.";
             }
@@ -871,7 +875,7 @@ namespace CapstoneClassLibrary
             MailAddress fromMailAddress = new MailAddress(FROMADDRESS);
             MailMessage mail = new MailMessage();
 
-            if (valEntry(to, DEFAULTMIN, DEFAULTMAX) && valEntry(subject, DEFAULTMIN, DEFAULTMAX)
+            if (valEntry(to, DEFAULTMIN, EMAILTOMAX) && valEntry(subject, DEFAULTMIN, DEFAULTMAX)
                 && valEntry(body, DEFAULTMIN, EMAILBODYMAX))
             {
                 try
