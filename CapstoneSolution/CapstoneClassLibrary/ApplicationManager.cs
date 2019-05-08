@@ -515,14 +515,14 @@ namespace CapstoneClassLibrary
         }
 
         // changes permissions level of user type
-        public string updateUserTypePermissions(UserType obj)
+        public string updateUserTypePermissions(UserType ut)
         {
             // making sure user type exists in database
-            if (db.isObjectNameInDb(obj, obj.userTypeName))
+            if (db.isObjectNameInDb(ut, ut.userTypeName))
             {
                 // saving user type to database
-                db.updateDbFromObjectByName(obj);
-                return obj.GetType().Name + " has been added.";
+                db.updateDbFromObjectByName(ut);
+                return "The permissions level for " + ut.userTypeName + " has been changed successfully.";
             }
             else
             {
@@ -531,14 +531,14 @@ namespace CapstoneClassLibrary
         }
 
         // changes permissions level of user type
-        public string updateEventTypeColor(EventType obj)
+        public string updateEventTypeColor(EventType et)
         {
             // making sure user type exists in database
-            if (db.isObjectNameInDb(obj, obj.eventTypeName))
+            if (db.isObjectNameInDb(et, et.eventTypeName))
             {
                 // saving user type to database
-                db.updateDbFromObjectByName(obj);
-                return obj.GetType().Name + " has been updated.";
+                db.updateDbFromObjectByName(et);
+                return "The color for " + et.eventTypeName + " has been changed successfully.";
             }
             else
             {

@@ -631,13 +631,7 @@ namespace CapstoneProject
                             ut.userTypeName = userTypeListBox.SelectedItem.ToString();
                             ut.userPermissionsLevel = permissionsComboBox.SelectedIndex;
 
-                            string message = ApplicationManager.i.updateUserTypePermissions(ut);
-
-                            // if message is good don't show it
-                            if (message != ut.GetType().Name + " has been added.")
-                            {
-                                MessageBox.Show(message);
-                            }
+                            MessageBox.Show(ApplicationManager.i.updateUserTypePermissions(ut));
 
                             loadUserTypes();
                         }
@@ -983,13 +977,7 @@ namespace CapstoneProject
                     et.eventTypeName = eventTypeListBox.SelectedItem.ToString();
                     et.eventTypeColor = colorLabel.BackColor.ToArgb();
 
-                    string message = ApplicationManager.i.updateEventTypeColor(et);
-
-                    // if message is good don't show it
-                    if (message != et.GetType().Name + " has been updated.")
-                    {
-                        MessageBox.Show(message);
-                    }
+                    MessageBox.Show(ApplicationManager.i.updateEventTypeColor(et));
 
                     loadEventTypes();
                 }

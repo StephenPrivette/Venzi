@@ -43,6 +43,7 @@
             this.conventionSubtitleLabel = new System.Windows.Forms.Label();
             this.conventionTitleLabel = new System.Windows.Forms.Label();
             this.scheduleTabPage = new System.Windows.Forms.TabPage();
+            this.emailItineraryLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.itineraryOrderLabel = new System.Windows.Forms.Label();
             this.itineraryComboBox = new System.Windows.Forms.ComboBox();
@@ -137,7 +138,7 @@
             this.changeUsernameTextBox = new System.Windows.Forms.TextBox();
             this.changeUsernameButton = new System.Windows.Forms.Button();
             this.eventTypeColorDialog = new System.Windows.Forms.ColorDialog();
-            this.emailItineraryLabel = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.generalInformationTabPage.SuspendLayout();
             this.scheduleTabPage.SuspendLayout();
@@ -381,6 +382,21 @@
             this.scheduleTabPage.TabIndex = 0;
             this.scheduleTabPage.Text = "Schedule";
             // 
+            // emailItineraryLabel
+            // 
+            this.emailItineraryLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.emailItineraryLabel.AutoSize = true;
+            this.emailItineraryLabel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailItineraryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
+            this.emailItineraryLabel.Location = new System.Drawing.Point(122, 427);
+            this.emailItineraryLabel.Name = "emailItineraryLabel";
+            this.emailItineraryLabel.Size = new System.Drawing.Size(145, 19);
+            this.emailItineraryLabel.TabIndex = 93;
+            this.emailItineraryLabel.Text = "Email me my itinerary!";
+            this.emailItineraryLabel.Click += new System.EventHandler(this.emailItineraryLabel_Click);
+            this.emailItineraryLabel.MouseEnter += new System.EventHandler(this.emailItineraryLabel_MouseEnter);
+            this.emailItineraryLabel.MouseLeave += new System.EventHandler(this.emailItineraryLabel_MouseLeave);
+            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -552,6 +568,7 @@
             // eventsTabPage
             // 
             this.eventsTabPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.eventsTabPage.Controls.Add(this.label26);
             this.eventsTabPage.Controls.Add(this.label18);
             this.eventsTabPage.Controls.Add(this.colorLabel);
             this.eventsTabPage.Controls.Add(this.changeColorButton);
@@ -593,7 +610,7 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(175, 20);
             this.label18.TabIndex = 90;
-            this.label18.Text = "(click for color)";
+            this.label18.Text = "(click to select color)";
             this.label18.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // colorLabel
@@ -685,7 +702,7 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label10.Location = new System.Drawing.Point(259, 414);
+            this.label10.Location = new System.Drawing.Point(259, 392);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label10.Size = new System.Drawing.Size(275, 27);
@@ -862,7 +879,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(203, 354);
+            this.label6.Location = new System.Drawing.Point(182, 354);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(167, 38);
             this.label6.TabIndex = 53;
@@ -1607,20 +1624,17 @@
             this.changeUsernameButton.UseVisualStyleBackColor = false;
             this.changeUsernameButton.Click += new System.EventHandler(this.changeUsernameButton_Click);
             // 
-            // emailItineraryLabel
+            // label26
             // 
-            this.emailItineraryLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.emailItineraryLabel.AutoSize = true;
-            this.emailItineraryLabel.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailItineraryLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(150)))), ((int)(((byte)(255)))));
-            this.emailItineraryLabel.Location = new System.Drawing.Point(122, 427);
-            this.emailItineraryLabel.Name = "emailItineraryLabel";
-            this.emailItineraryLabel.Size = new System.Drawing.Size(145, 19);
-            this.emailItineraryLabel.TabIndex = 93;
-            this.emailItineraryLabel.Text = "Email me my itinerary!";
-            this.emailItineraryLabel.Click += new System.EventHandler(this.emailItineraryLabel_Click);
-            this.emailItineraryLabel.MouseEnter += new System.EventHandler(this.emailItineraryLabel_MouseEnter);
-            this.emailItineraryLabel.MouseLeave += new System.EventHandler(this.emailItineraryLabel_MouseLeave);
+            this.label26.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.White;
+            this.label26.Location = new System.Drawing.Point(294, 424);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(240, 20);
+            this.label26.TabIndex = 91;
+            this.label26.Text = "(highlight to see color)";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // HomeForm
             // 
@@ -1763,5 +1777,6 @@
         private System.Windows.Forms.ColorDialog eventTypeColorDialog;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label emailItineraryLabel;
+        private System.Windows.Forms.Label label26;
     }
 }
