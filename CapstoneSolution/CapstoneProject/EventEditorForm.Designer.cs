@@ -265,7 +265,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(200, 20);
             this.label2.TabIndex = 66;
-            this.label2.Text = "(1 to 30 characters)";
+            this.label2.Text = "(1 to 40 characters)";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label3

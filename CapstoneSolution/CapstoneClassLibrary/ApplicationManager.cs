@@ -45,17 +45,21 @@ namespace CapstoneClassLibrary
 
         // constants
         private int DEFAULTMIN = 1;
-        private int DEFAULTMAX = 30;
+        private int DEFAULTMAX = 40;
         private int DESCRIPTIONMAX = 400;
         private int USERNAMEMIN = 4;
         private int PASSWORDMIN = 6;
-        private int EMAILBODYMAX = 10000;
-        private int EMAILTOMAX = 10000;
 
         // validates length of user entries
         private bool valEntry(string entry, int min, int max)
         {
             return entry.Length >= min && entry.Length <= max;
+        }
+
+        // validates length of user entries
+        private bool valEntry(string entry, int min)
+        {
+            return entry.Length >= min;
         }
 
         // creates a new user, returns string indicating success or type of error
@@ -875,8 +879,8 @@ namespace CapstoneClassLibrary
             MailAddress fromMailAddress = new MailAddress(FROMADDRESS);
             MailMessage mail = new MailMessage();
 
-            if (valEntry(to, DEFAULTMIN, EMAILTOMAX) && valEntry(subject, DEFAULTMIN, DEFAULTMAX)
-                && valEntry(body, DEFAULTMIN, EMAILBODYMAX))
+            if (valEntry(to, DEFAULTMIN) && valEntry(subject, DEFAULTMIN)
+                && valEntry(body, DEFAULTMIN))
             {
                 try
                 {

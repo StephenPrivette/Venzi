@@ -150,7 +150,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(200, 20);
             this.label14.TabIndex = 78;
-            this.label14.Text = "(6 to 30 characters)";
+            this.label14.Text = "(6 to 40 characters)";
             this.label14.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label1
@@ -162,7 +162,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(340, 20);
             this.label1.TabIndex = 85;
-            this.label1.Text = "(1 lower, 1 upper, 1 special, 6 to 30 characters)";
+            this.label1.Text = "(1 lower, 1 upper, 1 special, 6 to 40 characters)";
             this.label1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label3
@@ -174,7 +174,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(200, 20);
             this.label3.TabIndex = 86;
-            this.label3.Text = "(1 to 30 characters)";
+            this.label3.Text = "(1 to 40 characters)";
             this.label3.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label4
@@ -210,7 +210,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(200, 20);
             this.label9.TabIndex = 91;
-            this.label9.Text = "(1 to 30 characters)";
+            this.label9.Text = "(1 to 40 characters)";
             this.label9.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // firstTextBox
@@ -238,7 +238,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(200, 20);
             this.label11.TabIndex = 94;
-            this.label11.Text = "(1 to 30 characters)";
+            this.label11.Text = "(1 to 40 characters)";
             this.label11.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // lastTextBox

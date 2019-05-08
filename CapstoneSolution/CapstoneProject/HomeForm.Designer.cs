@@ -62,6 +62,7 @@
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.eventsTabPage = new System.Windows.Forms.TabPage();
+            this.label26 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.colorLabel = new System.Windows.Forms.Label();
             this.changeColorButton = new System.Windows.Forms.Button();
@@ -123,7 +124,6 @@
             this.sendEmailButton = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
             this.subjectTextBox = new System.Windows.Forms.TextBox();
             this.toLabel = new System.Windows.Forms.Label();
             this.bodyTextBox = new System.Windows.Forms.RichTextBox();
@@ -138,7 +138,7 @@
             this.changeUsernameTextBox = new System.Windows.Forms.TextBox();
             this.changeUsernameButton = new System.Windows.Forms.Button();
             this.eventTypeColorDialog = new System.Windows.Forms.ColorDialog();
-            this.label26 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.generalInformationTabPage.SuspendLayout();
             this.scheduleTabPage.SuspendLayout();
@@ -601,6 +601,18 @@
             this.eventsTabPage.TabIndex = 3;
             this.eventsTabPage.Text = "Event Management";
             // 
+            // label26
+            // 
+            this.label26.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.White;
+            this.label26.Location = new System.Drawing.Point(294, 424);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(240, 20);
+            this.label26.TabIndex = 91;
+            this.label26.Text = "(highlight to see color)";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
             // label18
             // 
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -719,7 +731,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(200, 18);
             this.label17.TabIndex = 78;
-            this.label17.Text = "(1 to 30 characters)";
+            this.label17.Text = "(1 to 40 characters)";
             this.label17.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label14
@@ -731,7 +743,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(200, 18);
             this.label14.TabIndex = 77;
-            this.label14.Text = "(1 to 30 characters)";
+            this.label14.Text = "(1 to 40 characters)";
             this.label14.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // deleteLocationButton
@@ -1232,7 +1244,7 @@
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(200, 18);
             this.label27.TabIndex = 89;
-            this.label27.Text = "(1 to 30 characters)";
+            this.label27.Text = "(1 to 40 characters)";
             this.label27.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // deleteUserTypeButton
@@ -1367,7 +1379,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(200, 18);
             this.label20.TabIndex = 92;
-            this.label20.Text = "(1 to 400 characters)";
+            this.label20.Text = "(at least 1 character)";
             this.label20.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label19
@@ -1423,18 +1435,6 @@
             this.label13.TabIndex = 88;
             this.label13.Text = "Subject";
             this.label13.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            // 
-            // label25
-            // 
-            this.label25.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label25.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(617, 251);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(200, 18);
-            this.label25.TabIndex = 87;
-            this.label25.Text = "(1 to 30 characters)";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // subjectTextBox
             // 
@@ -1505,7 +1505,7 @@
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(341, 20);
             this.label22.TabIndex = 86;
-            this.label22.Text = "(1 lower, 1 upper, 1 special, 6 to 30 characters)";
+            this.label22.Text = "(1 lower, 1 upper, 1 special, 6 to 40 characters)";
             this.label22.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // label15
@@ -1517,7 +1517,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(200, 18);
             this.label15.TabIndex = 67;
-            this.label15.Text = "(6 to 30 characters)";
+            this.label15.Text = "(6 to 40 characters)";
             this.label15.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // signOutButton
@@ -1624,17 +1624,17 @@
             this.changeUsernameButton.UseVisualStyleBackColor = false;
             this.changeUsernameButton.Click += new System.EventHandler(this.changeUsernameButton_Click);
             // 
-            // label26
+            // label25
             // 
-            this.label26.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label26.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.White;
-            this.label26.Location = new System.Drawing.Point(294, 424);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(240, 20);
-            this.label26.TabIndex = 91;
-            this.label26.Text = "(highlight to see color)";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label25.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Location = new System.Drawing.Point(617, 251);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(200, 18);
+            this.label25.TabIndex = 87;
+            this.label25.Text = "(at least 1 character)";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // HomeForm
             // 
@@ -1752,7 +1752,6 @@
         private System.Windows.Forms.Button sendEmailButton;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox subjectTextBox;
         private System.Windows.Forms.Label toLabel;
         private System.Windows.Forms.Label label20;
@@ -1778,5 +1777,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label emailItineraryLabel;
         private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label25;
     }
 }
