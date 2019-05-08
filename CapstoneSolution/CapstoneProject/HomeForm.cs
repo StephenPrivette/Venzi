@@ -925,16 +925,28 @@ namespace CapstoneProject
         // displays the general information entered on the screen
         private void conventionDisplayButton_Click(object sender, EventArgs e)
         {
-            conventionTitleLabel.Text = conventionTitleTextBox.Text;
-            conventionSubtitleLabel.Text = conventionSubtitleTextBox.Text;
-            conventionDisplayDescTextBox.Text = conventionDescriptionTextBox.Text;
+            if (conventionTitleTextBox.ForeColor == Color.White)
+            {
+                conventionTitleLabel.Text = conventionTitleTextBox.Text;
+            }
+
+            if (conventionSubtitleTextBox.ForeColor == Color.White)
+            {
+                conventionSubtitleLabel.Text = conventionSubtitleTextBox.Text;
+            }
+
+            if (conventionDisplayDescTextBox.ForeColor == Color.White)
+            {
+                conventionDisplayDescTextBox.Text = conventionDescriptionTextBox.Text;
+            }
         }
 
         // saves the general information about the convention to the database
         private void conventionSaveButton_Click(object sender, EventArgs e)
         {
             // making sure fields aren't blank
-            if (conventionTitleLabel.Text != "" && conventionSubtitleLabel.Text != "" && conventionDisplayDescTextBox.Text != "")
+            if (conventionTitleLabel.ForeColor == Color.White && conventionSubtitleLabel.ForeColor == Color.White
+                && conventionDisplayDescTextBox.ForeColor == Color.White)
             {
                 MessageBox.Show(ApplicationManager.i.saveGeneralInfo(conventionTitleLabel.Text,
                     conventionSubtitleLabel.Text, conventionDisplayDescTextBox.Text));

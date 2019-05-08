@@ -22,28 +22,35 @@ namespace CapstoneProject
         // logs user into the application
         private void loginButton_Click(object sender, EventArgs e)
         {
-            // loading main user method returns a string telling of it's errors or completion
-            MessageBox.Show(ApplicationManager.i.loadMainUserFromDb(userTextBox.Text, passwordTextBox.Text));
-
-            // if the main user has indeed been loaded
-            if (ApplicationManager.i.mainUser != null)
+            if (userTextBox.ForeColor == Color.White && passwordTextBox.ForeColor == Color.White)
             {
-                this.Hide();
+                // loading main user method returns a string telling of it's errors or completion
+                MessageBox.Show(ApplicationManager.i.loadMainUserFromDb(userTextBox.Text, passwordTextBox.Text));
 
-                HomeForm userHomeForm1 = new HomeForm();
-                userHomeForm1.ShowDialog();
+                // if the main user has indeed been loaded
+                if (ApplicationManager.i.mainUser != null)
+                {
+                    this.Hide();
 
-                MessageBox.Show("Signed out.");
+                    HomeForm userHomeForm1 = new HomeForm();
+                    userHomeForm1.ShowDialog();
 
-                userTextBox.Text = "Username";
-                userTextBox.ForeColor = Color.DarkGray;
-                passwordTextBox.Text = "Password";
-                passwordTextBox.ForeColor = Color.DarkGray;
-                passwordTextBox.PasswordChar = '\0';
+                    MessageBox.Show("Signed out.");
 
-                // since control returned after home form we must clear user object
-                ApplicationManager.i.mainUser = null;
-                this.Show();
+                    userTextBox.Text = "Username";
+                    userTextBox.ForeColor = Color.DarkGray;
+                    passwordTextBox.Text = "Password";
+                    passwordTextBox.ForeColor = Color.DarkGray;
+                    passwordTextBox.PasswordChar = '\0';
+
+                    // since control returned after home form we must clear user object
+                    ApplicationManager.i.mainUser = null;
+                    this.Show();
+                }
+            }
+            else
+            {
+                MessageBox.Show("A username and password must be entered into the boxes.");
             }
         }
 
@@ -142,7 +149,7 @@ namespace CapstoneProject
                 "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 // making sure text box isn't blank
-                if (!String.IsNullOrEmpty(userTextBox.Text))
+                if (userTextBox.ForeColor == Color.White)
                 {
                     MessageBox.Show(ApplicationManager.i.resetPassword(userTextBox.Text));
                 }
