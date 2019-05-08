@@ -33,21 +33,30 @@ namespace CapstoneProject
             // making sure something was selected
             if (userTypeListBox.SelectedIndex >= 0)
             {
-                // method returns string showing errors or completion
-                string mes = ApplicationManager.i.createNewUser(userTextBox.Text, firstTextBox.Text, lastTextBox.Text, passwordTextBox.Text, userTypeListBox.SelectedItem.ToString(), emailTextBox.Text);
-
-                // did this to ensure form would close if successful
-                if (mes == "The user has been created successfully." ||
-                    mes == "The user has been created successfully. The user type selected requires " +
-                    "special permission from the administrator. A request has been made. In the meantime events " +
-                    "can be viewed under our basic user type. Please check your email for the result of the request.")
+                if (userTextBox.ForeColor == Color.White && firstTextBox.ForeColor == Color.White &&
+                    lastTextBox.ForeColor == Color.White && passwordTextBox.ForeColor == Color.White &&
+                    emailTextBox.ForeColor == Color.White)
                 {
-                    MessageBox.Show(mes);
-                    this.Close();
+                    // method returns string showing errors or completion
+                    string mes = ApplicationManager.i.createNewUser(userTextBox.Text, firstTextBox.Text, lastTextBox.Text, passwordTextBox.Text, userTypeListBox.SelectedItem.ToString(), emailTextBox.Text);
+
+                    // did this to ensure form would close if successful
+                    if (mes == "The user has been created successfully." ||
+                        mes == "The user has been created successfully. The user type selected requires " +
+                        "special permission from the administrator. A request has been made. In the meantime events " +
+                        "can be viewed under our basic user type. Please check your email for the result of the request.")
+                    {
+                        MessageBox.Show(mes);
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(mes);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(mes);
+                    MessageBox.Show("All fields must be filled in.");
                 }
             }
             else

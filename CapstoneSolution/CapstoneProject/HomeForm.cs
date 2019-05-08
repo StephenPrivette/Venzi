@@ -339,7 +339,7 @@ namespace CapstoneProject
         private void changeUsernameButton_Click(object sender, EventArgs e)
         {
             // making sure there is text in the textbox
-            if(changeUsernameTextBox.Text != null)
+            if(changeUsernameTextBox.ForeColor == Color.White)
             {
                 MessageBox.Show(ApplicationManager.i.changeMainUserName(changeUsernameTextBox.Text));
             }
@@ -353,7 +353,7 @@ namespace CapstoneProject
         private void changePasswordButton_Click(object sender, EventArgs e)
         {
             // checking to see that there is indeed text in the text box
-            if (!String.IsNullOrEmpty(changePasswordTextBox.Text))
+            if (changePasswordTextBox.ForeColor == Color.White)
             {
                 MessageBox.Show(ApplicationManager.i.changeMainUserPassword(changePasswordTextBox.Text));
             }
