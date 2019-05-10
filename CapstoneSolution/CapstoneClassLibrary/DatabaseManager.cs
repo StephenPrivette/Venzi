@@ -492,7 +492,7 @@ namespace CapstoneClassLibrary
                 command.CommandText = query;
                 command.ExecuteNonQuery();
 
-                // staff assigned is the number of user's with permission levels 0 or 1 that have the event in their itinerary
+                // staff assigned is the number of user's with permission levels 3 or 4 that have the event in their itinerary
                 // this query updates that number
                 command.CommandText = "UPDATE events SET staffAssigned = " + numStaffAssigned + " WHERE eventID = " + eventID;
                 command.ExecuteNonQuery();
@@ -561,7 +561,7 @@ namespace CapstoneClassLibrary
                 command.CommandText = "INSERT INTO Itinerary" + staffer.userID + " (eventID) VALUES ('" + eventToAdd.eventID + "')";
                 command.ExecuteNonQuery();
 
-                // staff assigned is the number of user's with permission levels 0 or 1 that have the event in their itinerary
+                // staff assigned is the number of user's with permission levels 3 or 4 that have the event in their itinerary
                 // this query updates that number
                 command.CommandText = "UPDATE events SET staffAssigned = " + numStaffAssigned + " WHERE eventID = " + eventToAdd.eventID;
                 command.ExecuteNonQuery();
@@ -633,7 +633,7 @@ namespace CapstoneClassLibrary
                 foreach(UserType ut in getAllFromTable(new UserType()).Cast<UserType>().ToList())
                 {
                     // if user type is a staff position
-                    if(ut.userPermissionsLevel == 1)
+                    if(ut.userPermissionsLevel == 3)
                     {
                         // if staff usertype is the user type of the current user who has event in their itinerary
                         if(user1.userTypeName == ut.userTypeName)

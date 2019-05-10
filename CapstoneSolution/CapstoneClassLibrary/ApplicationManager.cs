@@ -149,9 +149,9 @@ namespace CapstoneClassLibrary
 
                                     string returnMessage;
 
-                                    // if the user is attempting to pick a user type with permissions below a 2
+                                    // if the user is attempting to pick a user type with permissions above a 2
                                     // it must be sent for approval. in the meantime it will be created as a Basic user
-                                    if (newUsersType.userPermissionsLevel == 0 || newUsersType.userPermissionsLevel == 1)
+                                    if (newUsersType.userPermissionsLevel == 3 || newUsersType.userPermissionsLevel == 4)
                                     {
                                         UserTypeRequest request = new UserTypeRequest();
                                         request.userTypeName = newUser.userTypeName;
@@ -169,7 +169,7 @@ namespace CapstoneClassLibrary
                                     }
                                     else
                                     {
-                                        // if the user is attempting to pick a user type with permissions of 2 or 3 then let them
+                                        // if the user is attempting to pick a user type with permissions of 1 or 2 then let them
                                         db.insertObjectIntoDb(newUser);
                                         newUser = (User)db.getObjectFromDbByName(newUser, username);
 

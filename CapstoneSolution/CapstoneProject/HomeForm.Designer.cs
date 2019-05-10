@@ -124,6 +124,7 @@
             this.sendEmailButton = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.subjectTextBox = new System.Windows.Forms.TextBox();
             this.toLabel = new System.Windows.Forms.Label();
             this.bodyTextBox = new System.Windows.Forms.RichTextBox();
@@ -138,7 +139,6 @@
             this.changeUsernameTextBox = new System.Windows.Forms.TextBox();
             this.changeUsernameButton = new System.Windows.Forms.Button();
             this.eventTypeColorDialog = new System.Windows.Forms.ColorDialog();
-            this.label25 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.generalInformationTabPage.SuspendLayout();
             this.scheduleTabPage.SuspendLayout();
@@ -1213,7 +1213,7 @@
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(117, 20);
             this.label32.TabIndex = 99;
-            this.label32.Text = "(0, 1, 2, or 3)";
+            this.label32.Text = "(1, 2, 3, or 4)";
             this.label32.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // permissionsComboBox
@@ -1224,10 +1224,10 @@
             this.permissionsComboBox.ForeColor = System.Drawing.Color.White;
             this.permissionsComboBox.FormattingEnabled = true;
             this.permissionsComboBox.Items.AddRange(new object[] {
-            "0",
             "1",
             "2",
-            "3"});
+            "3",
+            "4"});
             this.permissionsComboBox.Location = new System.Drawing.Point(717, 538);
             this.permissionsComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.permissionsComboBox.Name = "permissionsComboBox";
@@ -1436,6 +1436,18 @@
             this.label13.Text = "Subject";
             this.label13.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
+            // label25
+            // 
+            this.label25.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Location = new System.Drawing.Point(617, 251);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(200, 18);
+            this.label25.TabIndex = 87;
+            this.label25.Text = "(at least 1 character)";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            // 
             // subjectTextBox
             // 
             this.subjectTextBox.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1623,18 +1635,6 @@
             this.changeUsernameButton.Text = "Submit";
             this.changeUsernameButton.UseVisualStyleBackColor = false;
             this.changeUsernameButton.Click += new System.EventHandler(this.changeUsernameButton_Click);
-            // 
-            // label25
-            // 
-            this.label25.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label25.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.White;
-            this.label25.Location = new System.Drawing.Point(617, 251);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(200, 18);
-            this.label25.TabIndex = 87;
-            this.label25.Text = "(at least 1 character)";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // HomeForm
             // 

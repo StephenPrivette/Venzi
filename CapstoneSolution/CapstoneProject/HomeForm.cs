@@ -29,11 +29,11 @@ namespace CapstoneProject
             UserType currentUserType = (UserType)ApplicationManager.i.getObjectFromDbByName(new UserType(), ApplicationManager.i.mainUser.userTypeName);
 
             // based on permission level of user's type different aspects of the form are displayed
-            if (currentUserType.userPermissionsLevel == 0)
+            if (currentUserType.userPermissionsLevel == 4)
             {
                 tabControl1.TabPages.Remove(scheduleTabPage);
             }
-            else if (currentUserType.userPermissionsLevel == 1)
+            else if (currentUserType.userPermissionsLevel == 3)
             {
                 tabControl1.TabPages.Remove(eventsTabPage);
                 tabControl1.TabPages.Remove(userTabPage);
@@ -191,7 +191,7 @@ namespace CapstoneProject
                 lvItem.SubItems.Add(i.eventTypeName);
                 lvItem.SubItems.Add(i.locationName);
 
-                if (ut.userPermissionsLevel == 1)
+                if (ut.userPermissionsLevel == 3)
                 {
                     lvItem.SubItems.Add((i.startTime - i.setupDuration).ToString("t"));
                     lvItem.SubItems.Add((i.startTime + i.eventDuration + i.breakdownDuration).ToString("t"));
@@ -490,7 +490,7 @@ namespace CapstoneProject
             {
                 if(permissionsComboBox.SelectedIndex != -1)
                 {
-                    MessageBox.Show(ApplicationManager.i.addUserTypeToDb(userTypeTextBox.Text, permissionsComboBox.SelectedIndex));
+                    MessageBox.Show(ApplicationManager.i.addUserTypeToDb(userTypeTextBox.Text, permissionsComboBox.SelectedIndex + 1));
 
                     loadUserTypes();
                 }
@@ -556,14 +556,14 @@ namespace CapstoneProject
             if (userTypeListBox.SelectedIndex >= 0)
             {
                 UserType ut = (UserType)ApplicationManager.i.getObjectFromDbByName(new UserType(), userTypeListBox.SelectedItem.ToString());
-                permissionsComboBox.SelectedIndex = ut.userPermissionsLevel;
+                permissionsComboBox.SelectedIndex = ut.userPermissionsLevel - 1;
 
-                if(ut.userPermissionsLevel == 0)
+                if(ut.userPermissionsLevel == 4)
                 {
                     permissionsLabel.Text = "Full access. (the permissions you are currently logged in with)" +
                         " The ability to create/delete events, locations, types, etc. Recommended for administrators only.";
                 }
-                else if (ut.userPermissionsLevel == 1)
+                else if (ut.userPermissionsLevel == 3)
                 {
                     permissionsLabel.Text = "Limited access. Changes the itinerary to a work schedule." +
                         " The ability to view but not create or delete. Recommended for staff only.";
@@ -597,7 +597,7 @@ namespace CapstoneProject
                         {
                             UserType ut = new UserType();
                             ut.userTypeName = userTypeListBox.SelectedItem.ToString();
-                            ut.userPermissionsLevel = permissionsComboBox.SelectedIndex;
+                            ut.userPermissionsLevel = permissionsComboBox.SelectedIndex + 1;
 
                             MessageBox.Show(ApplicationManager.i.updateUserTypePermissions(ut));
 
@@ -623,17 +623,17 @@ namespace CapstoneProject
         // shows description of permission level
         private void permissionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (permissionsComboBox.SelectedIndex == 0)
+            if (permissionsComboBox.SelectedIndex == 4 -1)
             {
                 permissionsLabel.Text = "Full access. (the permissions you are currently logged in with)" +
                     " The ability to create/delete events, locations, types, etc. Recommended for administrators only.";
             }
-            else if (permissionsComboBox.SelectedIndex == 1)
+            else if (permissionsComboBox.SelectedIndex == 3 -1)
             {
                 permissionsLabel.Text = "Limited access. Changes the itinerary to a work schedule." +
                     " The ability to view but not create or delete. Recommended for staff only.";
             }
-            else if (permissionsComboBox.SelectedIndex == 2)
+            else if (permissionsComboBox.SelectedIndex == 2 -1)
             {
                 permissionsLabel.Text = "Very limited access. Adds the ability to add or delete events from a personal itinerary." +
                     " The ability to view but not create or delete. Recommended for attendees/non-employees.";
