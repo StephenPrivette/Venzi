@@ -276,7 +276,7 @@ namespace CapstoneProject
             }
             else
             {
-                MessageBox.Show("You must select an event from the schedule.");
+                MessageBox.Show("An event must be selected from the schedule.");
             }
             
         }
@@ -302,7 +302,7 @@ namespace CapstoneProject
             }
             else
             {
-                MessageBox.Show("You must select an event from the itinerary.");
+                MessageBox.Show("An event must be selected from the itinerary.");
             }
 
             if(delete)
@@ -339,13 +339,20 @@ namespace CapstoneProject
         private void changeUsernameButton_Click(object sender, EventArgs e)
         {
             // making sure there is text in the textbox
-            if(changeUsernameTextBox.ForeColor == Color.White)
+            if (changeUsernameTextBox.ForeColor == Color.White)
             {
-                MessageBox.Show(ApplicationManager.i.changeMainUserName(changeUsernameTextBox.Text));
+                // checking with user to ensure they really want to change their username
+                if (MessageBox.Show("Are you sure you want to change your Username to " + changeUsernameTextBox.Text +
+                    "?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    MessageBox.Show(ApplicationManager.i.changeMainUserName(changeUsernameTextBox.Text));
+                    changeUsernameTextBox.Text = "New Username";
+                    changeUsernameTextBox.ForeColor = Color.DarkGray;
+                }
             }
             else
             {
-                MessageBox.Show("You must enter a new username in the textbox.");
+                MessageBox.Show("A new username must be entered into the textbox.");
             }
         }
 
@@ -355,12 +362,19 @@ namespace CapstoneProject
             // checking to see that there is indeed text in the text box
             if (changePasswordTextBox.ForeColor == Color.White)
             {
-                MessageBox.Show(ApplicationManager.i.changeMainUserPassword(changePasswordTextBox.Text));
+                // checking with user to ensure they really want to change their password
+                if (MessageBox.Show("Are you sure you want to change your Password to " + changePasswordTextBox.Text +
+                    "?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    MessageBox.Show(ApplicationManager.i.changeMainUserPassword(changePasswordTextBox.Text));
+                    changePasswordTextBox.Text = "New Password";
+                    changePasswordTextBox.ForeColor = Color.DarkGray;
+                }
             }
             else
             {
 
-                MessageBox.Show("You must enter a new password in the textbox.");
+                MessageBox.Show("A new password must be entered into the textbox.");
             }
         }
 
@@ -397,53 +411,54 @@ namespace CapstoneProject
             }
         }
 
+        // adds event type to database
+        private void addTypeButton_Click(object sender, EventArgs e)
+        {
+            if(eventTypeTextBox.ForeColor == Color.White)
+            {
+                MessageBox.Show(ApplicationManager.i.addEventTypeToDb(eventTypeTextBox.Text, colorLabel.BackColor.ToArgb()));
+
+                loadEventTypes();
+            }
+            else
+            {
+                MessageBox.Show("An event type name must be entered into the text box.");
+            }
+        }
+
         // deletes event type 
         private void deleteTypeButton_Click(object sender, EventArgs e)
         {
             if (eventTypeListBox.SelectedIndex >= 0)
             {
                 // checking with user to ensure they really want to delete the event type
-                if(MessageBox.Show("Are you sure you want to delete the " + eventTypeListBox.SelectedItem.ToString() +
-                    " Event Type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show("Are you sure you want to delete the " + eventTypeListBox.SelectedItem.ToString() +
+                    " event type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    string message = ApplicationManager.i.deleteEventTypeFromDb(new EventType(), eventTypeListBox.SelectedItem.ToString());
-
-                    // if the message is good don't show it
-                    if(message != new EventType().GetType().Name + " has been deleted.")
-                    {
-                        MessageBox.Show(message);
-                    }
+                    MessageBox.Show(ApplicationManager.i.deleteEventTypeFromDb(eventTypeListBox.SelectedItem.ToString()));
 
                     loadEventTypes();
                 }
             }
             else
             {
-                MessageBox.Show("You must select an event type from the list.");
+                MessageBox.Show("An event type must be selected from the list.");
             }
         }
 
-        // adds event type to database
-        private void addTypeButton_Click(object sender, EventArgs e)
+        // adds location 
+        private void addLocationButton_Click(object sender, EventArgs e)
         {
-            if(eventTypeTextBox.Text.Length > 0)
+            // making sure text box is not empty
+            if (locationTextBox.ForeColor == Color.White)
             {
-                EventType et = new EventType();
-                et.eventTypeName = eventTypeTextBox.Text;
+                MessageBox.Show(ApplicationManager.i.addLocationToDb(locationTextBox.Text));
 
-                string message = ApplicationManager.i.addEventTypeToDb(et, eventTypeTextBox.Text);
-
-                // if the message is good don't show it
-                if (message != et.GetType().Name + " has been added.")
-                {
-                    MessageBox.Show(message);
-                }
-
-                loadEventTypes();
+                loadLocations();
             }
             else
             {
-                MessageBox.Show("You must type a name in the text box.");
+                MessageBox.Show("A location name must be entered into the text box.");
             }
         }
 
@@ -454,47 +469,66 @@ namespace CapstoneProject
             {
                 // ensuring user wants deletion
                 if (MessageBox.Show("Are you sure you want to delete the " + locationListBox.SelectedItem.ToString() +
-                    " Location?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    " location?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
-                    string message = ApplicationManager.i.deleteLocationFromDb(new Location(), locationListBox.SelectedItem.ToString());
-
-                    // if message is good don't show it
-                    if (message != new Location().GetType().Name + " has been deleted.")
-                    {
-                        MessageBox.Show(message);
-                    }
+                    MessageBox.Show(ApplicationManager.i.deleteLocationFromDb(locationListBox.SelectedItem.ToString()));
 
                     loadLocations();
                 }
             }
             else
             {
-                MessageBox.Show("You must select a location from the list.");
+                MessageBox.Show("A location must be selected from the list.");
             }
         }
 
-        // adds location 
-        private void addLocationButton_Click(object sender, EventArgs e)
+        // adds user type to database
+        private void addUserTypeButton_Click(object sender, EventArgs e)
         {
             // making sure text box is not empty
-            if (locationTextBox.Text.Length > 0)
+            if (userTypeTextBox.ForeColor == Color.White)
             {
-                Location loc = new Location();
-                loc.locationName = locationTextBox.Text;
-
-                string message = ApplicationManager.i.addLocationToDb(loc, locationTextBox.Text);
-
-                // if message is good don't show it
-                if (message != loc.GetType().Name + " has been added.")
+                if(permissionsComboBox.SelectedIndex != -1)
                 {
-                    MessageBox.Show(message);
-                }
+                    MessageBox.Show(ApplicationManager.i.addUserTypeToDb(userTypeTextBox.Text, permissionsComboBox.SelectedIndex));
 
-                loadLocations();
+                    loadUserTypes();
+                }
+                else
+                {
+                    MessageBox.Show("A permissions level must be selected from the box");
+                }
             }
             else
             {
-                MessageBox.Show("You must type a name in the text box.");
+                MessageBox.Show("A user type name must be entered into the text box.");
+            }
+        }
+
+        // deletes user type
+        private void deleteUserTypeButton_Click(object sender, EventArgs e)
+        {
+            if (userTypeListBox.SelectedIndex >= 0)
+            {
+                if (userTypeListBox.SelectedItem.ToString() != "Administrator" && userTypeListBox.SelectedItem.ToString() != "Basic")
+                {
+                    // checking with user to ensure they really want to delete the user type
+                    if (MessageBox.Show("Are you sure you want to delete the " + userTypeListBox.SelectedItem.ToString() +
+                        " user type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        MessageBox.Show(ApplicationManager.i.deleteUserTypeFromDb(userTypeListBox.SelectedItem.ToString()));
+
+                        loadUserTypes();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("The user types Administrator and Basic cannot be deleted.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("A user type must be selected from the list.");
             }
         }
 
@@ -514,72 +548,6 @@ namespace CapstoneProject
         private void itineraryComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             populateListView(ApplicationManager.i.mainUser.getItinerary(), itineraryListView, itineraryComboBox);
-        }
-
-        // deletes user type
-        private void deleteUserTypeButton_Click(object sender, EventArgs e)
-        {
-            if (userTypeListBox.SelectedIndex >= 0)
-            {
-                if(userTypeListBox.SelectedItem.ToString() != "Administrator" && userTypeListBox.SelectedItem.ToString() != "Basic")
-                {
-                    // checking with user to ensure they really want to delete the user type
-                    if (MessageBox.Show("Are you sure you want to delete the " + userTypeListBox.SelectedItem.ToString() +
-                        " User Type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    {
-                        string message = ApplicationManager.i.deleteUserTypeFromDb(new UserType(), userTypeListBox.SelectedItem.ToString());
-
-                        // if the message is good don't show it
-                        if (message != new UserType().GetType().Name + " has been deleted.")
-                        {
-                            MessageBox.Show(message);
-                        }
-
-                        loadUserTypes();
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("The user types Administrator and Basic cannot be deleted.");
-                }
-            }
-            else
-            {
-                MessageBox.Show("You must select a user type from the list.");
-            }
-        }
-
-        // adds user type to database
-        private void addUserTypeButton_Click(object sender, EventArgs e)
-        {
-            // making sure text box is not empty
-            if (userTypeTextBox.Text.Length > 0)
-            {
-                if(permissionsComboBox.SelectedIndex != -1)
-                {
-                    UserType ut = new UserType();
-                    ut.userTypeName = userTypeTextBox.Text;
-                    ut.userPermissionsLevel = permissionsComboBox.SelectedIndex;
-
-                    string message = ApplicationManager.i.addUserTypeToDb(ut, userTypeTextBox.Text);
-
-                    // if message is good don't show it
-                    if (message != ut.GetType().Name + " has been added.")
-                    {
-                        MessageBox.Show(message);
-                    }
-
-                    loadUserTypes();
-                }
-                else
-                {
-                    MessageBox.Show("You must select a permissions level");
-                }
-            }
-            else
-            {
-                MessageBox.Show("You must type a name in the text box.");
-            }
         }
 
         // changes permissions label to reflect currently selected user type
@@ -624,8 +592,8 @@ namespace CapstoneProject
                     if (permissionsComboBox.SelectedIndex != -1)
                     {
                         // checking with user to ensure they really want to delete the event type
-                        if (MessageBox.Show("Are you sure you want to update the permissions for " + userTypeListBox.SelectedItem.ToString() +
-                            " User Type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                        if (MessageBox.Show("Are you sure you want to change the permissions for the " + userTypeListBox.SelectedItem.ToString() +
+                            " user type?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
                             UserType ut = new UserType();
                             ut.userTypeName = userTypeListBox.SelectedItem.ToString();
@@ -638,7 +606,7 @@ namespace CapstoneProject
                     }
                     else
                     {
-                        MessageBox.Show("You must select a permissions level");
+                        MessageBox.Show("A permissions level must be selected from the box");
                     }
                 }
                 else
@@ -648,7 +616,7 @@ namespace CapstoneProject
             }
             else
             {
-                MessageBox.Show("A type must be selected in the list box.");
+                MessageBox.Show("A user type must be selected in the list box.");
             }
         }
 

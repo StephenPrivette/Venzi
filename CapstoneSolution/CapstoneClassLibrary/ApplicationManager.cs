@@ -372,18 +372,47 @@ namespace CapstoneClassLibrary
             }
         }
 
+        // adds event type to database
+        public string addEventTypeToDb(string name, int color)
+        {
+            // making sure length of name is valid
+            if (valEntry(name, DEFAULTMIN, DEFAULTMAX))
+            {
+                // making sure event type doesn't already exist
+                if (!db.isObjectNameInDb(new EventType(), name))
+                {
+                    EventType eventTypeToSave = new EventType();
+                    eventTypeToSave.eventTypeName = name;
+                    eventTypeToSave.eventTypeColor = color;
+
+                    // saving event type to database
+                    db.insertObjectIntoDb(eventTypeToSave);
+
+                    return "An event type named " + name + " has been created.";
+                }
+                else
+                {
+                    return "This name already exists.";
+                }
+            }
+            else
+            {
+                return "The name does not meet the criteria.";
+            }
+        }
+
         // deletes event type from database
-        public string deleteEventTypeFromDb(object obj, string name)
+        public string deleteEventTypeFromDb(string name)
         {
             // making sure record exists
-            if(db.isObjectNameInDb(obj, name))
+            if (db.isObjectNameInDb(new EventType(), name))
             {
                 // checking events to make sure there aren't any with that event type
-                if(!db.isSelectWhereInDb("Events", "EventTypeName", name))
+                if (!db.isSelectWhereInDb("Events", "EventTypeName", name))
                 {
                     // deleting event type from database
-                    db.deleteObjectFromDb(obj, name);
-                    return obj.GetType().Name + " has been deleted.";
+                    db.deleteObjectFromDb(new EventType(), name);
+                    return "The " + name + " event type has been deleted.";
                 }
                 else
                 {
@@ -393,22 +422,25 @@ namespace CapstoneClassLibrary
             }
             else
             {
-                return obj.GetType().Name + " does not exist in the database.";
+                return name + " does not exist in the database.";
             }
         }
 
-        // adds event type to database
-        public string addEventTypeToDb(object obj, string name)
+        //adds location to database
+        public string addLocationToDb(string name)
         {
-            // making sure length of name is valid
+            // validating length of location name
             if (valEntry(name, DEFAULTMIN, DEFAULTMAX))
             {
-                // making sure event type doesn't already exist
-                if (!db.isObjectNameInDb(obj, name))
+                // making sure location doesn't already exist
+                if (!db.isObjectNameInDb(new Location(), name))
                 {
-                    // saving event type to database
-                    db.insertObjectIntoDb(obj);
-                    return obj.GetType().Name + " has been added.";
+                    Location locationToBeSaved = new Location();
+                    locationToBeSaved.locationName = name;
+
+                    // saving location to the database
+                    db.insertObjectIntoDb(locationToBeSaved);
+                    return "A location named " + name + " has been created.";
                 }
                 else
                 {
@@ -422,17 +454,17 @@ namespace CapstoneClassLibrary
         }
 
         // deletes location from database
-        public string deleteLocationFromDb(object obj, string name)
+        public string deleteLocationFromDb(string name)
         {
             // making sure the location exists in the database
-            if (db.isObjectNameInDb(obj, name))
+            if (db.isObjectNameInDb(new Location(), name))
             {
                 // making sure there aren't events with this location
                 if (!db.isSelectWhereInDb("Events", "LocationName", name))
                 {
                     // deleting location from database
-                    db.deleteObjectFromDb(obj, name);
-                    return obj.GetType().Name + " has been deleted.";
+                    db.deleteObjectFromDb(new Location(), name);
+                    return "The " + name + " location has been deleted.";
                 }
                 else
                 {
@@ -442,22 +474,26 @@ namespace CapstoneClassLibrary
             }
             else
             {
-                return obj.GetType().Name + " does not exist in the database.";
+                return name + " does not exist in the database.";
             }
         }
 
-        //adds location to database
-        public string addLocationToDb(object obj, string name)
+        //adds user type to database
+        public string addUserTypeToDb(string name, int permissionsLevel)
         {
-            // validating length of location name
+            // validating length of user type name
             if (valEntry(name, DEFAULTMIN, DEFAULTMAX))
             {
-                // making sure location doesn't already exist
-                if (!db.isObjectNameInDb(obj, name))
+                // making sure user type doesn't already exist
+                if (!db.isObjectNameInDb(new UserType(), name))
                 {
-                    // saving location to the database
-                    db.insertObjectIntoDb(obj);
-                    return obj.GetType().Name + " has been added.";
+                    UserType userTypeToBeSaved = new UserType();
+                    userTypeToBeSaved.userTypeName = name;
+                    userTypeToBeSaved.userPermissionsLevel = permissionsLevel;
+
+                    // saving user type to database
+                    db.insertObjectIntoDb(userTypeToBeSaved);
+                    return "A user type named " + name + " has been created.";
                 }
                 else
                 {
@@ -471,51 +507,27 @@ namespace CapstoneClassLibrary
         }
 
         // deletes event type from database
-        public string deleteUserTypeFromDb(object obj, string name)
+        public string deleteUserTypeFromDb(string name)
         {
             // making sure record exists
-            if (db.isObjectNameInDb(obj, name))
+            if (db.isObjectNameInDb(new UserType(), name))
             {
                 // checking events to make sure there aren't any with that event type
                 if (!db.isSelectWhereInDb("Users", "UserTypeName", name))
                 {
                     // deleting event type from database
-                    db.deleteObjectFromDb(obj, name);
-                    return obj.GetType().Name + " has been deleted.";
+                    db.deleteObjectFromDb(new UserType(), name);
+                    return "The " + name + " user type has been deleted.";
                 }
                 else
                 {
-                    return "There are still user that use this type. " +
+                    return "There are still users that use this type. " +
                         "In order to delete this type, the type for these users must be changed first.";
                 }
             }
             else
             {
-                return obj.GetType().Name + " does not exist in the database.";
-            }
-        }
-
-        //adds user type to database
-        public string addUserTypeToDb(object obj, string name)
-        {
-            // validating length of user type name
-            if (valEntry(name, DEFAULTMIN, DEFAULTMAX))
-            {
-                // making sure user type doesn't already exist
-                if (!db.isObjectNameInDb(obj, name))
-                {
-                    // saving user type to database
-                    db.insertObjectIntoDb(obj);
-                    return obj.GetType().Name + " has been added.";
-                }
-                else
-                {
-                    return "This name already exists.";
-                }
-            }
-            else
-            {
-                return "The name does not meet the criteria.";
+                return name + " does not exist in the database.";
             }
         }
 
