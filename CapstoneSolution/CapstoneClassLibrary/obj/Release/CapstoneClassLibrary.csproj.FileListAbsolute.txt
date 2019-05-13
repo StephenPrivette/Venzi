@@ -10,3 +10,15 @@ C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\Cap
 C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.csproj.CopyComplete
 C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.dll
 C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.pdb
+C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\bin\Release\CapstoneClassLibrary.dll
+C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\bin\Release\CapstoneClassLibrary.pdb
+C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\bin\Release\Dapper.dll
+C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\bin\Release\System.Data.SQLite.dll
+C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\bin\Release\Dapper.xml
+C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\bin\Release\System.Data.SQLite.xml
+C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\bin\Release\System.Data.SQLite.dll.config
+C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.csprojAssemblyReference.cache
+C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.csproj.CoreCompileInputs.cache
+C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.csproj.CopyComplete
+C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.dll
+C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.pdb

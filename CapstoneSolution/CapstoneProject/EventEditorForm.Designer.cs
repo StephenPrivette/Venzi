@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventEditorForm));
             this.label12 = new System.Windows.Forms.Label();
             this.eventsListView = new System.Windows.Forms.ListView();
             this.setupColumnHeader = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -695,6 +696,7 @@
             this.Controls.Add(this.userInstructionLabel);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.eventsListView);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EventEditorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Event Editor";

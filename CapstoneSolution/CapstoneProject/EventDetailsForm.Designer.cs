@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventDetailsForm));
             this.eventNameLabel = new System.Windows.Forms.Label();
             this.descriptionLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -63,6 +64,7 @@
             this.ClientSize = new System.Drawing.Size(782, 402);
             this.Controls.Add(this.descriptionLabel);
             this.Controls.Add(this.eventNameLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EventDetailsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

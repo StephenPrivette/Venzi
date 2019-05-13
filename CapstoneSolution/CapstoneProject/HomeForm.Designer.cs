@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.label1 = new System.Windows.Forms.Label();
             this.addButton = new System.Windows.Forms.Button();
             this.itineraryLabel = new System.Windows.Forms.Label();
@@ -1368,7 +1369,7 @@
             this.toComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.toComboBox.Name = "toComboBox";
             this.toComboBox.Size = new System.Drawing.Size(468, 28);
-            this.toComboBox.TabIndex = 108;
+            this.toComboBox.TabIndex = 0;
             // 
             // label20
             // 
@@ -1405,7 +1406,7 @@
             this.sendEmailButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.sendEmailButton.Name = "sendEmailButton";
             this.sendEmailButton.Size = new System.Drawing.Size(109, 38);
-            this.sendEmailButton.TabIndex = 90;
+            this.sendEmailButton.TabIndex = 3;
             this.sendEmailButton.Text = "Send";
             this.sendEmailButton.UseVisualStyleBackColor = false;
             this.sendEmailButton.Click += new System.EventHandler(this.sendEmailButton_Click_1);
@@ -1459,7 +1460,7 @@
             this.subjectTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.subjectTextBox.Name = "subjectTextBox";
             this.subjectTextBox.Size = new System.Drawing.Size(468, 30);
-            this.subjectTextBox.TabIndex = 86;
+            this.subjectTextBox.TabIndex = 1;
             // 
             // toLabel
             // 
@@ -1485,7 +1486,7 @@
             this.bodyTextBox.Margin = new System.Windows.Forms.Padding(5, 2, 5, 2);
             this.bodyTextBox.Name = "bodyTextBox";
             this.bodyTextBox.Size = new System.Drawing.Size(468, 214);
-            this.bodyTextBox.TabIndex = 45;
+            this.bodyTextBox.TabIndex = 2;
             this.bodyTextBox.Text = "";
             // 
             // accountTabPage
@@ -1643,6 +1644,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1181, 753);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
