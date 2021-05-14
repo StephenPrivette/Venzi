@@ -22,3 +22,15 @@ C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\obj\Release\Capston
 C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.csproj.CopyComplete
 C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.dll
 C:\Users\Steve\Desktop\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.pdb
+E:\Programming\Venzi\CapstoneSolution\CapstoneClassLibrary\bin\Release\CapstoneClassLibrary.dll
+E:\Programming\Venzi\CapstoneSolution\CapstoneClassLibrary\bin\Release\CapstoneClassLibrary.pdb
+E:\Programming\Venzi\CapstoneSolution\CapstoneClassLibrary\bin\Release\Dapper.dll
+E:\Programming\Venzi\CapstoneSolution\CapstoneClassLibrary\bin\Release\System.Data.SQLite.dll
+E:\Programming\Venzi\CapstoneSolution\CapstoneClassLibrary\bin\Release\Dapper.xml
+E:\Programming\Venzi\CapstoneSolution\CapstoneClassLibrary\bin\Release\System.Data.SQLite.xml
+E:\Programming\Venzi\CapstoneSolution\CapstoneClassLibrary\bin\Release\System.Data.SQLite.dll.config
+E:\Programming\Venzi\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.csprojAssemblyReference.cache
+E:\Programming\Venzi\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.csproj.CoreCompileInputs.cache
+E:\Programming\Venzi\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.csproj.CopyComplete
+E:\Programming\Venzi\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.dll
+E:\Programming\Venzi\CapstoneSolution\CapstoneClassLibrary\obj\Release\CapstoneClassLibrary.pdb
