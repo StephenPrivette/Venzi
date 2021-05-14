@@ -46,3 +46,27 @@ C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\Cap
 C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.exe
 C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.pdb
 C:\Users\Steve\Dropbox\CSC-289 Programming Capstone Project\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.HomeForm.resources
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneDatabase.db
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.exe.config
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.exe
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneProject.pdb
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneClassLibrary.dll
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\bin\Debug\Dapper.dll
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.dll
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\bin\Debug\CapstoneClassLibrary.pdb
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\bin\Debug\Dapper.xml
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.xml
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\bin\Debug\System.Data.SQLite.dll.config
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csprojAssemblyReference.cache
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.AssignmentForm.resources
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.CreateUserForm.resources
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.EventDetailsForm.resources
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.EventEditorForm.resources
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.StartForm.resources
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.Properties.Resources.resources
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.HomeForm.resources
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.GenerateResource.cache
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CoreCompileInputs.cache
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.csproj.CopyComplete
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.exe
+E:\Programming\Venzi\CapstoneSolution\CapstoneProject\obj\Debug\CapstoneProject.pdb
