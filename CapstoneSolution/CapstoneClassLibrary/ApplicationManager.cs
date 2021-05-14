@@ -876,20 +876,6 @@ namespace CapstoneClassLibrary
         // sends email
         public string sendEmail(string to, string subject, string body)
         {
-            // constants for the system's email account
-            string FROMADDRESS = "cp5k.owner@gmail.com";
-            string PASSWORD = "Password!@#";
-            string SMTP = "smtp.gmail.com";
-            int PORT = 587;
-
-            SmtpClient client = new SmtpClient(SMTP, PORT); // settings for gmail
-            client.UseDefaultCredentials = false; // required by gmail smtp
-            client.EnableSsl = true; // required by gmail smtp
-            client.Credentials = new System.Net.NetworkCredential(FROMADDRESS, PASSWORD);
-
-            // basics of en email
-            MailAddress fromMailAddress = new MailAddress(FROMADDRESS);
-            MailMessage mail = new MailMessage();
 
             if (valEntry(to, DEFAULTMIN) && valEntry(subject, DEFAULTMIN)
                 && valEntry(body, DEFAULTMIN))
@@ -897,12 +883,7 @@ namespace CapstoneClassLibrary
                 try
                 {
                     // everything here needs to get passed when calling sendEmail()
-                    mail.To.Add(to);
-                    mail.From = fromMailAddress;
-                    mail.Subject = subject;
-                    mail.Body = body;
-                    mail.IsBodyHtml = false;
-                    client.Send(mail);
+                    Console.WriteLine(to + ", " + subject + ", " + body);
 
                     return "The email has been sent successfully";
                 }
